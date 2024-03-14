@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "ETH1HMSR-SMS")(type "KiCad")(uri "${KIPRJMOD}/lib/PCB/ETH1HMSR-SMS.pretty")(options "")(descr ""))
+)
