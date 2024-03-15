@@ -1,440 +1,1286 @@
-(kicad_sch (version 20230121) (generator eeschema)
-
-  (uuid c9f88626-4b87-4d35-a77a-42f8d5451fae)
-
-  (paper "A4")
-
-  (lib_symbols
-    (symbol "Mechanical:Heatsink" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
-      (property "Reference" "HS" (at 0 5.08 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Value" "Heatsink" (at 0 -1.27 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Footprint" "" (at 0.3048 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "~" (at 0.3048 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_keywords" "thermal heat temperature" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_description" "Heatsink" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_fp_filters" "Heatsink_*" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "Heatsink_0_1"
-        (polyline
-          (pts
-            (xy -0.3302 1.27)
-            (xy -0.9652 1.27)
-            (xy -0.9652 3.81)
-            (xy -1.6002 3.81)
-            (xy -1.6002 1.27)
-            (xy -2.2352 1.27)
-            (xy -2.2352 3.81)
-            (xy -2.8702 3.81)
-            (xy -2.8702 0)
-            (xy -0.9652 0)
-          )
-          (stroke (width 0.254) (type default))
-          (fill (type background))
-        )
-        (polyline
-          (pts
-            (xy -0.3302 1.27)
-            (xy -0.3302 3.81)
-            (xy 0.3048 3.81)
-            (xy 0.3048 1.27)
-            (xy 0.9398 1.27)
-            (xy 0.9398 3.81)
-            (xy 1.5748 3.81)
-            (xy 1.5748 1.27)
-            (xy 2.2098 1.27)
-            (xy 2.2098 3.81)
-            (xy 2.8448 3.81)
-            (xy 2.8448 0)
-            (xy -0.9652 0)
-          )
-          (stroke (width 0.254) (type default))
-          (fill (type background))
-        )
-      )
-    )
-    (symbol "Mechanical:MountingHole" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
-      (property "Reference" "H" (at 0 5.08 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Value" "MountingHole" (at 0 3.175 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Footprint" "" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "~" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_keywords" "mounting hole" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_description" "Mounting Hole without connection" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_fp_filters" "MountingHole*" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "MountingHole_0_1"
-        (circle (center 0 0) (radius 1.27)
-          (stroke (width 1.27) (type default))
-          (fill (type none))
-        )
-      )
-    )
-  )
-
-
-  (wire (pts (xy 172.72 76.2) (xy 176.53 76.2))
-    (stroke (width 0) (type default))
-    (uuid 226178fc-442b-4570-bded-6ca798ec5f12)
-  )
-  (wire (pts (xy 172.72 63.5) (xy 176.53 63.5))
-    (stroke (width 0) (type default))
-    (uuid 231f8128-4ea8-4190-8ac0-e58388b3b270)
-  )
-  (wire (pts (xy 172.72 68.58) (xy 176.53 68.58))
-    (stroke (width 0) (type default))
-    (uuid 3e3bf651-e046-47fa-94e2-73639ad93d32)
-  )
-  (wire (pts (xy 172.72 73.66) (xy 176.53 73.66))
-    (stroke (width 0) (type default))
-    (uuid 71ccf6ae-47a2-4713-8bc3-341178b89bce)
-  )
-  (wire (pts (xy 172.72 50.8) (xy 176.53 50.8))
-    (stroke (width 0) (type default))
-    (uuid 8ca208f5-139d-4ed8-8fb2-66aa0638fa41)
-  )
-  (wire (pts (xy 172.72 66.04) (xy 176.53 66.04))
-    (stroke (width 0) (type default))
-    (uuid 8f3a1198-dfae-4061-8e83-5e6b1e8ee73f)
-  )
-  (wire (pts (xy 172.72 53.34) (xy 176.53 53.34))
-    (stroke (width 0) (type default))
-    (uuid 9a9b9091-b278-4c30-8d77-38816b2fa052)
-  )
-  (wire (pts (xy 172.72 71.12) (xy 176.53 71.12))
-    (stroke (width 0) (type default))
-    (uuid a2b2465e-14fe-4137-a67e-e50e73a05181)
-  )
-  (wire (pts (xy 172.72 59.69) (xy 176.53 59.69))
-    (stroke (width 0) (type default))
-    (uuid b3521cdf-ba84-4ca7-848e-0b9c31e86053)
-  )
-  (wire (pts (xy 172.72 57.15) (xy 176.53 57.15))
-    (stroke (width 0) (type default))
-    (uuid f69d4dd5-8362-4a27-b0d4-deb703a49dc0)
-  )
-
-  (symbol (lib_id "Mechanical:MountingHole") (at 18.415 191.77 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 508b4510-acc4-495a-952e-4a3922327654)
-    (property "Reference" "H102" (at 21.59 190.5 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Value" "M3" (at 21.59 193.04 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad" (at 18.415 191.77 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 18.415 191.77 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (instances
-      (project "ETH1HMSR-SMS"
-        (path "/c9f88626-4b87-4d35-a77a-42f8d5451fae"
-          (reference "H102") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "Mechanical:Heatsink") (at 45.085 189.23 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid 6aa6577b-8aa0-42fa-9c74-f007e3854427)
-    (property "Reference" "HS101" (at 49.53 186.055 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Value" "960-19-12-S-AB-0" (at 49.53 188.595 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "ETH1HMSR-SMS:960-19-12-S-AB-0" (at 45.3898 189.23 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 45.3898 189.23 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (instances
-      (project "ETH1HMSR-SMS"
-        (path "/c9f88626-4b87-4d35-a77a-42f8d5451fae"
-          (reference "HS101") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "Mechanical:MountingHole") (at 18.415 184.785 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid e90fc965-04a9-4197-88c1-5163b0a3eb40)
-    (property "Reference" "H101" (at 21.59 183.515 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Value" "M3" (at 21.59 186.055 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad" (at 18.415 184.785 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 18.415 184.785 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (instances
-      (project "ETH1HMSR-SMS"
-        (path "/c9f88626-4b87-4d35-a77a-42f8d5451fae"
-          (reference "H101") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "Mechanical:MountingHole") (at 30.48 184.785 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid fb771fc7-8031-412e-af9d-b5fde621373f)
-    (property "Reference" "H103" (at 33.02 183.515 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Value" "M3" (at 33.02 186.055 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad" (at 30.48 184.785 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 30.48 184.785 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (instances
-      (project "ETH1HMSR-SMS"
-        (path "/c9f88626-4b87-4d35-a77a-42f8d5451fae"
-          (reference "H103") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "Mechanical:MountingHole") (at 30.48 191.77 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid fcf00803-c1ae-4932-a64f-224c623711a8)
-    (property "Reference" "H104" (at 33.02 190.5 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Value" "M3" (at 33.02 193.04 0)
-      (effects (font (size 1.27 1.27)) (justify left))
-    )
-    (property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad" (at 30.48 191.77 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 30.48 191.77 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (instances
-      (project "ETH1HMSR-SMS"
-        (path "/c9f88626-4b87-4d35-a77a-42f8d5451fae"
-          (reference "H104") (unit 1)
-        )
-      )
-    )
-  )
-
-  (sheet (at 84.455 99.06) (size 142.24 30.48) (fields_autoplaced)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid 059cbaa1-f18b-4c74-8277-7241d6693d0e)
-    (property "Sheetname" "Power" (at 84.455 98.3484 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "Power.kicad_sch" (at 84.455 130.1246 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (instances
-      (project "ETH1HMSR-SMS"
-        (path "/c9f88626-4b87-4d35-a77a-42f8d5451fae" (page "2"))
-      )
-    )
-  )
-
-  (sheet (at 176.53 48.26) (size 50.165 43.18) (fields_autoplaced)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid 6cffac93-e144-4206-a1fa-eb6db2a641b5)
-    (property "Sheetname" "Ethernet" (at 176.53 47.5484 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "Ethernet.kicad_sch" (at 176.53 92.0246 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (pin "RMII_TXD1" bidirectional (at 176.53 53.34 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-      (uuid ae20f66d-f918-47fc-98a4-ca1bf631d734)
-    )
-    (pin "RMII_TXD0" bidirectional (at 176.53 50.8 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-      (uuid bab2efcc-f9b5-4627-bd60-0c2b40bca1e3)
-    )
-    (pin "RMII_TXEN" bidirectional (at 176.53 63.5 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-      (uuid 36e8f5ee-aa76-4330-af4a-4927e36f826b)
-    )
-    (pin "REF_CLK" bidirectional (at 176.53 71.12 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-      (uuid 2eac18a7-ad78-4c58-80ba-c5883b994943)
-    )
-    (pin "RMII_MDIO" bidirectional (at 176.53 73.66 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-      (uuid 61e1c53a-b9c9-43c2-8b81-c7d9fe9182f1)
-    )
-    (pin "RMII_CRS_DV" bidirectional (at 176.53 66.04 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-      (uuid ce7992d9-4387-405a-ad61-7d21c21c7ad4)
-    )
-    (pin "RMII_RXD1" bidirectional (at 176.53 59.69 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-      (uuid 2065df38-f77f-41bb-803f-2143ec9d1963)
-    )
-    (pin "RMII_MDC" bidirectional (at 176.53 68.58 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-      (uuid 24939151-ac81-4f4b-bfe1-4639baad33af)
-    )
-    (pin "NRST" bidirectional (at 176.53 76.2 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-      (uuid 059535e2-27f4-4d0b-ae02-d304be7bec4b)
-    )
-    (pin "RMII_RXD0" bidirectional (at 176.53 57.15 180)
-      (effects (font (size 1.27 1.27)) (justify left))
-      (uuid 0670dbb6-7886-4f3c-9f90-973983752bfa)
-    )
-    (instances
-      (project "ETH1HMSR-SMS"
-        (path "/c9f88626-4b87-4d35-a77a-42f8d5451fae" (page "3"))
-      )
-    )
-  )
-
-  (sheet (at 84.455 48.26) (size 35.56 43.815) (fields_autoplaced)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid 8dfd4c12-3529-4a72-b88a-512bc6c6279a)
-    (property "Sheetname" "Current" (at 84.455 47.5484 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "Current.kicad_sch" (at 84.455 92.6596 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (pin "OCD_INT" output (at 120.015 50.8 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid 5a7fbc2e-b547-4816-8077-fedfe7cec6c2)
-    )
-    (pin "OCD_EXT" output (at 120.015 53.34 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid af4fafce-8ff1-4f3e-947e-c57e18956485)
-    )
-    (pin "MCU_ZOFFS" input (at 120.015 60.325 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid fc740fc3-3f54-483d-aff5-2752a4b56dfa)
-    )
-    (pin "HMSR_VOUT" output (at 120.015 56.515 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid 39118984-c88f-4d0c-a7e3-744f2026aa9a)
-    )
-    (pin "MCU_G1" input (at 120.015 62.865 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid d532b7f9-571f-47f0-9583-378f8aab1ce6)
-    )
-    (pin "MCU_G10" input (at 120.015 65.405 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid 0a892590-97f8-41fe-8151-d2944539e004)
-    )
-    (pin "MCU_G100" input (at 120.015 67.945 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid dcb19801-8911-4831-be58-cf503a67f477)
-    )
-    (instances
-      (project "ETH1HMSR-SMS"
-        (path "/c9f88626-4b87-4d35-a77a-42f8d5451fae" (page "5"))
-      )
-    )
-  )
-
-  (sheet (at 122.555 48.26) (size 50.165 43.815) (fields_autoplaced)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0000))
-    (uuid b5799081-919e-4d88-9f68-c3d7000bcf73)
-    (property "Sheetname" "MCU" (at 122.555 47.5484 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "MCU.kicad_sch" (at 122.555 92.6596 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (pin "RMII_TXD0" bidirectional (at 172.72 50.8 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid d417489d-8efd-46b4-8b34-0ea80245a618)
-    )
-    (pin "RMII_TXEN" bidirectional (at 172.72 63.5 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid 0800cfe0-8df9-42d7-a4fa-26a8c597870c)
-    )
-    (pin "RMII_TXD1" bidirectional (at 172.72 53.34 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid 32c640d5-7abc-48bf-9886-f8b38129cb92)
-    )
-    (pin "RMII_RXD1" bidirectional (at 172.72 59.69 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid b4404cdf-5820-45f7-a198-5eb43f15d361)
-    )
-    (pin "RMII_RXD0" bidirectional (at 172.72 57.15 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid 169cba42-3376-424c-8786-41295b276acf)
-    )
-    (pin "RMII_MDC" bidirectional (at 172.72 68.58 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid 2b905312-4938-4146-8c87-339fc8ab57d4)
-    )
-    (pin "RMII_MDIO" bidirectional (at 172.72 73.66 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid dac6a472-b2aa-42f4-be4a-7fdf31c6e6ee)
-    )
-    (pin "RMII_CRS_DV" bidirectional (at 172.72 66.04 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid d2550066-ff00-4d7f-891a-efae6573b874)
-    )
-    (pin "REF_CLK" bidirectional (at 172.72 71.12 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid 3a82086c-2360-4b1d-99f3-649e139eee0d)
-    )
-    (pin "NRST" bidirectional (at 172.72 76.2 0)
-      (effects (font (size 1.27 1.27)) (justify right))
-      (uuid 5e03d385-39c9-456e-98cd-0ea98b0da0c1)
-    )
-    (instances
-      (project "ETH1HMSR-SMS"
-        (path "/c9f88626-4b87-4d35-a77a-42f8d5451fae" (page "4"))
-      )
-    )
-  )
-
-  (sheet_instances
-    (path "/" (page "1"))
-  )
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "c9f88626-4b87-4d35-a77a-42f8d5451fae")
+	(paper "A4")
+	(lib_symbols
+		(symbol "Mechanical:Heatsink"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "HS"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Heatsink"
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0.3048 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0.3048 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Heatsink"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "thermal heat temperature"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Heatsink_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Heatsink_0_1"
+				(polyline
+					(pts
+						(xy -0.3302 1.27) (xy -0.9652 1.27) (xy -0.9652 3.81) (xy -1.6002 3.81) (xy -1.6002 1.27) (xy -2.2352 1.27)
+						(xy -2.2352 3.81) (xy -2.8702 3.81) (xy -2.8702 0) (xy -0.9652 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.3302 1.27) (xy -0.3302 3.81) (xy 0.3048 3.81) (xy 0.3048 1.27) (xy 0.9398 1.27) (xy 0.9398 3.81)
+						(xy 1.5748 3.81) (xy 1.5748 1.27) (xy 2.2098 1.27) (xy 2.2098 3.81) (xy 2.8448 3.81) (xy 2.8448 0)
+						(xy -0.9652 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+		)
+		(symbol "Mechanical:MountingHole"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole"
+				(at 0 3.175 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting Hole without connection"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_0_1"
+				(circle
+					(center 0 0)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 120.015 60.325) (xy 122.555 60.325)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "202bdd54-8d19-463c-837e-b85e384e2de7")
+	)
+	(wire
+		(pts
+			(xy 172.72 52.705) (xy 176.53 52.705)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "23a84b98-5c43-4be1-a573-6320ceb5bdde")
+	)
+	(wire
+		(pts
+			(xy 120.015 56.515) (xy 122.555 56.515)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2bcceaf7-4f25-4f6a-86f3-6e8535f41130")
+	)
+	(wire
+		(pts
+			(xy 120.015 74.93) (xy 122.555 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3a11c65a-8589-4d32-86b0-3fb2f91f8a66")
+	)
+	(wire
+		(pts
+			(xy 120.015 67.31) (xy 122.555 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3cdc84fc-b43a-4197-8edb-9d1abe815ffa")
+	)
+	(wire
+		(pts
+			(xy 120.015 65.405) (xy 122.555 65.405)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5c2062ff-5415-474f-ac74-579edce30286")
+	)
+	(wire
+		(pts
+			(xy 120.015 76.835) (xy 122.555 76.835)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "728f6971-4221-4def-9bee-b0b82bc89d46")
+	)
+	(wire
+		(pts
+			(xy 120.015 71.12) (xy 122.555 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74530288-3664-46d6-b171-ffa947349f0d")
+	)
+	(wire
+		(pts
+			(xy 172.72 64.135) (xy 176.53 64.135)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "758aabef-a1bf-46ca-94ab-fcac048796e5")
+	)
+	(wire
+		(pts
+			(xy 120.015 80.645) (xy 122.555 80.645)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "787101a7-81c0-4e46-bb20-df83e34942ea")
+	)
+	(wire
+		(pts
+			(xy 172.72 62.23) (xy 176.53 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7cb2f4a4-b3f9-4b27-9f30-f428eb3950b5")
+	)
+	(wire
+		(pts
+			(xy 172.72 58.42) (xy 176.53 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "935dd96e-9e2c-4652-81a0-a19fb939382e")
+	)
+	(wire
+		(pts
+			(xy 120.015 63.5) (xy 122.555 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b33317a9-ae1d-482d-8c45-e3fe2d6e9e29")
+	)
+	(wire
+		(pts
+			(xy 172.72 75.565) (xy 176.53 75.565)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b34c7239-58da-4cd2-becc-68d6e3b8e367")
+	)
+	(wire
+		(pts
+			(xy 172.72 56.515) (xy 176.53 56.515)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b8add09e-ade1-45a0-aa27-2c9a639019da")
+	)
+	(wire
+		(pts
+			(xy 120.015 73.025) (xy 122.555 73.025)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d16f20ef-b5f3-46a7-b1f2-3eb7aa1b054b")
+	)
+	(wire
+		(pts
+			(xy 172.72 67.945) (xy 176.53 67.945)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d8133ea0-4be6-47a2-a7bb-371fc9f49148")
+	)
+	(wire
+		(pts
+			(xy 172.72 66.04) (xy 176.53 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dbdc5aa6-d121-418b-a725-a1f6217394f2")
+	)
+	(wire
+		(pts
+			(xy 172.72 71.755) (xy 176.53 71.755)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e002bb48-22a6-416c-8022-fc5a70e503c5")
+	)
+	(wire
+		(pts
+			(xy 172.72 50.8) (xy 176.53 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e765b1c5-b614-4a16-a5d0-34f7016a9dcc")
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 18.415 191.77 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "508b4510-acc4-495a-952e-4a3922327654")
+		(property "Reference" "H102"
+			(at 21.59 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "M3"
+			(at 21.59 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad"
+			(at 18.415 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 18.415 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 18.415 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "ETH1HMSR-SMS"
+				(path "/c9f88626-4b87-4d35-a77a-42f8d5451fae"
+					(reference "H102")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:Heatsink")
+		(at 45.085 189.23 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6aa6577b-8aa0-42fa-9c74-f007e3854427")
+		(property "Reference" "HS101"
+			(at 49.53 186.055 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "960-19-12-S-AB-0"
+			(at 49.53 188.595 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "ETH1HMSR-SMS:960-19-12-S-AB-0"
+			(at 45.3898 189.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 45.3898 189.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 45.085 189.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "ETH1HMSR-SMS"
+				(path "/c9f88626-4b87-4d35-a77a-42f8d5451fae"
+					(reference "HS101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 18.415 184.785 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e90fc965-04a9-4197-88c1-5163b0a3eb40")
+		(property "Reference" "H101"
+			(at 21.59 183.515 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "M3"
+			(at 21.59 186.055 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad"
+			(at 18.415 184.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 18.415 184.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 18.415 184.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "ETH1HMSR-SMS"
+				(path "/c9f88626-4b87-4d35-a77a-42f8d5451fae"
+					(reference "H101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 30.48 184.785 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fb771fc7-8031-412e-af9d-b5fde621373f")
+		(property "Reference" "H103"
+			(at 33.02 183.515 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "M3"
+			(at 33.02 186.055 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad"
+			(at 30.48 184.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 30.48 184.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 30.48 184.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "ETH1HMSR-SMS"
+				(path "/c9f88626-4b87-4d35-a77a-42f8d5451fae"
+					(reference "H103")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 30.48 191.77 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fcf00803-c1ae-4932-a64f-224c623711a8")
+		(property "Reference" "H104"
+			(at 33.02 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "M3"
+			(at 33.02 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad"
+			(at 30.48 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 30.48 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 30.48 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "ETH1HMSR-SMS"
+				(path "/c9f88626-4b87-4d35-a77a-42f8d5451fae"
+					(reference "H104")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(sheet
+		(at 84.455 99.06)
+		(size 142.24 30.48)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "059cbaa1-f18b-4c74-8277-7241d6693d0e")
+		(property "Sheetname" "Power"
+			(at 84.455 98.3484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Power.kicad_sch"
+			(at 84.455 130.1246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "ETH1HMSR-SMS"
+				(path "/c9f88626-4b87-4d35-a77a-42f8d5451fae"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 176.53 48.26)
+		(size 50.165 43.18)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "6cffac93-e144-4206-a1fa-eb6db2a641b5")
+		(property "Sheetname" "Ethernet"
+			(at 176.53 47.5484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Ethernet.kicad_sch"
+			(at 176.53 92.0246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "RMII_TXD1" bidirectional
+			(at 176.53 52.705 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "ae20f66d-f918-47fc-98a4-ca1bf631d734")
+		)
+		(pin "RMII_TXD0" bidirectional
+			(at 176.53 50.8 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "bab2efcc-f9b5-4627-bd60-0c2b40bca1e3")
+		)
+		(pin "RMII_TXEN" bidirectional
+			(at 176.53 62.23 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "36e8f5ee-aa76-4330-af4a-4927e36f826b")
+		)
+		(pin "REF_CLK" bidirectional
+			(at 176.53 71.755 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "2eac18a7-ad78-4c58-80ba-c5883b994943")
+		)
+		(pin "RMII_MDIO" bidirectional
+			(at 176.53 67.945 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "61e1c53a-b9c9-43c2-8b81-c7d9fe9182f1")
+		)
+		(pin "RMII_CRS_DV" bidirectional
+			(at 176.53 64.135 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "ce7992d9-4387-405a-ad61-7d21c21c7ad4")
+		)
+		(pin "RMII_RXD1" bidirectional
+			(at 176.53 58.42 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "2065df38-f77f-41bb-803f-2143ec9d1963")
+		)
+		(pin "RMII_MDC" bidirectional
+			(at 176.53 66.04 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "24939151-ac81-4f4b-bfe1-4639baad33af")
+		)
+		(pin "NRST" bidirectional
+			(at 176.53 75.565 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "059535e2-27f4-4d0b-ae02-d304be7bec4b")
+		)
+		(pin "RMII_RXD0" bidirectional
+			(at 176.53 56.515 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "0670dbb6-7886-4f3c-9f90-973983752bfa")
+		)
+		(instances
+			(project "ETH1HMSR-SMS"
+				(path "/c9f88626-4b87-4d35-a77a-42f8d5451fae"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 84.455 48.26)
+		(size 35.56 43.815)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "8dfd4c12-3529-4a72-b88a-512bc6c6279a")
+		(property "Sheetname" "Current"
+			(at 84.455 47.5484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Current.kicad_sch"
+			(at 84.455 92.6596 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "OCD_INT" output
+			(at 120.015 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "5a7fbc2e-b547-4816-8077-fedfe7cec6c2")
+		)
+		(pin "OCD_EXT" output
+			(at 120.015 52.705 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "af4fafce-8ff1-4f3e-947e-c57e18956485")
+		)
+		(pin "MCU_ZOFFS" input
+			(at 120.015 60.325 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "fc740fc3-3f54-483d-aff5-2752a4b56dfa")
+		)
+		(pin "HMSR_VOUT" output
+			(at 120.015 56.515 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "39118984-c88f-4d0c-a7e3-744f2026aa9a")
+		)
+		(pin "MCU_G1" input
+			(at 120.015 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "d532b7f9-571f-47f0-9583-378f8aab1ce6")
+		)
+		(pin "MCU_G10" input
+			(at 120.015 65.405 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "0a892590-97f8-41fe-8151-d2944539e004")
+		)
+		(pin "MCU_G100" input
+			(at 120.015 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "dcb19801-8911-4831-be58-cf503a67f477")
+		)
+		(pin "MCU_DIV10" input
+			(at 120.015 73.025 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "d22ad699-5a5e-4da7-8a18-5d5bdaab028b")
+		)
+		(pin "MCU_DIV100" input
+			(at 120.015 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "02e6a427-228f-4e14-b34e-b3523db6f4d2")
+		)
+		(pin "MCU_DIV1" input
+			(at 120.015 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "fa11d454-4aa8-4477-bae8-49bc7bfa4a7a")
+		)
+		(pin "MCU_DIV_ENA" input
+			(at 120.015 76.835 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "1b7b5dac-88f7-40d4-80be-e96cfa972e6a")
+		)
+		(pin "MCU_MEAS_ENA" input
+			(at 120.015 80.645 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "a12d525f-e636-4d01-8394-474a3ebb5b84")
+		)
+		(instances
+			(project "ETH1HMSR-SMS"
+				(path "/c9f88626-4b87-4d35-a77a-42f8d5451fae"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 122.555 48.26)
+		(size 50.165 43.815)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "b5799081-919e-4d88-9f68-c3d7000bcf73")
+		(property "Sheetname" "MCU"
+			(at 122.555 47.5484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "MCU.kicad_sch"
+			(at 122.555 92.6596 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "RMII_TXD0" bidirectional
+			(at 172.72 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "d417489d-8efd-46b4-8b34-0ea80245a618")
+		)
+		(pin "RMII_TXEN" bidirectional
+			(at 172.72 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "0800cfe0-8df9-42d7-a4fa-26a8c597870c")
+		)
+		(pin "RMII_TXD1" bidirectional
+			(at 172.72 52.705 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "32c640d5-7abc-48bf-9886-f8b38129cb92")
+		)
+		(pin "RMII_RXD1" bidirectional
+			(at 172.72 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "b4404cdf-5820-45f7-a198-5eb43f15d361")
+		)
+		(pin "RMII_RXD0" bidirectional
+			(at 172.72 56.515 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "169cba42-3376-424c-8786-41295b276acf")
+		)
+		(pin "RMII_MDC" bidirectional
+			(at 172.72 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "2b905312-4938-4146-8c87-339fc8ab57d4")
+		)
+		(pin "RMII_MDIO" bidirectional
+			(at 172.72 67.945 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "dac6a472-b2aa-42f4-be4a-7fdf31c6e6ee")
+		)
+		(pin "RMII_CRS_DV" bidirectional
+			(at 172.72 64.135 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "d2550066-ff00-4d7f-891a-efae6573b874")
+		)
+		(pin "REF_CLK" bidirectional
+			(at 172.72 71.755 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "3a82086c-2360-4b1d-99f3-649e139eee0d")
+		)
+		(pin "NRST" bidirectional
+			(at 172.72 75.565 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "5e03d385-39c9-456e-98cd-0ea98b0da0c1")
+		)
+		(pin "HMSR_VOUT" input
+			(at 122.555 56.515 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "92933272-4e79-488b-ac18-883471b10f20")
+		)
+		(pin "MCU_DIV_ENA" output
+			(at 122.555 80.645 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "56433bee-7366-420b-b9fe-9e4b525d8121")
+		)
+		(pin "MCU_ZOFFS" output
+			(at 122.555 60.325 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "ce0cce06-7810-4d62-ac32-7401cbe2c73e")
+		)
+		(pin "MCU_MEAS_ENA" output
+			(at 122.555 76.835 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "5fbf62f6-001f-46f3-adc2-c7caba7d4bf2")
+		)
+		(pin "MCU_G1" output
+			(at 122.555 63.5 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "2ef84856-e50c-49a1-8492-f77047a05c37")
+		)
+		(pin "MCU_G10" output
+			(at 122.555 65.405 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "f1dc2801-a8a0-46a7-8d7e-ff10321ac032")
+		)
+		(pin "MCU_G100" output
+			(at 122.555 67.31 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "18e4d735-6f64-49cb-baf3-69d105b623f7")
+		)
+		(pin "MCU_DIV10" output
+			(at 122.555 73.025 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "957501c9-ffb5-41f7-b981-47ee0f395402")
+		)
+		(pin "MCU_DIV1" output
+			(at 122.555 71.12 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "0c69ffe6-b397-495f-a2e2-d7a9bb18e11c")
+		)
+		(pin "MCU_DIV100" output
+			(at 122.555 74.93 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "6ad96d32-b3e8-4568-a0ca-2ef948ef5f22")
+		)
+		(instances
+			(project "ETH1HMSR-SMS"
+				(path "/c9f88626-4b87-4d35-a77a-42f8d5451fae"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
 )
