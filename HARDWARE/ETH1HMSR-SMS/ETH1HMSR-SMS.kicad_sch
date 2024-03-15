@@ -258,14 +258,14 @@
     )
   )
 
-  (sheet (at 122.555 99.06) (size 104.14 30.48) (fields_autoplaced)
+  (sheet (at 84.455 99.06) (size 142.24 30.48) (fields_autoplaced)
     (stroke (width 0.1524) (type solid))
     (fill (color 0 0 0 0.0000))
     (uuid 059cbaa1-f18b-4c74-8277-7241d6693d0e)
-    (property "Sheetname" "Power" (at 122.555 98.3484 0)
+    (property "Sheetname" "Power" (at 84.455 98.3484 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
-    (property "Sheetfile" "Power.kicad_sch" (at 122.555 130.1246 0)
+    (property "Sheetfile" "Power.kicad_sch" (at 84.455 130.1246 0)
       (effects (font (size 1.27 1.27)) (justify left top))
     )
     (instances
