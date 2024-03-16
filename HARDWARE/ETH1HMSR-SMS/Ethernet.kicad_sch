@@ -3980,7 +3980,7 @@
 	)
 	(wire
 		(pts
-			(xy 65.405 83.82) (xy 60.96 83.82)
+			(xy 67.31 83.82) (xy 60.96 83.82)
 		)
 		(stroke
 			(width 0)
@@ -4080,7 +4080,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 86.36) (xy 65.405 86.36)
+			(xy 60.96 86.36) (xy 67.31 86.36)
 		)
 		(stroke
 			(width 0)
@@ -4230,7 +4230,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 91.44) (xy 65.405 91.44)
+			(xy 60.96 91.44) (xy 67.31 91.44)
 		)
 		(stroke
 			(width 0)
@@ -4390,7 +4390,7 @@
 	)
 	(wire
 		(pts
-			(xy 75.565 86.36) (xy 92.71 86.36)
+			(xy 77.47 86.36) (xy 92.71 86.36)
 		)
 		(stroke
 			(width 0)
@@ -4510,7 +4510,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 88.9) (xy 65.405 88.9)
+			(xy 60.96 88.9) (xy 67.31 88.9)
 		)
 		(stroke
 			(width 0)
@@ -4580,7 +4580,7 @@
 	)
 	(wire
 		(pts
-			(xy 76.835 104.14) (xy 92.71 104.14)
+			(xy 78.74 104.14) (xy 92.71 104.14)
 		)
 		(stroke
 			(width 0)
@@ -4630,7 +4630,7 @@
 	)
 	(wire
 		(pts
-			(xy 76.835 91.44) (xy 76.835 104.14)
+			(xy 78.74 91.44) (xy 78.74 104.14)
 		)
 		(stroke
 			(width 0)
@@ -4780,7 +4780,7 @@
 	)
 	(wire
 		(pts
-			(xy 75.565 83.82) (xy 92.71 83.82)
+			(xy 77.47 83.82) (xy 92.71 83.82)
 		)
 		(stroke
 			(width 0)
@@ -4840,7 +4840,7 @@
 	)
 	(wire
 		(pts
-			(xy 75.565 91.44) (xy 76.835 91.44)
+			(xy 77.47 91.44) (xy 78.74 91.44)
 		)
 		(stroke
 			(width 0)
@@ -5020,7 +5020,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 91.44) (xy 92.71 91.44)
+			(xy 80.01 91.44) (xy 92.71 91.44)
 		)
 		(stroke
 			(width 0)
@@ -5110,7 +5110,7 @@
 	)
 	(wire
 		(pts
-			(xy 75.565 88.9) (xy 78.74 88.9)
+			(xy 77.47 88.9) (xy 80.01 88.9)
 		)
 		(stroke
 			(width 0)
@@ -5430,7 +5430,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 88.9) (xy 78.74 91.44)
+			(xy 80.01 88.9) (xy 80.01 91.44)
 		)
 		(stroke
 			(width 0)
@@ -7091,7 +7091,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Pack04")
-		(at 70.485 88.9 270)
+		(at 72.39 88.9 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7099,7 +7099,7 @@
 		(dnp no)
 		(uuid "7b894774-df23-4974-a8ec-4cbe98ee6d1d")
 		(property "Reference" "RN302"
-			(at 64.135 82.55 90)
+			(at 64.516 82.55 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7107,7 +7107,7 @@
 			)
 		)
 		(property "Value" "EXB-V8V330JV"
-			(at 68.58 94.615 90)
+			(at 70.485 94.615 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7115,7 +7115,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_Array_Concave_4x0603"
-			(at 70.485 95.885 90)
+			(at 72.39 95.885 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7124,7 +7124,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 70.485 88.9 0)
+			(at 72.39 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7133,7 +7133,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 70.485 88.9 0)
+			(at 72.39 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
