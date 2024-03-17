@@ -9215,7 +9215,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "DG419LDY"
+		(property "Value" "DG419LEDY"
 			(at 109.22 180.34 0)
 			(effects
 				(font
@@ -11416,7 +11416,7 @@
 				)
 			)
 		)
-		(property "Value" "DG419LDY"
+		(property "Value" "DG419LEDY"
 			(at 132.08 63.5 0)
 			(effects
 				(font
