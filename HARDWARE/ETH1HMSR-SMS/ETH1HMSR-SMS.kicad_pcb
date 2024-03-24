@@ -9503,7 +9503,7 @@
 		(uuid "b1acd75e-83ed-4ee3-976f-e3b3959b578a")
 		(at 152.781 82.55 90)
 		(property "Reference" "HS101"
-			(at 17.272 0 0)
+			(at -17.78 0 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "5fa3848c-f34f-489a-a5ac-d9b770ee02b7")
@@ -10026,6 +10026,179 @@
 			(rotate
 				(xyz 0 0 0)
 			)
+		)
+	)
+	(footprint "Symbol:Symbol_Attention_Triangle_8x7mm_Copper"
+		(layer "F.Cu")
+		(uuid "b40376c1-32a2-484b-8f57-8103a8db4a38")
+		(at 112.903 64.77)
+		(descr "Symbol, Attention, 8x7mm, copper layer")
+		(tags "warning graphic")
+		(property "Reference" "REF**"
+			(at 0 -4.5 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "2f2052ef-d93c-480f-a88d-bc5af0258260")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "Symbol_Attention_Triangle_8x7mm_Copper"
+			(at 0 4.5 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8ab42f39-b556-406e-a54c-10146cc816e1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "Symbol:Symbol_Attention_Triangle_8x7mm_Copper"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "29fe6664-b446-4ef0-8acc-809faaf27ed6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0ca444f1-4da8-4fff-a79f-4a5858f08244")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5c83f74b-6740-40bf-a4e1-673c60951412")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(fp_line
+			(start -4 3.46)
+			(end -0.000048 -3.460028)
+			(stroke
+				(width 0.381)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8c840e39-1a76-4a9e-936d-4644631a35d9")
+		)
+		(fp_line
+			(start -3.51 3.44)
+			(end -3.776322 3.030736)
+			(stroke
+				(width 0.2)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "b87d123c-bb35-4575-b25c-39f69a066513")
+		)
+		(fp_line
+			(start -0.15 -3.04)
+			(end 0.16 -3.04)
+			(stroke
+				(width 0.2)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "31dff0c6-8104-4682-8782-313fa78b8c9a")
+		)
+		(fp_line
+			(start 0 -3.46)
+			(end 3.999952 3.460028)
+			(stroke
+				(width 0.381)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a070ad13-e2b6-4702-9f01-09d9dca4633e")
+		)
+		(fp_line
+			(start 3.51 3.44)
+			(end 3.776319 3.030734)
+			(stroke
+				(width 0.2)
+				(type default)
+			)
+			(layer "F.SilkS")
+			(uuid "6a1f9d3a-0a94-47c8-afb4-209773590ecd")
+		)
+		(fp_line
+			(start 4 3.46)
+			(end -4 3.46)
+			(stroke
+				(width 0.381)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "91b23a4c-980b-4b99-a73e-6d38a5362b91")
+		)
+		(fp_circle
+			(center 0 -1.5)
+			(end 0.45 -1.5)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+			(fill solid)
+			(layer "F.SilkS")
+			(uuid "e01eaa00-b19f-434c-8b43-3c63dc398fcb")
+		)
+		(fp_circle
+			(center 0 1.5)
+			(end 0.25 1.5)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+			(fill solid)
+			(layer "F.SilkS")
+			(uuid "2980dd5c-3a0e-4e1b-8009-e686395fb580")
+		)
+		(fp_circle
+			(center 0 2.5)
+			(end 0.4 2.5)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+			(fill solid)
+			(layer "F.SilkS")
+			(uuid "d116fb88-b9ef-4730-a179-b5613afc735b")
+		)
+		(fp_poly
+			(pts
+				(xy -0.25 1.5) (xy 0.25 1.5) (xy 0.45 -1.5) (xy -0.45 -1.5)
+			)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+			(fill solid)
+			(layer "F.SilkS")
+			(uuid "10613fd8-b6d3-4ea8-9da1-32aafa2b44cd")
 		)
 	)
 	(footprint "Package_TO_SOT_SMD:SOT-23-5"
@@ -15856,6 +16029,184 @@
 			(rotate
 				(xyz 0 0 0)
 			)
+		)
+	)
+	(footprint "Symbol:Symbol_Attention_Triangle_8x7mm_Copper"
+		(layer "B.Cu")
+		(uuid "12e430d1-9304-4b9d-b337-0ad0432f4a14")
+		(at 112.903 64.77 180)
+		(descr "Symbol, Attention, 8x7mm, copper layer")
+		(tags "warning graphic")
+		(property "Reference" "REF**"
+			(at 0 4.5 180)
+			(layer "B.SilkS")
+			(hide yes)
+			(uuid "2f2052ef-d93c-480f-a88d-bc5af0258260")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Value" "Symbol_Attention_Triangle_8x7mm_Copper"
+			(at 0 -4.5 180)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "8ab42f39-b556-406e-a54c-10146cc816e1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Footprint" "Symbol:Symbol_Attention_Triangle_8x7mm_Copper"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "29fe6664-b446-4ef0-8acc-809faaf27ed6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0ca444f1-4da8-4fff-a79f-4a5858f08244")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "5c83f74b-6740-40bf-a4e1-673c60951412")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify mirror)
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(fp_line
+			(start 3.999952 -3.460028)
+			(end 0 3.46)
+			(stroke
+				(width 0.381)
+				(type solid)
+			)
+			(layer "B.SilkS")
+			(uuid "a070ad13-e2b6-4702-9f01-09d9dca4633e")
+		)
+		(fp_line
+			(start 3.776319 -3.030734)
+			(end 3.51 -3.44)
+			(stroke
+				(width 0.2)
+				(type default)
+			)
+			(layer "B.SilkS")
+			(uuid "6a1f9d3a-0a94-47c8-afb4-209773590ecd")
+		)
+		(fp_line
+			(start 0.16 3.04)
+			(end -0.15 3.04)
+			(stroke
+				(width 0.2)
+				(type default)
+			)
+			(layer "B.SilkS")
+			(uuid "31dff0c6-8104-4682-8782-313fa78b8c9a")
+		)
+		(fp_line
+			(start -0.000048 3.460028)
+			(end -4 -3.46)
+			(stroke
+				(width 0.381)
+				(type solid)
+			)
+			(layer "B.SilkS")
+			(uuid "8c840e39-1a76-4a9e-936d-4644631a35d9")
+		)
+		(fp_line
+			(start -3.776322 -3.030736)
+			(end -3.51 -3.44)
+			(stroke
+				(width 0.2)
+				(type default)
+			)
+			(layer "B.SilkS")
+			(uuid "b87d123c-bb35-4575-b25c-39f69a066513")
+		)
+		(fp_line
+			(start -4 -3.46)
+			(end 4 -3.46)
+			(stroke
+				(width 0.381)
+				(type solid)
+			)
+			(layer "B.SilkS")
+			(uuid "91b23a4c-980b-4b99-a73e-6d38a5362b91")
+		)
+		(fp_circle
+			(center 0 1.5)
+			(end 0.45 1.5)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+			(fill solid)
+			(layer "B.SilkS")
+			(uuid "e01eaa00-b19f-434c-8b43-3c63dc398fcb")
+		)
+		(fp_circle
+			(center 0 -1.5)
+			(end 0.25 -1.5)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+			(fill solid)
+			(layer "B.SilkS")
+			(uuid "2980dd5c-3a0e-4e1b-8009-e686395fb580")
+		)
+		(fp_circle
+			(center 0 -2.5)
+			(end 0.4 -2.5)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+			(fill solid)
+			(layer "B.SilkS")
+			(uuid "d116fb88-b9ef-4730-a179-b5613afc735b")
+		)
+		(fp_poly
+			(pts
+				(xy -0.25 -1.5) (xy 0.25 -1.5) (xy 0.45 1.5) (xy -0.45 1.5)
+			)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+			(fill solid)
+			(layer "B.SilkS")
+			(uuid "10613fd8-b6d3-4ea8-9da1-32aafa2b44cd")
 		)
 	)
 	(footprint "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
@@ -30345,6 +30696,26 @@
 		(uuid "e7f50cef-a0d0-42b0-85f3-b9afaedbeff0")
 	)
 	(gr_line
+		(start 121.158 67.945)
+		(end 121.158 60.96)
+		(stroke
+			(width 0.15)
+			(type dash)
+		)
+		(layer "F.SilkS")
+		(uuid "a0e47ab4-a89e-42d6-b5ef-9e54af7d5860")
+	)
+	(gr_line
+		(start 121.285 104.14)
+		(end 121.285 97.155)
+		(stroke
+			(width 0.15)
+			(type dash)
+		)
+		(layer "F.SilkS")
+		(uuid "be39ad8e-d07a-44e0-b659-b9899660f4e1")
+	)
+	(gr_line
 		(start 198.628 98.044)
 		(end 198.628 96.774)
 		(stroke
@@ -30488,8 +30859,8 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "CURRENT\nMEASUREMENT"
-		(at 116.459 65.532 0)
+	(gr_text "CURRENT MEASUREMENT"
+		(at 153.543 64.008 0)
 		(layer "F.SilkS")
 		(uuid "ae4bebfa-b0f2-41ba-b75e-5186ff840adb")
 		(effects

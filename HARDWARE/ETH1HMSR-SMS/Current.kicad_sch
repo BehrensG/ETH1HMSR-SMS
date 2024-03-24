@@ -4291,7 +4291,7 @@
 		(uuid "6b1b4213-9b97-4880-b38f-f50b2b39099f")
 	)
 	(junction
-		(at 118.11 190.5)
+		(at 116.84 190.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6faa2a1a-0dc6-4990-aac6-a8044841d96e")
@@ -4423,7 +4423,7 @@
 		(uuid "fde27bc8-1348-4831-b3ed-42e1ca90c1c8")
 	)
 	(junction
-		(at 142.24 190.5)
+		(at 140.97 190.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "feac10b0-7fbe-4398-96c5-c95d8c2230ff")
@@ -4516,7 +4516,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 165.1) (xy 140.97 163.83)
+			(xy 139.7 165.1) (xy 139.7 163.83)
 		)
 		(stroke
 			(width 0)
@@ -4526,7 +4526,7 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 190.5) (xy 118.11 190.5)
+			(xy 115.57 190.5) (xy 116.84 190.5)
 		)
 		(stroke
 			(width 0)
@@ -4546,7 +4546,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 163.83) (xy 143.51 165.1)
+			(xy 142.24 163.83) (xy 142.24 165.1)
 		)
 		(stroke
 			(width 0)
@@ -4646,7 +4646,7 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 190.5) (xy 119.38 190.5)
+			(xy 116.84 190.5) (xy 118.11 190.5)
 		)
 		(stroke
 			(width 0)
@@ -4796,7 +4796,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 163.83) (xy 137.16 163.83)
+			(xy 139.7 163.83) (xy 135.89 163.83)
 		)
 		(stroke
 			(width 0)
@@ -4926,7 +4926,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 163.83) (xy 119.38 165.1)
+			(xy 118.11 163.83) (xy 118.11 165.1)
 		)
 		(stroke
 			(width 0)
@@ -5346,7 +5346,7 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 163.83) (xy 143.51 163.83)
+			(xy 146.05 163.83) (xy 142.24 163.83)
 		)
 		(stroke
 			(width 0)
@@ -5356,7 +5356,7 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 163.83) (xy 119.38 163.83)
+			(xy 121.92 163.83) (xy 118.11 163.83)
 		)
 		(stroke
 			(width 0)
@@ -5396,7 +5396,7 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 163.83) (xy 113.03 163.83)
+			(xy 115.57 163.83) (xy 111.76 163.83)
 		)
 		(stroke
 			(width 0)
@@ -5426,7 +5426,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 190.5) (xy 142.24 190.5)
+			(xy 139.7 190.5) (xy 140.97 190.5)
 		)
 		(stroke
 			(width 0)
@@ -5756,7 +5756,7 @@
 	)
 	(wire
 		(pts
-			(xy 142.24 190.5) (xy 143.51 190.5)
+			(xy 140.97 190.5) (xy 142.24 190.5)
 		)
 		(stroke
 			(width 0)
@@ -5766,7 +5766,7 @@
 	)
 	(wire
 		(pts
-			(xy 142.24 190.5) (xy 142.24 191.77)
+			(xy 140.97 190.5) (xy 140.97 191.77)
 		)
 		(stroke
 			(width 0)
@@ -5816,7 +5816,7 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 165.1) (xy 116.84 163.83)
+			(xy 115.57 165.1) (xy 115.57 163.83)
 		)
 		(stroke
 			(width 0)
@@ -5836,7 +5836,7 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 190.5) (xy 118.11 191.77)
+			(xy 116.84 190.5) (xy 116.84 191.77)
 		)
 		(stroke
 			(width 0)
@@ -6030,7 +6030,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 163.83 170.18 0)
+		(at 162.56 170.18 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6038,7 +6038,7 @@
 		(dnp no)
 		(uuid "034315ed-95bb-4042-ad2e-5f912675d20e")
 		(property "Reference" "#PWR0528"
-			(at 163.83 173.99 0)
+			(at 162.56 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6047,7 +6047,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 163.83 166.37 0)
+			(at 162.56 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6055,7 +6055,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 163.83 170.18 0)
+			(at 162.56 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6064,7 +6064,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 163.83 170.18 0)
+			(at 162.56 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6073,7 +6073,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 163.83 170.18 0)
+			(at 162.56 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7329,7 +7329,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 163.83 185.42 0)
+		(at 162.56 185.42 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7337,7 +7337,7 @@
 		(dnp no)
 		(uuid "2c6e6a9a-a4e3-4c5f-ab7f-38e47569a5de")
 		(property "Reference" "#PWR0529"
-			(at 163.83 191.77 0)
+			(at 162.56 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7346,7 +7346,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 163.83 189.23 0)
+			(at 162.56 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7354,7 +7354,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 163.83 185.42 0)
+			(at 162.56 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7363,7 +7363,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 163.83 185.42 0)
+			(at 162.56 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7372,7 +7372,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 163.83 185.42 0)
+			(at 162.56 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8787,7 +8787,7 @@
 	)
 	(symbol
 		(lib_id "Analog_Switch:DG419LDY")
-		(at 116.84 177.8 0)
+		(at 115.57 177.8 0)
 		(unit 2)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8796,7 +8796,7 @@
 		(fields_autoplaced yes)
 		(uuid "73b0a0ef-e1d2-48fd-93bf-98c44cb9f88b")
 		(property "Reference" "U504"
-			(at 124.46 176.53 0)
+			(at 123.19 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8805,7 +8805,7 @@
 			)
 		)
 		(property "Value" "DG419LEDY"
-			(at 124.46 179.07 0)
+			(at 123.19 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8814,7 +8814,7 @@
 			)
 		)
 		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
-			(at 120.65 192.405 0)
+			(at 119.38 192.405 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8824,7 +8824,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheets.maximintegrated.com/en/ds/DG417-DG419.pdf"
-			(at 120.65 189.865 0)
+			(at 119.38 189.865 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8834,7 +8834,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 116.84 177.8 0)
+			(at 115.57 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8877,7 +8877,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 142.24 191.77 0)
+		(at 140.97 191.77 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8885,7 +8885,7 @@
 		(dnp no)
 		(uuid "7691b3ac-16ee-4c50-9d4c-a2afd011968c")
 		(property "Reference" "#PWR0524"
-			(at 142.24 198.12 0)
+			(at 140.97 198.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8894,7 +8894,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 142.24 195.58 0)
+			(at 140.97 195.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8902,7 +8902,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 142.24 191.77 0)
+			(at 140.97 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8911,7 +8911,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 142.24 191.77 0)
+			(at 140.97 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8920,7 +8920,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 142.24 191.77 0)
+			(at 140.97 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9007,7 +9007,7 @@
 	)
 	(symbol
 		(lib_id "Analog_Switch:DG412xUE")
-		(at 140.97 177.8 0)
+		(at 139.7 177.8 0)
 		(unit 5)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9016,7 +9016,7 @@
 		(fields_autoplaced yes)
 		(uuid "77531dba-e0c6-4f0d-a776-ea3010d4a645")
 		(property "Reference" "U503"
-			(at 149.225 177.165 0)
+			(at 147.955 177.165 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9025,7 +9025,7 @@
 			)
 		)
 		(property "Value" "DG412LEDQ"
-			(at 149.225 179.705 0)
+			(at 147.955 179.705 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9034,7 +9034,7 @@
 			)
 		)
 		(property "Footprint" "Package_SO:TSSOP-16_4.4x5mm_P0.65mm"
-			(at 140.97 180.34 0)
+			(at 139.7 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9043,7 +9043,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheets.maximintegrated.com/en/ds/DG411-DG413.pdf"
-			(at 140.97 177.8 0)
+			(at 139.7 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9052,7 +9052,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 140.97 177.8 0)
+			(at 139.7 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9522,7 +9522,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 123.19 163.83 0)
+		(at 121.92 163.83 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9530,7 +9530,7 @@
 		(dnp no)
 		(uuid "87f75238-f715-4370-a6a0-b0a82f0d1883")
 		(property "Reference" "#PWR0520"
-			(at 123.19 167.64 0)
+			(at 121.92 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9539,7 +9539,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 123.19 160.02 0)
+			(at 121.92 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9547,7 +9547,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 123.19 163.83 0)
+			(at 121.92 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9556,7 +9556,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 123.19 163.83 0)
+			(at 121.92 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9565,7 +9565,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 123.19 163.83 0)
+			(at 121.92 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9726,7 +9726,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 118.11 191.77 0)
+		(at 116.84 191.77 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9734,7 +9734,7 @@
 		(dnp no)
 		(uuid "92611afd-bd37-4962-b1b2-d775644d1436")
 		(property "Reference" "#PWR0518"
-			(at 118.11 198.12 0)
+			(at 116.84 198.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9743,7 +9743,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 118.11 195.58 0)
+			(at 116.84 195.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9751,7 +9751,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 118.11 191.77 0)
+			(at 116.84 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9760,7 +9760,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 118.11 191.77 0)
+			(at 116.84 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9769,7 +9769,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 118.11 191.77 0)
+			(at 116.84 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9860,7 +9860,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:OPA4340UA")
-		(at 166.37 177.8 0)
+		(at 165.1 177.8 0)
 		(unit 5)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9869,7 +9869,7 @@
 		(fields_autoplaced yes)
 		(uuid "99bc3ee7-35c0-4e27-b1ca-476eb56bc3dd")
 		(property "Reference" "U502"
-			(at 165.1 176.5299 0)
+			(at 163.83 176.5299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9878,7 +9878,7 @@
 			)
 		)
 		(property "Value" "OPA4340UA"
-			(at 165.1 179.0699 0)
+			(at 163.83 179.0699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9887,7 +9887,7 @@
 			)
 		)
 		(property "Footprint" "Package_SO:SSOP-16_3.9x4.9mm_P0.635mm"
-			(at 165.1 175.26 0)
+			(at 163.83 175.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9896,7 +9896,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/opa340.pdf"
-			(at 167.64 172.72 0)
+			(at 166.37 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9905,7 +9905,7 @@
 			)
 		)
 		(property "Description" "Quad Single-Supply, Rail-to-Rail Operational Amplifier, MicroAmplifier Series, SOIC-14"
-			(at 166.37 177.8 0)
+			(at 165.1 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11454,7 +11454,7 @@
 	)
 	(symbol
 		(lib_id "power:+5VL")
-		(at 113.03 163.83 0)
+		(at 111.76 163.83 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11462,7 +11462,7 @@
 		(dnp no)
 		(uuid "e3e60fe1-37d8-4114-b577-711192112b51")
 		(property "Reference" "#PWR0517"
-			(at 113.03 167.64 0)
+			(at 111.76 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11471,7 +11471,7 @@
 			)
 		)
 		(property "Value" "+5VL"
-			(at 113.03 160.02 0)
+			(at 111.76 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11479,7 +11479,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 113.03 163.83 0)
+			(at 111.76 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11488,7 +11488,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 113.03 163.83 0)
+			(at 111.76 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11497,7 +11497,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5VL\""
-			(at 113.03 163.83 0)
+			(at 111.76 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11650,7 +11650,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 147.32 163.83 0)
+		(at 146.05 163.83 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11658,7 +11658,7 @@
 		(dnp no)
 		(uuid "eccb3e88-4055-45f7-a35b-d0f50af3e236")
 		(property "Reference" "#PWR0525"
-			(at 147.32 167.64 0)
+			(at 146.05 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11667,7 +11667,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 147.32 160.02 0)
+			(at 146.05 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11675,7 +11675,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 147.32 163.83 0)
+			(at 146.05 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11684,7 +11684,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 147.32 163.83 0)
+			(at 146.05 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11693,7 +11693,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 147.32 163.83 0)
+			(at 146.05 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12224,7 +12224,7 @@
 	)
 	(symbol
 		(lib_id "power:+5VL")
-		(at 137.16 163.83 0)
+		(at 135.89 163.83 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12232,7 +12232,7 @@
 		(dnp no)
 		(uuid "fbcb2ff3-55f2-440c-92d4-66d29cbf7c84")
 		(property "Reference" "#PWR0523"
-			(at 137.16 167.64 0)
+			(at 135.89 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12241,7 +12241,7 @@
 			)
 		)
 		(property "Value" "+5VL"
-			(at 137.16 160.02 0)
+			(at 135.89 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12249,7 +12249,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 137.16 163.83 0)
+			(at 135.89 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12258,7 +12258,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 137.16 163.83 0)
+			(at 135.89 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12267,7 +12267,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5VL\""
-			(at 137.16 163.83 0)
+			(at 135.89 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
