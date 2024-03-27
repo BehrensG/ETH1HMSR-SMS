@@ -3973,7 +3973,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 96.52) (xy 82.55 96.52)
+			(xy 60.96 96.52) (xy 81.28 96.52)
 		)
 		(stroke
 			(width 0)
@@ -4553,7 +4553,7 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 96.52) (xy 82.55 93.98)
+			(xy 81.28 96.52) (xy 81.28 93.98)
 		)
 		(stroke
 			(width 0)
@@ -4943,7 +4943,7 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 93.98) (xy 92.71 93.98)
+			(xy 81.28 93.98) (xy 92.71 93.98)
 		)
 		(stroke
 			(width 0)
@@ -5215,7 +5215,7 @@
 		(uuid "12a3751b-1baf-4c6a-9d8d-abb058bfb48e")
 	)
 	(label "RMII_MDIO"
-		(at 82.55 93.98 0)
+		(at 81.28 93.98 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5281,7 +5281,7 @@
 		(uuid "aecb2f1c-b94f-4270-8bde-7e3bcc3b4cd7")
 	)
 	(label "MODE1"
-		(at 86.36 86.36 0)
+		(at 85.09 86.36 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5292,7 +5292,7 @@
 		(uuid "b7929d81-3d05-4c3c-9b3b-f077b985255f")
 	)
 	(label "MODE2"
-		(at 86.36 91.44 0)
+		(at 85.09 91.44 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5303,7 +5303,7 @@
 		(uuid "c6ebfc3c-3037-4e28-8f92-8be942dc45f5")
 	)
 	(label "MODE0"
-		(at 86.36 83.82 0)
+		(at 85.09 83.82 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5336,7 +5336,7 @@
 		(uuid "d92adf3f-7cc8-4c91-aab6-dcd456958a36")
 	)
 	(label "REFCLK0"
-		(at 83.82 104.14 0)
+		(at 82.55 104.14 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
