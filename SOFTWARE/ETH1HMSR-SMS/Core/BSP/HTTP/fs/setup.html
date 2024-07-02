@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE11" />
+    <meta charset="UTF-8">
+    <title>SETUP</title>
+    <style>
+        body{
+            margin-top: 30px;
+            margin-left: 70px;
+        }
+        table {
+            width: 65%;
+            border-collapse: collapse;
+            margin: 15px;
+        }
+        td {
+            border: 1px solid #fff; /* Set border color to white */
+            padding: 6px;
+            text-align: left;
+            font-family: Helvetica,Arial,Times;
+        }
+        .first-column {
+            background-color:  #558093;
+            color: #f2f2f2;
+            font-weight: bold;
+            font-family: Helvetica,Arial,Times;
+            width: 35%;
+        }
+
+        tr:nth-child(odd) .second-column {
+            background-color: #f5f4f4; /* Grey background for odd rows in the second column */
+            
+        }
+        textarea {
+
+            outline: 1px;
+            resize: none;
+            width: 50%;
+            background-color: inherit;
+        }
+
+        h2 {
+            color: #558093;
+            font-family: Helvetica,Arial,Times;
+            font-weight: bold;
+        }
+        .t-scroller {
+            display:inline-block;
+            clear:both;
+        }
+        .valid {
+            background-color: lightgreen;
+        }
+        .invalid {
+            background-color: lightcoral;
+        }
+</style>   
+
+<script>
+    
+    let secure = true;
+    let valid = "VALID"
+
+    function onLoad(){
+
+        const ids = ["setup_ipv4", "setup_netmask", "setup_gateway"];
+        ids.forEach(id => {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", id, true);  // Modify the URL according to your needs
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        document.getElementById(id).value = xhr.responseText;
+                    }
+                }
+            };
+
+            xhr.send();
+            getLoginStatus();
+            toggleTable(secure);
+        });
+    }
+
+    function postNetworkConfiguration(){
+        const ids = ["setup_ipv4", "setup_netmask" , "setup_gateway", "save_ip_config"];
+        ids.forEach(id => {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", id, true); 
+        if(id != "save_ip_config")
+        {
+            xhr.send(document.getElementById(id).value);
+        }
+        else
+        {
+            xhr.send(); 
+        }
+        
+        
+        });
+    }
+
+    function postPassword(){
+
+        var passwrd = document.getElementById("password").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/setup_login', true);
+
+        xhr.send(passwrd);
+        getLoginStatus();
+    }
+
+    function getLoginStatus(){
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/setup_login_status', true);
+
+        xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+
+            if (xhr.status === 200) {
+
+                if(xhr.responseText == valid)
+                {
+                    secure = false;
+                    toggleTable(false);
+                }
+                else
+                {
+                    secure = true;
+                    toggleTable(true);
+                }
+            }
+        }
+        
+      }
+      xhr.send();
+    }
+
+    function toggleTable(table_status) {
+            var table = document.getElementById("setup_table");
+            var textareas = table.getElementsByTagName("textarea");
+            var buttons = table.getElementsByTagName('button');
+            for (var i = 0; i < textareas.length; i++) {
+                textareas[i].disabled = table_status;
+            }
+
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].disabled = table_status;
+            }
+        }
+
+
+        function validateIP() {
+            var table = document.getElementById('setup_table');
+            var textareas = table.getElementsByTagName('textarea');
+            var ipPattern = /^(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])$/;
+            var validIPs = [];
+            var invalidIPs = [];
+            var allValid = true;
+
+            for (var i = 0; i < textareas.length; i++) {
+                var ip = textareas[i].value.trim();
+                if (ipPattern.test(ip)) {
+                    validIPs.push(ip);
+                    textareas[i].classList.remove('invalid');
+                    textareas[i].classList.add('valid');
+                } else {
+                    invalidIPs.push(ip);
+                    textareas[i].classList.remove('valid');
+                    textareas[i].classList.add('invalid');
+                    allValid = false;
+                }
+            }
+            
+            if(allValid)
+            {
+                postNetworkConfiguration();
+            }
+        }
+
+        function resetDevice()
+        {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/setup_reset', true);
+            xhr.send();
+        }   
+
+</script>
+
+</head>
+    <body onload = "onLoad()">
+        <h2>UNLOCK DEVICE</h2>
+        <table >
+            <tbody  >
+                <tr>
+                    <td class="first-column">Password: </td>
+                    <td class="second-column"><div>
+                        <input type="password" id="password" name="password" width="100%"/>
+                      </div></textarea></td>
+                </tr>
+                <tr>
+                    <td class="first-column"> </td>
+                    <td class="second-column"><button onclick="postPassword()" id="password_button" onclick="">Send</button></td>
+                </tr>
+            </tbody>
+        </table> 
+        <p style="margin-bottom: 25px;"></p>
+        <h2>NETWORK CONFIGURATION</h2>
+        <table id="setup_table">
+            <tbody>
+                <tr>
+                    <td class="first-column">IP Address: </td>
+                    <td class="second-column"><textarea  id="setup_ipv4" cols="20" rows="1"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="first-column">Subnet Mask: </td>
+                    <td class="second-column"><textarea  id="setup_netmask" cols="20" rows="1"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="first-column">Default Gateway: </td>
+                    <td class="second-column"><textarea  id="setup_gateway" cols="20" rows="1"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="first-column">Update Configuration: </td>
+                    <td class="second-column"><button id="net_setup_button" onclick="validateIP()">Send</button></td> 
+               </tr>
+                <tr>
+                    <td style="background-color: red;"  class="first-column">Reset Device: </td>
+                    <td class="second-column" ><button  id="setup_reset_button" onclick="resetDevice()">Send</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <p>NOTE: The network configuration changes will have effect after device reset.</p>
+    </body>
+</html>

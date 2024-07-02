@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELP</title>
+    <style>
+        body {
+            font-family: Helvetica,Arial,Times;
+            margin-top: 30px;
+            margin-left: 40px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .command-category {
+            margin-top: 20px;
+        }
+        .command-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .command-list li {
+            background: #f9f9f9;
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .command {
+            font-weight: bold;
+            padding-bottom: 10px;
+        }
+        .description {
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="command-category">
+        <h1>LXI Support</h1>
+        <ul class="command-list">
+            <li>
+                <span class="command">HiSLIP</span>
+                <div class="description">Implemented and available.</div>
+            </li>
+            <li>
+                <span class="command">RAW SCPI</span>
+                <div class="description">Implemented and available.</div>
+            </li>
+
+            <li>
+                <span class="command">mDNS</span>
+                <div class="description">mDNS server is available.</div>
+            </li>
+            <li>
+                <div span class="command">lxi&#47;identification</div>
+                <div class="description">Supported and available at http:&#47;&#47;&lt;IP Address&gt;&#47;lxi&#47;identification</div>
+            </li>
+        </ul>
+    </div>
+    
+    <h1>Supported Communication Protocols</h1>
+    <p>This chapter provides information about supported communication protocols.</p>
+    <div class="command-category">
+        <h2>High Speed LAN Instrument Protocol (HiSLIP)</h2>
+        <ul class="command-list">
+            <li>
+                 <div class="description">The protocol is available on TCP port 4880. To use this protocol the user needs a VISA library.</div>
+                 <div class="description">&nbsp;</div>
+                 <div class="description"><b>Command termination</b>: The input SCPI command can have a '\r\n', '\r', '\n' or no termination. For query commands the result data will always have a '\n' termination.</div>
+            </li>
+        </ul>
+    </div>
+    <div class="command-category">
+        <h2>RAW TCP</h2>
+        <ul class="command-list">
+            <li>
+                 <div class="description">The protocol is available on TCP port 5025. Putty can be used to send commands commands over the raw interface.</div>
+                 <div class="description">&nbsp;</div>
+                 <div class="description"><b>Command termination</b>: The input SCPI command termination '\r\n', '\r' and '\n' we be used by the query result. When the command has no termination the query result will always use '\n'.</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="command-category">
+        <h2>RAW UDP</h2>
+        <ul class="command-list">
+            <li>
+                 <div class="description">The protocol is available on UDP port 5025. This is a special implementation, allowing to get measurements over UDP. The set of SCPI commands are limited.</div>
+                 <div class="description">&nbsp;</div>
+                 <div class="description"><b>Command termination</b>: The input SCPI command don't need termination. For query commands the result data will always have a '\n' termination.</div>
+            </li>
+        </ul>
+    </div>
+    
+    <h1>SCPI Commands Documentation</h1>
+    <p>This chapter provides the device SCPI (Standard Commands for Programmable Instruments) commands.</p>
+    
+    <div class="command-category">
+        <h2>Basic Commands</h2>
+        <p>Commands available in HiSLIP and RAW TCP.</p>
+        <ul class="command-list">
+            <li>
+                <span class="command">*IDN?</span>
+                <div class="description">Queries the instrument's identity (manufacturer, model, serial number, and firmware version).</div>
+            </li>
+            <li>
+                <span class="command">*RST</span>
+                <div class="description">This reset (RST) command resets most functions to factory-defined conditions.</div>
+            </li>
+            <li>
+                <span class="command">*CLS</span>
+                <div class="description">Clears the status data structures.</div>
+            </li>
+            <li>
+                <div span class="command">*TRG</div>
+                <div class="description">Triggers the instrument.</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="command-category">
+        <h2>Measurement Commands</h2>
+        <p>Commands available in HiSLIP and RAW TCP.</p>
+        <ul class="command-list">
+            <li>
+                <div span class="command">MEASure?</div>
+                <div class="description">Measures AC or DC current.</div>
+            </li>
+            <li>
+                <div span class="command">READ?</div>
+                <div class="description">Measures AC or DC current.</div>
+                
+            </li>
+            <li>
+                <div span class="command">R?</div>
+                <div class="description">Measures AC or DC current.</div>
+            </li>
+            <li>
+                <div span class="command">FETCh?</div>
+                <div class="description">Read stored measurement data. This command will not start a new measurement.</div>
+            </li>
+            <li>
+                <div span class="command">DATA[:DATA]? &lt;data_index&gt;,&lt;data_count&gt;</div>
+                <div class="description">Read segments of stored measurements.</div>
+                <p></p>
+                <div class="description"><b>&lt;data_index&gt;</b> - data index, can be from 0 to 31,999.</div>
+                <div class="description"><b>&lt;data_count&gt;</b> - data count, can be from 1 to 32,000.</div>
+            </li>
+            <li>
+                <div span class="command">INITiate[:IMMediate]</div>
+                <div class="description">Start measurements. You can store up to 32,000 measurements in the reading memory.</div>
+                <div class="description">To retrieve the measurements from the reading memory, use <b>FETCh?</b> or <b>DATA[:DATA]?</b>.</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="command-category">
+        <h2>Configuration Commands</h2>
+        <p>Commands available in HiSLIP and RAW TCP.</p>
+        <ul class="command-list">
+            <li>
+                <div span class="command">CONFiguration:RESOLution &lt;resolution_value&gt;</div>
+                <div span class="command">CONFiguration:RESOLution?</div>
+                <div class="description">Configure the ADC resolution.</div>
+                <p></p>
+                <div class="description"><b>&lt;resolution_value&gt;</b> : &#123; 8 | 10 | 12 | 14 | 16 &#125; Default : 16</div>
+            </li>
+            <li>
+                <div span class="command">CONFiguration:SAMPling:TIME[:CYCLe] &lt;sampling_cycle&gt;</div>
+                <div span class="command">CONFiguration:SAMPling:TIME[:CYCLe]?</div>
+                <div class="description">Configure the ADC sampling time using ADC cycles.</div>
+                <p></p>
+                <div class="description"><b>&lt;sampling_cycle&gt;</b> : &#123; 1.5 | 2.5 | 8.5 | 16.5 | 32.5 | 64.5 | 387.5 | 810.5 &#125; Default : 1.5</div>
+            </li>
+            <li>
+                <div span class="command">CONFiguration:OVERSAMPling[:ENAble] &#123;OFF|ON&#125;</div>
+                <div span class="command">CONFiguration:OVERSAMPling[:ENAble]?</div>
+                <div class="description">Enable/disable the ADC oversampling function.</div>
+            </li>
+            <li>
+                <div span class="command">CONFiguration:GAIN &lt;gain&gt;</div>
+                <div span class="command">CONFiguration:GAIN?</div>
+                <div class="description">Select the analog frontend gain value.</div>
+                <p></p>
+                <div class="description"><b>&lt;gain&gt;</b> : &#123; 1 | 10 | 100 |  &#125; Default : 1</div>
+            </li>
+            <li>
+                <div span class="command">SAMPle:COUNt &#123;&lt;count&gt;|MIN|MAX|DEF&#125;</div>
+                <div span class="command">SAMPle:COUNt?</div>
+                <div class="description">Select the analog frontend gain value.</div>
+                <p></p>
+                <div class="description"><b>&lt;count&gt;</b> : From 1 to 32,000 samples. Default : 1000</div>
+                <div class="description"><b>MIN</b> : 1</div>
+                <div class="description"><b>MAX</b> : 32000</div>
+                <div class="description"><b>DEF</b> : 1000</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="command-category">
+        <h2>Calculate Commands</h2>
+        <p>Commands available in HiSLIP and RAW TCP.</p>
+        <ul class="command-list">
+            <li>
+                <div class="command">CALCulate:AVERage?</div>
+                <div class="description">Get the average value.</div>
+                <p></p>
+                <div class="description"><b style="color: #00aeff">NOTE</b> : The average will be calculated from measurements available in memory. This command will not start the measurement.
+                     The user need to call <b>INITiate[:IMMediate]</b> or <b>*TRG</b> to get the value for calculations.</div>
+            </li>
+            <li>
+                <div class="command">CALCulate:OFFSet:ENAble &#123;OFF|ON&#125;</div>
+                <div class="command">CALCulate:OFFSet:ENAble?</div>
+                <div class="description">Enable/disable offset calculation. When enabled, the calculated offset value will be subtracted from the measurements.</div>
+            </li>
+            <li>
+                <div class="command">CALCulate:OFFSet </div>
+                <div class="command">CALCulate:OFFSet?</div>
+                <div class="description">When enabled (<b>CALCulate:OFFSet:ENAble</b>) the command will start a measurement to calculate the offset value.</div>
+                <p></p>
+                <div class="description"><b style="color: red">WARNING</b> : This step will overwrite the measurement memory.</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="command-category">
+        <h2>ADC Commands</h2>
+        <p>Commands available in HiSLIP and RAW TCP.</p>
+        <ul class="command-list">
+            <li>
+                <div class="command">ADC:NULL:OFFSet:ENAble &#123;OFF|ON&#125;</div>
+                <div class="command">ADC:NULL:OFFSet:ENAble?</div>
+                <div class="description">Enable/disable the ADC offset calculation. When enabled, the calculated offset value will be subtracted from the measurements.</div>
+            </li>
+            <li>
+                <div class="command">ADC:NULL:OFFSet</div>
+                <div class="command">ADC:NULL:OFFSet?</div>
+                <div class="description">When enabled (<b>ADC:NULL:OFFSet:ENAble</b>) the ADC offset measurement is done by connecting the ADC input to ground.</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="command-category">
+        <h2>System Commands</h2>
+        <p>Commands available in HiSLIP and RAW TCP.</p>
+        <ul class="command-list">
+            <li>
+                <div class="command">SYSTem:COMMunicate:LAN:IPADdress "&lt;address&gt;"</div>
+                <div class="command">SYSTem:COMMunicate:LAN:IPADdress? [&#123;CURRent|STATic&#125;]</div>
+                <div class="description">Assings a static Internet Protocol (IP) v4 address for the device.</div>
+                <p></p>
+                <div class="description"><b>"&lt;address&gt;"</b> : "nnn.nnn.nnn.nnn" there nnn can be value from 000 to 255, for example "192.168.1.123".</div>
+            </li>
+            <li>
+                <div class="command">SYSTem:COMMunicate:LAN:SMASk "&lt;netmask&gt;"</div>
+                <div class="command">SYSTem:COMMunicate:LAN:SMASk? [&#123;CURRent|STATic&#125;]</div>
+                <div class="description">Assigns a subnet mask for the device to use in determining whether a client IPv4 address is on the same local subnet.</div>
+                <p></p>
+                <div class="description"><b>"&lt;netmask&gt;"</b> : "nnn.nnn.nnn.nnn" there nnn can be value from 000 to 255, for example "255.255.255.0".</div>
+            </li>
+            <li>
+                <div class="command">SYSTem:COMMunicate:LAN:GATEway "&lt;address&gt;"</div>
+                <div class="command">SYSTem:COMMunicate:LAN:GATEway? [&#123;CURRent|STATic&#125;]</div>
+                <div class="description">Assigns a default gateway for the device. The specified IPv4 Address sets the default gateway, which
+                    allows the instrument to communicate with systems that are not on the local subnet.</div>
+                <p></p>
+                <div class="description"><b>"&lt;address&gt;"</b> : "nnn.nnn.nnn.nnn" there nnn can be value from 000 to 255, for example "192.168.1.1".</div>
+            </li>
+            <li>
+                <div class="command">SYSTem:COMMunicate:LAN:MAC?</div>
+                <div class="description">Returns the Media Access Control (MAC) address as an ASCII string of 12 hexadecimal characters
+                    (0-9 and A-F). The output format is "XX:XX:XX:XX:XX:XX".</div>
+            </li>
+            <li>
+                <div class="command">SYSTem:COMMunicate:LAN:UPDate</div>
+                <div class="description">Write the new network configuration.</div>
+                <p></p>
+                <div class="description"><b style="color: #00aeff">NOTE</b> : The device needs to be unsecured by using the <b>SYSTem:SECure:STATe</b> command.</div>
+            </li>
+            <li>
+                <div span class="command">SYSTem:SERVice:MDNS[:ENAble] &#123;OFF|ON&#125;</div>
+                <div span class="command">SYSTem:SERVice:MDNS[:ENAble]?</div>
+                <div class="description">Enable/disable the multicast DNS (mDNS) service. The mDNS is used to autodetect device with VISA software.</div>
+                <p></p>
+                <div class="description"><b style="color: #00aeff">NOTE</b> : The device needs to be unsecured by using the <b>SYSTem:SECure:STATe</b> command. 
+                    <b>The setup will be stored in the device's EEPROM and will be permanent.</b></div>
+            </li>
+            <li>
+                <div span class="command">SYSTem:SERVice:HISLIP[:ENAble] &#123;OFF|ON&#125;</div>
+                <div span class="command">SYSTem:SERVice:HISLIP[:ENAble]?</div>
+                <div class="description">Enable/disable the High Speed LAN Instrument Protocol (HiSLIP) service. 
+                    It is a TCP/IP-based protocol for remote instrument control of LAN-based test and measurement instruments.</div>
+                <p></p>
+                <div class="description"><b style="color: #00aeff">NOTE</b> : The device needs to be unsecured by using the <b>SYSTem:SECure:STATe</b> command. 
+                    <b>The setup will be stored in the device's EEPROM and will be permanent.</b></div>
+            </li>
+            <li>
+                <div span class="command">SYSTem:SERVice:LED[:ENAble] &#123;OFF|ON&#125;</div>
+                <div span class="command">SYSTem:SERVice:LED[:ENAble]?</div>
+                <div class="description">Enable/disable the device status LED. When enabled, the LED blinks every 2 seconds with a short green light and changes
+                     to a constant blue color when SCPI commands are being handled. When disabled, the status LED remains off. Default : enabled</div>
+                <p></p>
+                <div class="description"><b style="color: #00aeff">NOTE</b> : Disable status doesn't influence <b>SYSTem:SERVice:LED:PING</b> command. This setup is not permanent.</div>
+            </li>
+            <li>
+                <div span class="command">SYSTem:SERVice:LED:PING</div>
+                <div class="description">This command will blink the status LED with a white light. It can be used to identify a device mounted in a system with other similar cards.</div>
+            </li>
+            <li>
+                <div class="command">SYSTem:ERRor[:NEXT]?</div>
+                <div class="description">This command gets error code & description.</div>
+            </li>
+            <li>
+                <div class="command">SYSTem:ERRor:COUNt?</div>
+                <div class="description">Returns the number of errors contained in the error-message buffer.</div>
+            </li>
+			 <li>
+                <div class="command">SYSTem:SERVice:RESET</div>
+                <div class="description">Perform a hardware reset of the device.</div>
+				<p></p>
+				<div class="description"><b style="color: red">WARNING</b> : The connection to the device will be lost.</div>
+			</li>
+        </ul>
+        </ul>
+    </div>
+
+    <div class="command-category">
+        <h2>Format Commands</h2>
+        <p>Format the result data.</p>
+        <ul class="command-list">
+            <li>
+                <div class="command">FORMat[:DATA] &#123;ASCii|REAL&#125;</div>
+                <div class="command">FORMat[:DATA]?</div>
+                <div class="description">Set and query the format (binary or ASCii) by which data is read.</div>
+                <p></p>
+                <div class="description"><b>ASCii</b> - data is transferred in a human-readable ASCII format.</div>
+                <div class="description"><b>REAL</b> -  data is transferred in block format. The block format consist of <b>&lt;block header&gt; &lt;block data&gt; &lt;termination&gt;</b>.</div>
+                <p></p>
+                <div class="description"><b>Block header</b></div>
+                <div class="description"> The header consists of a number of characters indicating the length of the data block. The typical format is #&lt;n&gt;&lt;nnnn...&gt;,
+                    where &lt;n&gt; is the number of digits in the length field and &lt;nnnn...&gt; is the actual length of the data block in bytes. For example : #42048</div>
+                <div class="description"> <b>#4</b>: Indicates that the length field is 4 digits long.</div>
+                <div class="description"> <b>2048</b>: Specifies that the data block is 2048 bytes long (with termination characters).</div>
+                <p></p>
+                <div class="description"><b>Block data</b></div>
+                <div class="description">Float value as 32 bit (4 bytes) hex value.</div>
+                <p></p>
+                <div class="description"><b>Termination characters</b></div>
+                <div class="description">"\n" for HiSLIP, "\r\n" for RAW TCP and UDP.</div>
+                <p></p>
+                <div class="description"><b style="color: #00aeff">NOTE</b> : The format commands influence the query commands in
+                     <b>Measurement Commands</b> and <b>UDP Commands</b> groups.</div> 
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="command-category">
+        <h2>UDP Commands</h2>
+        <p>Commands available only over RAW UDP.</p>
+        <ul class="command-list">
+            <li>
+                <div class="command">UDP:INITiate[:IMMediate]</div>
+                <div class="description">Start measurements. You can store up to 32,000 measurements in the reading memory.</div>
+                <div class="description">To retrieve the measurements from the reading memory, use <b>FETCh?</b> or <b>DATA[:DATA]?</b> in RAW TCP or HiSLIP mode. Use <b>UDP:FETCh?</b> for RAW UDP.</div>
+            </li>
+            <li>
+                <div span class="command">UDP:FETCh?</div>
+                <div class="description">Read stored measurement data. This command will not start a new measurement.</div>
+            </li>
+            <li>
+                <div span class="command">UDP:MEASure?</div>
+                <div class="description">Measures AC or DC current.</div>
+            </li>
+            <li>
+                <div span class="command">UDP:READ?</div>
+                <div class="description">Measures AC or DC current.</div>
+                
+            </li>
+            <li>
+                <div span class="command">UDP:R?</div>
+                <div class="description">Measures AC or DC current.</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="command-category">
+        <h2>Calibration Commands</h2>
+        <p>Perform device calibration.</p>
+        <ul class="command-list">
+            <li>
+                <div class="command">CALIBration:ADC:AUTO[:MODE] &#123;OFFSet|LINEARity&#125;</div>
+                <div class="description">Perform the automatic ADC calibration. The calibration is being perform automatically during power on.</div>
+                <p></p>
+                <div class="description"><b>OFFSet</b> - offset-error cancelling.</div>
+                <div class="description"><b>LINEARity</b> - compensation of capacitance mismatch.</div>
+            </li>
+            <li>
+                <div class="command">CALibration:COUNt?</div>
+                <div class="description">You can query the instrument to determine how many calibrations have been performed.
+                     This number is incremented when the calibration data is being stored in the EEPROM.</div>
+            </li>
+            <li>
+                <div class="command">CALibration:VALue &lt;value&gt;</div>
+                <div class="command">CALibration:VALue?</div>
+                <div class="description"> Input the reference value provided by a calibration standard.</div>
+                <p></p>
+                <div class="description"><b>&lt;value&gt;</b> - valid float value that corresponds to the expected measurement range of the instrument.</div>
+                <p></p>
+                <div class="description"><b style="color: #00aeff">NOTE</b> : The device needs to be unsecured by using the <b>SYSTem:SECure:STATe</b> command.</div> 
+            </li>
+            <li>
+                <div class="command">CALibration:STORe</div>
+                <div class="description">Store the calibration values to the device EEPROM.</div>
+                <p></p>
+                <div class="description"><b style="color: #00aeff">NOTE</b> : The device needs to be unsecured by using the <b>SYSTem:SECure:STATe</b> command.</div> 
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+(footprint "1710072"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 0.38 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "b31b7f30-6113-4c8c-8655-f61060c70653")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "1710072"
+		(at 0 1.88 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "0a1276da-928d-418a-89d4-f28d23b30256")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "607e6d46-e640-46b9-9d49-499c15ac10ce")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "468afd66-92bd-4e2d-99f1-fba9d8a7f5b5")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "95f36119-6605-464a-ac39-b8ee0a259505")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_rect
+		(start -10 -6.37)
+		(end 10 7.13)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill none)
+		(layer "F.SilkS")
+		(uuid "5c0d04c2-1b1b-4cd1-afe3-9dd322818eb5")
+	)
+	(fp_rect
+		(start -10.16 -6.604)
+		(end 10.16 7.366)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill none)
+		(layer "F.CrtYd")
+		(uuid "33e8714e-6553-4c4b-bae6-68b8f618a475")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 3.38 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "05771042-f2b1-4fe4-a536-9a3dd141b7c2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "" np_thru_hole custom
+		(at 0 -4.87)
+		(size 1.6 1.6)
+		(drill 1.6)
+		(layers "F&B.Cu" "*.Mask")
+		(thermal_bridge_angle 90)
+		(options
+			(clearance outline)
+			(anchor circle)
+		)
+		(primitives)
+		(uuid "f8af5841-00e9-40a8-adbe-d4c6cb67d313")
+	)
+	(pad "" np_thru_hole custom
+		(at 0 5.63)
+		(size 1.6 1.6)
+		(drill 1.6)
+		(layers "F&B.Cu" "*.Mask")
+		(thermal_bridge_angle 90)
+		(options
+			(clearance outline)
+			(anchor circle)
+		)
+		(primitives)
+		(uuid "86619ee7-3cdb-4f54-90d8-53068c56ccb6")
+	)
+	(pad "1" thru_hole rect
+		(at -4.76 -1.27)
+		(size 3 3)
+		(drill 1.4)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "afb219ef-2a22-4e1f-af54-dbe13c5cf19d")
+	)
+	(pad "2" thru_hole circle
+		(at 4.76 -1.27)
+		(size 3 3)
+		(drill 1.4)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "5763156f-52ee-4f40-ba68-b1579c57b018")
+	)
+	(model "${KIPRJMOD}/lib/3D/1710072.stp"
+		(offset
+			(xyz -9.5 -6.6 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

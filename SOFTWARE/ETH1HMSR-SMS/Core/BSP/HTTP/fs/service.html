@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE11" />
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+    <title>SERVICE</title>
+    <style>
+        body{
+            margin-top: 30px;
+            margin-left: 70px;
+            background-color: rgb(90, 41, 41);
+        }
+        table {
+            width: 65%;
+            border-collapse: collapse;
+            margin: 15px;
+        }
+        td {
+            border: 1px solid #fff; /* Set border color to white */
+            padding: 6px;
+            text-align: left;
+            font-family: Helvetica,Arial,Times;
+            background-color: #f6f5f5;
+        }
+        .first-column {
+            background-color:  #232324;
+            color: #f2f2f2;
+            font-weight: bold;
+            font-family: Helvetica,Arial,Times;
+            width: 35%;
+        }
+
+        textarea {
+
+            outline: 1px;
+            resize: none;
+            width: 50%;
+            background-color: #f2f2f2;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-family: Helvetica,Arial,Times;
+            font-weight: bold;
+        }
+        .t-scroller {
+            display:inline-block;
+            clear:both;
+        }
+        .valid {
+            background-color: lightgreen;
+        }
+        .invalid {
+            background-color: lightcoral;
+        }
+</style>   
+
+<script>
+    
+    let secure = true;
+    let valid = "VALID"
+
+    function onLoad(){
+
+            getLoginStatus();
+            toggleTable(secure);
+
+    }
+
+
+    function postPassword(){
+
+        var passwrd = document.getElementById("servicePassword").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/service_login', true);
+
+        xhr.send(passwrd);
+        getLoginStatus();
+    }
+
+    function getLoginStatus(){
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/service_login_status', true);
+
+        xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+
+            if (xhr.status === 200) {
+
+                if(xhr.responseText == "VALID")
+                {
+                    secure = false;
+                    toggleTable(false);
+                }
+                else
+                {
+                    secure = true;
+                    toggleTable(true);
+                }
+            }
+        }
+        
+      }
+      xhr.send();
+    }
+
+    function toggleTable(table_status) {
+            var table = document.getElementById("serviceTable");
+            var textareas = table.getElementsByTagName("textarea");
+            var buttons = table.getElementsByTagName('button');
+            for (var i = 0; i < textareas.length; i++) {
+                textareas[i].disabled = table_status;
+            }
+
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].disabled = table_status;
+            }
+            document.getElementById("nominalCurrent").disabled = table_status;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const timestamp = Math.floor(Date.now()/ 1000);
+           // const macAddress = generateMACAddress(timestamp);
+            document.getElementById('macAddress').value = generateMACAddress(timestamp);
+            document.getElementById('SerialNumber').value = getCurrentDateToHex();
+            
+        });
+
+        function generateMACAddress(timestamp) {
+            // Use the timestamp to create a pseudo-random MAC address
+            let hexTimestamp = timestamp.toString(16);
+            while (hexTimestamp.length < 8) {
+                hexTimestamp = '0' + hexTimestamp;
+            }
+
+            // Format the hex string into MAC address format
+            let macAddress = '03:47:' + hexTimestamp.slice(0, 2) + ':' + hexTimestamp.slice(2, 4) + ':' + hexTimestamp.slice(4, 6) + ':' + hexTimestamp.slice(6, 8);
+            
+            return macAddress.substring(0, 17); // Ensure the MAC address is 17 characters long
+        }
+
+        function convertDateToHex() {
+            const dateInput = document.getElementById('dateInput').value;
+            if (!/^\d{12}$/.test(dateInput)) {
+                alert('Please enter a valid date in the format YYMMDDHHMMSS.');
+                return;
+            }
+
+            // Split the date string into its components
+            const year = dateInput.slice(0, 2);
+            const month = dateInput.slice(2, 4);
+            const day = dateInput.slice(4, 6);
+            const hour = dateInput.slice(6, 8);
+            const minute = dateInput.slice(8, 10);
+            const second = dateInput.slice(10, 12);
+
+            // Convert each component to its hexadecimal representation
+            const hexYear = parseInt(year, 10).toString(16).padStart(2, '0');
+            const hexMonth = parseInt(month, 10).toString(16).padStart(2, '0');
+            const hexDay = parseInt(day, 10).toString(16).padStart(2, '0');
+            const hexHour = parseInt(hour, 10).toString(16).padStart(2, '0');
+            const hexMinute = parseInt(minute, 10).toString(16).padStart(2, '0');
+            const hexSecond = parseInt(second, 10).toString(16).padStart(2, '0');
+
+            // Concatenate all hexadecimal components
+            const hexDate = hexYear + hexMonth + hexDay + hexHour + hexMinute + hexSecond;
+
+            // Display the hexadecimal date in the textarea
+            document.getElementById('SerialNumber').value = hexDate;
+        }
+
+        function getCurrentDateToHex() {
+            const now = new Date();
+            const year = String(now.getFullYear()).slice(2); // Get last two digits of the year
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+            const day = String(now.getDate()).padStart(2, '0');
+            const hour = String(now.getHours()).padStart(2, '0');
+            const minute = String(now.getMinutes()).padStart(2, '0');
+            const second = String(now.getSeconds()).padStart(2, '0');
+
+            // Concatenate all components into a single number string
+            const dateNumberStr = year + month + day + hour + minute + second;
+            
+            // Convert the string to a number
+            const dateNumber = BigInt(dateNumberStr);
+
+            // Convert the number to a hexadecimal string
+            const hexDate = dateNumber.toString(16).toUpperCase();
+
+            return hexDate;
+        }
+
+        function validateMAC(textID) {
+            const macAddress = document.getElementById(textID);
+            const macAddressValue = document.getElementById(textID).value.trim();
+            const status = false;
+            // Regular expression to match MAC address in standard formats
+            const macRegex = /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/;
+
+            if (macRegex.test(macAddressValue)) {
+                macAddress.classList.remove('invalid');
+                macAddress.classList.add('valid');
+                return true;
+            } else {
+                macAddress.classList.remove('valid');
+                macAddress.classList.add('invalid');
+                return false;
+            }
+        }
+
+        function validateSerialNumber(textID) {
+            const hexSN = document.getElementById(textID);
+            const hexValue = document.getElementById(textID).value.trim();
+
+            // Regular expression to match exactly 10 hexadecimal characters
+            const hexRegex = /^[0-9A-Fa-f]{10}$/;
+
+            if (hexRegex.test(hexValue)) {
+                hexSN.classList.remove('invalid');
+                hexSN.classList.add('valid');
+                return true;
+            } else {
+                hexSN.classList.remove('valid');
+                hexSNs.classList.add('invalid');
+                return false;
+            }
+        }
+
+        function Service(){
+            const statusMAC = validateMAC('macAddress');
+            const statusSN = validateSerialNumber('SerialNumber');
+
+            if(statusMAC  && statusSN)
+            {
+                postServiceData();
+            }
+        }
+
+        function postServiceData(){
+            const ids = ["macAddress", "SerialNumber", "nominalCurrent", "save_to_eeprom"];
+            ids.forEach(id => {
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", id, true);
+            if(id != "save_to_eeprom")
+            {
+                xhr.send(document.getElementById(id).value);
+            }
+            else
+            {
+                xhr.send();
+            }
+            
+            
+            });
+        }
+
+        function onNumberSelect() {
+            var selectedValue = document.getElementById("nominalCurrent").value;
+
+            if(secure == 'false')
+            {
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", '/nominal_current', true);
+                xhr.send(selectedValue);
+            }
+        }
+
+        function resetDevice()
+        {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/service_reset', true);
+            xhr.send();
+        }   
+</script>
+
+</head>
+    <body onload = "onLoad()">
+        <h2>UNLOCK DEVICE</h2>
+        <table >
+            <tbody  >
+                <tr>
+                    <td class="first-column">Password: </td>
+                    <td class="second-column"><div>
+                        <input type="password" id="servicePassword" width="100%"/>
+                      </div></textarea></td>
+                </tr>
+                <tr>
+                    <td class="first-column"> </td>
+                    <td class="second-column"><button onclick="postPassword()" id="passwordButton" >Send</button></td>
+                </tr>
+            </tbody>
+        </table> 
+        <p style="margin-bottom: 25px;"></p>
+        <h2>SERVICE</h2>
+        <p style="color: #ffffff;">The MAC and Serial Number are generated automatically by reloading the page.</p>
+        <table id="serviceTable">
+            <tbody>
+                <tr>
+                    <td class="first-column">MAC: </td>
+                    <td class="second-column"><textarea  id="macAddress" cols="20" rows="1"></textarea>
+                        <p style="font-size: small;"> The MAC address is generated as follows : the first two octatec are fixed (03:47), the rest are is the unix timestamp converter to a HEX number.</p></td>
+                </tr>
+                <tr>
+                    <td class="first-column">Serial Number: </td>
+                    <td class="second-column"><textarea  id="SerialNumber" cols="20" rows="1"></textarea>
+                        <p style="font-size: small;"> The Serial Number is generated as follows : it is the date in format YYMMDDHHMMSS converted to a HEX number.</p></td>
+                </tr>
+                <tr>
+                    <td class="first-column">HMSR-SMS Nominal Current: </td>
+                    <td class="second-column">
+                        <select style="width: 51%;" id="nominalCurrent" onchange="onNumberSelect()">
+                            <option selected value="6">6</option>
+                            <option value="8">8</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                        </select>
+                        <p style="font-size: small;">The Nominal Current selection on the mounted HMSR-SMS sensor. It is on the housing.</p></td>
+                <tr>
+                    <td class="first-column">Update Configuration: </td>
+                    <td class="second-column"><button id="ServiceButton" onclick="Service()">Send</button></td>
+                </tr>
+                <tr>
+                    <td style="background-color: red;"  class="first-column">Reset Device: </td>
+                    <td class="second-column" ><button  id="setup_reset_button" onclick="resetDevice()">Send</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

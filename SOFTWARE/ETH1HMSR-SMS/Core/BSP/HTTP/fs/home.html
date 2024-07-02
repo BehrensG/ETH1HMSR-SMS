@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE11" />
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    <style>
+        body{
+            margin-top: 30px;
+            margin-left: 70px;
+        }
+        table {
+            width: 65%;
+            border-collapse: collapse;
+            margin: 15px;
+        }
+        td {
+            border: 1px solid #fff; /* Set border color to white */
+            padding: 6px;
+            text-align: left;
+            font-family: Helvetica,Arial,Times;
+        }
+        .first-column {
+            background-color:  #558093;
+            color: #f2f2f2;
+            font-weight: bold;
+            font-family: Helvetica,Arial,Times;
+            width: 35%;
+        }
+
+        tr:nth-child(odd) .second-column {
+            background-color: #f5f4f4; /* Grey background for odd rows in the second column */
+            
+        }
+        textarea {
+            width: 100%;
+            border: none;
+            outline: none;
+            resize: none;
+            background-color: inherit;
+        }
+
+        h2 {
+            color: #558093;
+            font-family: Helvetica,Arial,Times;
+            font-weight: bold;
+        }
+        .t-scroller {
+             display:inline-block;
+             clear:both;
+        }
+</style>
+
+</head>
+
+<script>
+
+	
+    function onLoad(){
+        const ids = ["info_instr", "info_sn" , "info_descr", "info_ipv4", "info_netmask",
+                    "info_gateway", "info_mac","info_visa", "info_mdix", "info_mdns", "info_udp", "info_nom_current", "info_meas_range"];
+        ids.forEach(id => {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", id, true);  // Modify the URL according to your needs
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    document.getElementById(id).value = xhr.responseText;
+                }
+            }
+        };
+
+        xhr.send();
+        });
+    }
+
+</script>
+
+    <body onload = "onLoad()">
+        <h2>DEVICE INFORMATION</h2>
+        <table>
+            <tbody style="max-width: 100px">
+                <tr>
+                    <td class="first-column">Instrument: </td>
+                    <td class="second-column"><textarea  id="info_instr" cols="20" rows="1"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="first-column">Serial Number:</td>
+                    <td class="second-column"><textarea readonly id="info_sn" cols="20" rows="1"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="first-column">Description: </td>
+                    <td class="second-column"><textarea readonly id="info_descr" cols="20" rows="1"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="first-column">IP Address:</td>
+                    <td class="second-column"><textarea readonly id="info_ipv4" cols="20" rows="1"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="first-column">Subnet Mask: </td>
+                    <td class="second-column"><textarea readonly id="info_netmask" cols="20" rows="1"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="first-column">Default Gateway: </td>
+                    <td class="second-column"><textarea readonly id="info_gateway" cols="20" rows="1"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="first-column">MAC Address:</td>
+                    <td class="second-column"><textarea readonly id="info_mac" cols="20" rows="1"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="first-column">VISA Resource String:</td>
+                    <td class="second-column"><textarea readonly id="info_visa" cols="20" rows="2"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="first-column">Auto-MDIX Capable:</td>
+                    <td class="second-column"><textarea readonly id="info_mdix" cols="20" rows="1"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="first-column">mDNS:</td>
+                    <td class="second-column"><textarea readonly id="info_mdns" cols="20" rows="1"></textarea></td>
+                </tr>
+            </tbody>
+
+
+            
+        </table>
+        <p style="margin-bottom: 25px;"></p>
+        <table>
+            <tbody >
+                <tr>
+                    <td class="first-column">UDP Port: </td>
+                    <td class="second-column"><textarea readonly id="info_udp" cols="20" rows="1"></textarea></td>
+                </tr>
+            </tbody>
+        </table> 
+        <p style="margin-bottom: 25px;"></p>
+        <table>
+            <tbody >
+                <tr>
+                    <td class="first-column">Nominal Current [A]: </td>
+                    <td class="second-column"><textarea readonly id="info_nom_current" cols="20" rows="1"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="first-column">Measurement Current Range [A]: </td>
+                    <td class="second-column"><textarea readonly id="info_meas_range" cols="20" rows="1"></textarea></td>
+                </tr>
+
+            </tbody>
+        </table> 
+        <p style="margin-bottom: 25px;"></p>
+        <img src="img/instrument.png" alt="ETH1HMSR-SMS" style="width:auto; height:auto;">
+    </body>
+
+</html>

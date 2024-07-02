@@ -1,0 +1,5 @@
+../Core/BSP/Src/SCPI_Math.c:20:15:SCPI_MathOffsetEnable	2
+../Core/BSP/Src/SCPI_Math.c:33:15:SCPI_MathOffsetEnableQ	1
+../Core/BSP/Src/SCPI_Math.c:42:14:MATH_Average	2
+../Core/BSP/Src/SCPI_Math.c:57:15:SCPI_MathOffset	3
+../Core/BSP/Src/SCPI_Math.c:107:15:SCPI_MathOffsetQ	3

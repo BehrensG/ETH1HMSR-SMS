@@ -1,0 +1,5 @@
+../Core/BSP/Src/SCPI_Math.c:20:15:SCPI_MathOffsetEnable	24	static
+../Core/BSP/Src/SCPI_Math.c:33:15:SCPI_MathOffsetEnableQ	16	static
+../Core/BSP/Src/SCPI_Math.c:42:14:MATH_Average	32	static
+../Core/BSP/Src/SCPI_Math.c:57:15:SCPI_MathOffset	24	static
+../Core/BSP/Src/SCPI_Math.c:107:15:SCPI_MathOffsetQ	32	static

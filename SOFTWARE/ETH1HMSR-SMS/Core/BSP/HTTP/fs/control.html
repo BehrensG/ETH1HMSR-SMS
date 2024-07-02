@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE11" />
+    <meta charset="UTF-8">
+    <title>CONTROL</title>
+    <style>
+        body{
+            margin-top: 30px;
+            margin-left: 70px;
+        }
+        table {
+            width: 65%;
+            border-collapse: collapse;
+            margin: 15px;
+        }
+        td {
+            border: 1px solid #fff; /* Set border color to white */
+            padding: 6px;
+            text-align: left;
+            font-family: Helvetica,Arial,Times;
+        }
+        .first-column {
+            background-color:  #558093;
+            color: #f2f2f2;
+            font-weight: bold;
+            font-family: Helvetica,Arial,Times;
+            width: 35%;
+        }
+
+        tr:nth-child(odd) .second-column {
+            background-color: #f5f4f4; /* Grey background for odd rows in the second column */
+            vertical-align:middle;
+                        
+        }
+        textarea {
+
+            outline: 1px;
+            resize: none;
+            width: 50%;
+            background-color: inherit;
+            vertical-align:middle;
+        }
+
+        h2 {
+            color: #558093;
+            font-family: Helvetica,Arial,Times;
+            font-weight: bold;
+        }
+        .t-scroller {
+             display:inline-block;
+             clear:both;
+        }
+
+        .valid {
+            background-color: lightgreen;
+        }
+        .invalid {
+            background-color: lightcoral;
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: left;
+            flex-direction: column;
+            margin: 20px;
+        }
+        .chart {
+            border: 1px solid #ccc;
+            width: 95%;
+            height: 500px;
+        }
+        .chart text {
+            font-size: 12px;
+            fill: #333;
+        }
+        .chart line {
+            stroke: #ccc;
+        }
+        .chart path {
+            fill: none;
+            stroke: steelblue;
+            stroke-width: 2;
+        }
+
+        .toggle-button {
+            padding: 5px 5px;
+
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .toggled {
+            background-color: #28a745;
+        }
+
+</style>
+
+</head>
+
+<script>
+    
+    function onLoad(){
+        const ids = ["ctr_resolution", "ctr_sampling_time", "ctr_oversampling_ratio", "ctr_gain", "ctr_sample_count", "ctr_led_status"];
+        ids.forEach(id => {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", id, true);  // Modify the URL according to your needs
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        if("ctr_led_status" != id)
+                        {
+                            document.getElementById(id).value = xhr.responseText;
+                        }
+                        else
+                        {
+                            if("ON" == xhr.responseText)
+                            {
+                                setButtonOn();
+                            }
+                            else
+                            {
+                                setButtonOff();
+                            }
+                        }
+                        
+                    }
+                }
+            };
+
+            xhr.send();
+        });
+    }
+
+    function blinkLED(){
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/ctr_blink_led', true);
+
+        xhr.send();
+    }
+
+    const validResolution = ['8', '10', '12', '14', '16'];
+    const validSamplingTime = ['1.5', '2.5', '8.5', '16.5', '32.5', '64.5', '387.5', '810.5'];
+    const validGain = ['1', '10', '100'];
+    const validOversampling = ['0', '1', '2', '4', '8', '16', '32', '64', '128', '256', '512', '1024'];
+
+    function validateValueList(textID, allowedValues) {
+            const textarea = document.getElementById(textID);
+            const textareaValue = textarea.value;
+            
+            const items = textareaValue.split(',').map(item => item.trim());
+
+            const allValid = items.every(item => allowedValues.includes(item));
+
+
+            if (allValid) {
+                textarea.classList.remove('invalid');
+                textarea.classList.add('valid');
+                postDeviceValue(textID);
+
+            } else {
+                textarea.classList.remove('valid');
+                textarea.classList.add('invalid');
+            }
+        }
+
+        function validateValueRange(textID, min, max) {
+            const textarea = document.getElementById(textID);
+            const textareaValue = textarea.value;
+            const numValue = parseInt(textareaValue);
+            
+            if (numValue >= min && numValue <= max) {
+                textarea.classList.remove('invalid');
+                textarea.classList.add('valid');
+                postDeviceValue(textID);
+
+            } else {
+                textarea.classList.remove('valid');
+                textarea.classList.add('invalid');
+            }
+        }
+
+        function postDeviceValue(textID)
+        {
+            var value = document.getElementById(textID).value;
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/' + textID, true);
+
+            xhr.send(value);
+        }
+
+        function getAverage()
+        {
+            const ids = ["ctr_read_average"];
+            ids.forEach(id => {
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", id, true);  // Modify the URL according to your needs
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            document.getElementById(id).value = xhr.responseText;
+                        }
+                    }
+                };
+
+                xhr.send();
+            });
+        }
+
+
+        function fetchAndDraw() {
+            var xhr = new XMLHttpRequest();
+            var url = '/measurements'; // Replace with your actual data endpoint URL
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    var data = xhr.responseText.split(',').map(Number); // Convert comma-separated string to an array of numbers
+                    drawGraph(data); // Call function to draw graph
+                } else {
+                    console.error('Failed to fetch data');
+                }
+                }
+            };
+
+            xhr.open('GET', url, true);
+            xhr.send();
+        }
+
+    function drawGraph(data) {
+        var svg = document.getElementById('measurementGraph');
+        svg.innerHTML = ''; // Clear SVG content
+
+        // Calculate maximum and minimum values for scaling
+        var maxValue = Math.max(...data);
+        var minValue = Math.min(...data);
+
+        // Define graph dimensions and margins
+        var svgWidth = svg.clientWidth;
+        var svgHeight = svg.clientHeight;
+        var graphWidth = svgWidth - 100;
+        var graphHeight = svgHeight - 100;
+        var marginLeft = 50;
+        var marginBottom = 50;
+
+        // Draw x and y axes
+        var axis = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        axis.setAttribute('x1', marginLeft);
+        axis.setAttribute('y1', marginBottom);
+        axis.setAttribute('x2', marginLeft);
+        axis.setAttribute('y2', svgHeight - marginBottom);
+        axis.setAttribute('stroke', 'black');
+        svg.appendChild(axis);
+
+        axis = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        axis.setAttribute('x1', marginLeft);
+        axis.setAttribute('y1', svgHeight - marginBottom);
+        axis.setAttribute('x2', svgWidth - marginLeft);
+        axis.setAttribute('y2', svgHeight - marginBottom);
+        axis.setAttribute('stroke', 'black');
+        svg.appendChild(axis);
+
+        // Draw x and y axis labels
+        var label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        label.setAttribute('x', svgWidth / 2);
+        label.setAttribute('y', svgHeight - 10);
+        label.textContent = 'Samples';
+        svg.appendChild(label);
+
+        label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        label.setAttribute('x', 10);
+        label.setAttribute('y', 20);
+        label.textContent = 'Current[A]';
+        svg.appendChild(label);
+
+        // Draw numeric labels on the y axis
+        var numYLabels = 5;
+        for (var i = 0; i <= numYLabels; i++) {
+            var yValue = minValue + i * (maxValue - minValue) / numYLabels;
+            var y = svgHeight - marginBottom - i * graphHeight / numYLabels;
+            var yLabel = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            yLabel.setAttribute('x', marginLeft - 10);
+            yLabel.setAttribute('y', y + 5); // Adjust for vertical centering
+            yLabel.setAttribute('text-anchor', 'end');
+            yLabel.textContent = yValue.toFixed(2);
+            svg.appendChild(yLabel);
+        }
+
+        // Draw numeric labels on the x axis
+        var numXLabels = 10; // Adjust based on the granularity you want
+        for (var j = 0; j <= numXLabels; j++) {
+            var xValue = j * (data.length - 1) / numXLabels;
+            var x = marginLeft + j * graphWidth / numXLabels;
+            var xLabel = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            xLabel.setAttribute('x', x);
+            xLabel.setAttribute('y', svgHeight - marginBottom + 20); // Adjust for vertical positioning
+            xLabel.setAttribute('text-anchor', 'middle');
+            xLabel.textContent = xValue.toFixed(0);
+            svg.appendChild(xLabel);
+        }
+
+        // Draw data points
+        var numPoints = data.length;
+        var xIncrement = graphWidth / (numPoints - 1);
+        var yIncrement = graphHeight / (maxValue - minValue);
+
+        var points = [];
+
+        for (var i = 0; i < numPoints; i++) {
+            var x = marginLeft + i * xIncrement;
+            var y = svgHeight - marginBottom - (data[i] - minValue) * yIncrement;
+            points.push(`${x},${y}`);
+        }
+
+        var polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+        polyline.setAttribute('points', points.join(' '));
+        polyline.setAttribute('stroke', 'blue');
+        polyline.setAttribute('fill', 'none');
+        svg.appendChild(polyline);
+    }
+
+    function toggleFunction() {
+        var button = document.getElementById("toggleBtn");
+        button.classList.toggle("toggled");
+        if (button.classList.contains("toggled")) {
+            button.innerText = "STATUS LED ON";
+            postLEDValue("ON");
+        } else {
+            button.innerText = "STATUS LED OFF";
+            postLEDValue("OFF");
+        }
+    }
+
+    function setButtonOn() {
+        var button = document.getElementById("toggleBtn");
+        button.classList.add("toggled");
+        button.innerText = "STATUS LED ON";
+    }
+
+    function setButtonOff() {
+        var button = document.getElementById("toggleBtn");
+        button.classList.remove("toggled");
+        button.innerText = "STATUS LED OFF";
+    }
+
+    function postLEDValue(value)
+        {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/ctr_led_status', true);
+
+            xhr.send(value);
+        }
+
+</script>
+
+    <body onload = "onLoad()">
+        <h2>DEVICE CONTROL</h2>
+        <table>
+            <tbody style="max-width: 100px">
+
+                <tr>
+                    <td class="first-column">Status LED Control: </td>
+                    <td class="second-column"><button class="toggle-button" id="toggleBtn" onclick="toggleFunction()">LED STATUS</button>
+                        <p style="font-size: small;">Enable/disable the status LED. NOTE: The "Blink Status LED" function will still work.</p></td>
+                </tr>
+                <tr>
+                    <td class="first-column"> Blink Status LED: </td>
+                    <td class="second-column"><button id="ctr_blink_led" onclick="blinkLED()">Blink Identify</button>
+                        <p style="font-size: small;">Blinks the status LED.</p></td>
+                </tr>
+               
+            </tbody>
+        </table>
+        <p style="margin-bottom: 25px;"></p>
+        <table>
+            <tbody style="max-width: 100px">
+ 
+                <tr>
+                    <td class="first-column">Resolution: </td>
+                    <td class="second-column"><textarea  id="ctr_resolution" cols="20" rows="1"></textarea>
+                        <button style="margin-left: 20px;" id="button_resolution" onclick="validateValueList('ctr_resolution', validResolution)">Send</button>
+                        <p style="font-size: small;">Valid values: 8, 10, 12, 14, 16 .</p></td>
+                </tr>
+                <tr>
+                    <td class="first-column">Sampling Time: </td>
+                    <td class="second-column"><textarea  id="ctr_sampling_time" cols="20" rows="1"></textarea>
+                        <button style="margin-left: 20px;" id="button_sampling_time" onclick="validateValueList('ctr_sampling_time', validSamplingTime)">Send</button>
+                        <p style="font-size: small;">Valid values: 1.5, 2.5, 8.5, 16.5, 32.5, 64.5, 387.5, 810.5 . The values are in cycles not in time domain.</p></td>
+                </tr>
+                <tr>
+                    <td class="first-column">Oversampling Ratio: </td>
+                    <td class="second-column"><textarea  id="ctr_oversampling_ratio" cols="20" rows="1"></textarea>
+                        <button style="margin-left: 20px;" id="button_oversampling_ratio" onclick="validateValueList('ctr_oversampling_ratio', validOversampling)">Send</button>
+                        <p style="font-size: small;">Valid values: 0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024. 0 - oversampling disabled.</p></td>
+                </tr>
+                <tr>
+                    <td class="first-column">Gain: </td>
+                    <td class="second-column"><textarea  id="ctr_gain" cols="20" rows="1"></textarea>
+                        <button style="margin-left: 20px;" id="button_gain" onclick="validateValueList('ctr_gain', validGain)">Send</button>
+                        <p style="font-size: small;">Valid values: 1, 10, 100 . Analog front-end gain selection.</p></td>
+                </tr>
+                <tr>
+                    <td class="first-column">Sample Count: </td>
+                    <td class="second-column"><textarea  id="ctr_sample_count" cols="20" rows="1"></textarea>
+                        <button style="margin-left: 20px;" id="button_sample_count" onclick="validateValueRange('ctr_sample_count',1,32000)">Send</button>
+                        <p style="font-size: small;">Valid values: 1 - 32000 . Number of measurements that are stored in the internal memory.</p></td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="margin-bottom: 25px;"></p>
+        <h2>MEASUREMENTS</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <td class="first-column">Average: </td>
+                    <td class="second-column"><textarea readonly id="ctr_read_average" cols="20" rows="1"></textarea>
+                        <button style="margin-left: 20px;" id="button_average" onclick="getAverage()">Get Value</button></td>
+             
+                </tr>
+                <tr>
+                    <td class="first-column"> Measurements: </td>
+                    <td class="second-column"><button  onclick="fetchAndDraw()">Get Values</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="chart-container">
+            <svg class="chart" id="measurementGraph"></svg>
+        </div>
+    </body>
+
+</html>

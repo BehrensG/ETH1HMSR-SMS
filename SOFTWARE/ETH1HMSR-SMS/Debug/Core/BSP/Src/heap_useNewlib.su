@@ -1,0 +1,13 @@
+C:\ST\STM32CubeIDE_1.11.2\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/reent.h:154:14:_sbrk_r	24	static
+../Core/BSP/Src/heap_useNewlib.c:194:8:sbrk	16	static
+../Core/BSP/Src/heap_useNewlib.c:196:8:_sbrk	16	static
+C:\ST\STM32CubeIDE_1.11.2\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/malloc.h:136:13:__malloc_lock	32	static,ignoring_inline_asm
+C:\ST\STM32CubeIDE_1.11.2\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/malloc.h:138:13:__malloc_unlock	16	static
+../Core/BSP/Src/heap_useNewlib.c:222:6:__env_lock	8	static
+../Core/BSP/Src/heap_useNewlib.c:223:6:__env_unlock	8	static
+../Core/BSP/Src/heap_useNewlib.c:232:9:__wrap_malloc	24	static
+../Core/BSP/Src/heap_useNewlib.c:241:9:__wrap__malloc_r	24	static
+../Core/BSP/Src/heap_useNewlib.c:256:7:pvPortMalloc	24	static
+../Core/BSP/Src/heap_useNewlib.c:260:6:vPortFree	16	static
+../Core/BSP/Src/heap_useNewlib.c:264:8:xPortGetFreeHeapSize	48	static
+../Core/BSP/Src/heap_useNewlib.c:273:6:vPortInitialiseBlocks	4	static
