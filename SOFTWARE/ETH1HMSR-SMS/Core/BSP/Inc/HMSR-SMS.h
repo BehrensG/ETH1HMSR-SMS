@@ -11,6 +11,8 @@
 #include "stdbool.h"
 #include "main.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 void HMSR_SMS_Init();
 float HMSR_SMS_MeasuringRange(uint8_t nominal_current);
 bool HMSR_SMS_CheckNominalCurrent(uint8_t value);

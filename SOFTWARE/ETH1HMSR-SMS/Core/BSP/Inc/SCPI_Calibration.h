@@ -10,6 +10,8 @@
 
 #include "scpi/scpi.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 scpi_result_t SCPI_CalibrationCountQ(scpi_t * context);
 scpi_result_t SCPI_CalibrationStore(scpi_t * context);
 scpi_result_t SCPI_CalibrationValue(scpi_t * context);

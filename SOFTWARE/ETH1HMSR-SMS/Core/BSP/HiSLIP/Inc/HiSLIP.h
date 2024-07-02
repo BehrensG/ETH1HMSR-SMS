@@ -12,6 +12,8 @@
 #include "ip_addr.h"
 #include "err.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #define HISLIP_INITIALIZE									(uint8_t)0
 #define HISLIP_INITIALIZE_RESPONSE							(uint8_t)1
 #define	HISLIP_FATAL_ERROR									(uint8_t)2
@@ -52,13 +54,17 @@
 #define HISLIP_AUTHENTICATION_EXCHANGE						(uint8_t)37
 #define HISLIP_AUTHENTICATION_RESULT						(uint8_t)38
 
-#define HISLIP_PROLOGUE									0x4853
-// TBD
-#define HISLIP_VENDOR_ID								0x1111
-#define HISLIP_MAX_DATA_SIZE							102400
-#define HISLIP_BUFFER_SIZE								1024
+// --------------------------------------------------------------------------------------------------------------------
 
-#define HISLIP_LINE_ENDING								"\n"
+#define HISLIP_PROLOGUE										0x4853
+// TBD
+#define HISLIP_VENDOR_ID									0x1111
+#define HISLIP_MAX_DATA_SIZE								102400
+#define HISLIP_BUFFER_SIZE									1024
+
+#define HISLIP_LINE_ENDING									"\n"
+
+// --------------------------------------------------------------------------------------------------------------------
 
 typedef enum
 {
@@ -105,6 +111,7 @@ typedef enum
 
 }hislip_msg_type_t;
 
+// --------------------------------------------------------------------------------------------------------------------
 
 typedef enum {
 
@@ -116,6 +123,7 @@ typedef enum {
 	FEER_SECURE_CONNECTION_FAILED
 }hislip_fatal_error_t;
 
+// --------------------------------------------------------------------------------------------------------------------
 
 typedef enum {
 
@@ -127,6 +135,8 @@ typedef enum {
 	ERR_AUTH_FAILED
 
 }hislip_error_t;
+
+// --------------------------------------------------------------------------------------------------------------------
 
 #pragma pack(push, 1)
 
@@ -147,16 +157,20 @@ typedef struct
 
 #pragma pack(pop)
 
+// --------------------------------------------------------------------------------------------------------------------
 
 typedef struct {
 	struct netconn* newconn;
 }hislip_netconn_t;
+
+// --------------------------------------------------------------------------------------------------------------------
 
 typedef struct {
 	char data[sizeof(hislip_msg_t) + HISLIP_BUFFER_SIZE];
 	uint16_t len;
 }hislip_netbuf_t;
 
+// --------------------------------------------------------------------------------------------------------------------
 
 typedef struct {
 	hislip_msg_t msg;
@@ -166,9 +180,11 @@ typedef struct {
 	char end[2];
 }hislip_instr_t;
 
+// --------------------------------------------------------------------------------------------------------------------
 
 
 // SUPPORT Functions
+// --------------------------------------------------------------------------------------------------------------------
 
 void hislip_Init(hislip_instr_t* hislip_instr);
 void hislip_htonl(hislip_msg_t* hislip_msg);
@@ -177,7 +193,9 @@ void hislip_CopyMemory(char* destination, void** sources, size_t* sizes, uint32_
 hislip_msg_t hislip_MsgParser(hislip_instr_t* hislip_instr);
 void hislip_DataHeader(hislip_instr_t* hislip_instr, hislip_msg_t* msg, uint8_t msg_type, uint32_t size);
 
+
 // SYNC Commands
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_InitializeResponse(hislip_instr_t* hislip_instr);
 int8_t hislip_DataEnd(hislip_instr_t* hislip_instr);
@@ -186,7 +204,9 @@ int8_t hislip_Trigger(hislip_instr_t* hislip_instr);
 int8_t hislip_DeviceClearAcknowledge(hislip_instr_t* hislip_instr);
 int8_t hislip_Interrupted(hislip_instr_t* hislip_instr);
 
+
 // ASYNC Commands
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_AsyncMaximumMessageSizeResponse(hislip_instr_t* hislip_instr);
 int8_t hislip_AsyncInitializeResponse(hislip_instr_t* hislip_instr);
@@ -201,6 +221,7 @@ int8_t hislip_AsyncStatusResponse(hislip_instr_t* hislip_instr);
 
 
 // EITHER Sync or aSync
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_Error(hislip_instr_t* hislip_instr);
 int8_t hislip_FatalError(hislip_instr_t* hislip_instr);

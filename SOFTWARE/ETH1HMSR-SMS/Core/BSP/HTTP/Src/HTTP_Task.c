@@ -4,6 +4,9 @@
  *  Created on: Jun 13, 2024
  *      Author: grzegorz
  */
+
+// --------------------------------------------------------------------------------------------------------------------
+
 #include <string.h>
 #include <stdbool.h>
 
@@ -12,9 +15,11 @@
 #include "LED.h"
 #include "HTTP_Task.h"
 
+// --------------------------------------------------------------------------------------------------------------------
 
 extern bsp_t bsp;
 
+// --------------------------------------------------------------------------------------------------------------------
 
 const char http_valid_response[] =
     "HTTP/1.1 200 OK\r\n"
@@ -25,6 +30,9 @@ const char http_forbidden_response[] =
     "HTTP/1.1 403 Forbidden\r\n"
     "Content-Type: text/plain\r\n"
     "Content-Length: 0\r\n\r\n";
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 char* http_post_data(char* buf, u16_t buflen, u16_t* post_data_len)
 {
@@ -41,6 +49,9 @@ char* http_post_data(char* buf, u16_t buflen, u16_t* post_data_len)
 
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 s32_t http_header(const char* buf,const http_cmd_t cmd[], size_t size)
 {
 
@@ -55,6 +66,8 @@ s32_t http_header(const char* buf,const http_cmd_t cmd[], size_t size)
 	return -1;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 bool http_string_to_ip4(const char *ip_string, uint8_t *ip_array)
 {
@@ -86,6 +99,9 @@ bool http_string_to_ip4(const char *ip_string, uint8_t *ip_array)
 	return true;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 err_t http_send(struct netconn *conn, char* pagedata)
 {
 	return netconn_write(conn, (const unsigned char*)pagedata, strlen(pagedata), NETCONN_NOCOPY);
@@ -93,7 +109,6 @@ err_t http_send(struct netconn *conn, char* pagedata)
 
 
 // ----------------------------------------------------------------------------------------------------------------------------------
-
 
 static void http_server(struct netconn *conn)
 {
@@ -155,6 +170,7 @@ static void http_server(struct netconn *conn)
 	netbuf_delete(inbuf);
 }
 
+
 // ----------------------------------------------------------------------------------------------------------------------------------
 
 static void http_thread(void *arg)
@@ -189,6 +205,9 @@ static void http_thread(void *arg)
     }
   }
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 #define HTTP_TASK_SIZE	1024
 

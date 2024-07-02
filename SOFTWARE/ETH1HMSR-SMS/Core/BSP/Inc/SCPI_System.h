@@ -11,6 +11,8 @@
 #include "scpi/scpi.h"
 #include "BSP.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #define SECURITY_ON 1
 #define SECURITY_OFF 0
 
@@ -24,12 +26,15 @@
 #define SYS_DEFAULT 2
 #define SYS_SETUP 	3
 
+// --------------------------------------------------------------------------------------------------------------------
 
 enum e_eeprom_states
 {
 	EEPROM_RESET = 1,
 	EEPROM_DEFAULT,
 };
+
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_SystemCommunicateLanIpAddress(scpi_t * context);
 scpi_result_t SCPI_SystemCommunicateLanIpAddressQ(scpi_t * context);
@@ -54,6 +59,5 @@ scpi_result_t SCPI_SystemServiceLEDPing(scpi_t * context);
 scpi_result_t SCPI_SystemServiceReset (scpi_t *context);
 
 uint8_t SCPI_StringToMACArray(const char *MAC_string, uint8_t *MAC_array);
-
 
 #endif /* BSP_INC_SCPI_SYSTEM_H_ */

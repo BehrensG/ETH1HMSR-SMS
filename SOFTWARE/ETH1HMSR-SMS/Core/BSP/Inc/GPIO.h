@@ -11,6 +11,8 @@
 #include "main.h"
 #include <stdbool.h>
 
+// --------------------------------------------------------------------------------------------------------------------
+
 bool GPIO_SelectGain(uint8_t gain);
 void GPIO_DG419(bool state);
 

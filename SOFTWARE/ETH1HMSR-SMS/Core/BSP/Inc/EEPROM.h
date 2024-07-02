@@ -12,10 +12,12 @@
 #include "BSP.h"
 #include "EE24.h"
 
+// --------------------------------------------------------------------------------------------------------------------
 
 #define EEPROM_ADDRESS 0xA0U
 #define EEPROM_SIZE 0xFFU
 
+// --------------------------------------------------------------------------------------------------------------------
 
 bsp_result_t EEPROM_Erase(void);
 bsp_result_t EEPROM_Write(bsp_eeprom_t* union_data, size_t size);

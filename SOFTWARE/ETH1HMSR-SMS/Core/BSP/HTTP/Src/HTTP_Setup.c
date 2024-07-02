@@ -5,6 +5,8 @@
  *      Author: grzegorz
  */
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #include <string.h>
 
 #include "HTTP_Task.h"
@@ -12,7 +14,11 @@
 #include "DEVICE_INFO.h"
 #include "EEPROM.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 extern bsp_t bsp;
+
+// --------------------------------------------------------------------------------------------------------------------
 
 #define	HTTP_GET_SETUP_INSTR		0
 #define	HTTP_GET_SETUP_NETMASK		1
@@ -24,6 +30,8 @@ extern bsp_t bsp;
 #define	HTTP_POST_SETUP_GATEWAY		7
 #define	HTTP_POST_SAVE_IP_CONFIG	8
 #define	HTTP_POST_SETUP_RESET		9
+
+// --------------------------------------------------------------------------------------------------------------------
 
 static const http_cmd_t http_setup[] = {
 		{.cmd="GET /setup_ipv4", .value = HTTP_GET_SETUP_INSTR},
@@ -38,8 +46,12 @@ static const http_cmd_t http_setup[] = {
 		{.cmd="POST /setup_reset", .value = HTTP_POST_SETUP_RESET}
 };
 
+// --------------------------------------------------------------------------------------------------------------------
 
 static bool valid_password = false;
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 bool http_setup_page(struct netconn *conn, char* buf, u16_t buflen)
 {
@@ -200,4 +212,3 @@ bool http_setup_page(struct netconn *conn, char* buf, u16_t buflen)
 
 	return status;
 }
-

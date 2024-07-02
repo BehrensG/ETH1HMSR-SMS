@@ -5,6 +5,8 @@
  *      Author: grzegorz
  */
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #include <DEVICE_INFO.h>
 #include <multicastDNS.h>
 #include "api.h"
@@ -14,7 +16,11 @@
 #include "SCPI_Def.h"
 #include "BSP.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 extern bsp_t bsp;
+
+// --------------------------------------------------------------------------------------------------------------------
 
 #if LWIP_MDNS_RESPONDER
 
@@ -26,7 +32,6 @@ static void web_txt(struct mdns_service *service, void *txt_userdata)
   res = mdns_resp_add_service_txtitem(service, "path=/", 6);
   LWIP_ERROR("mdns add service txt failed\n", (res == ERR_OK), return);
 }
-
 
 static void test_txt(struct mdns_service *service, void *txt_userdata)
 {
@@ -66,6 +71,9 @@ static void mdns_example_report(struct netif* netif, u8_t result)
 #endif
 extern ip4_addr_t ipaddr;
 ip4_addr_t groupaddr;
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
  void MDNS_Init(void)
 {

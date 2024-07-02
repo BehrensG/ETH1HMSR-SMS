@@ -5,13 +5,18 @@
  *      Author: BehrensG
  */
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #include "HTTP_Task.h"
 #include "SCPI_Def.h"
 #include "BSP.h"
 #include "DEVICE_INFO.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 extern bsp_t bsp;
 
+// --------------------------------------------------------------------------------------------------------------------
 
 #define HTTP_GET_HOME_INSTR					0
 #define HTTP_GET_HOME_SN					1
@@ -27,6 +32,7 @@ extern bsp_t bsp;
 #define HTTP_GET_HOME_NOMINAL_CURRENT		11
 #define HTTP_GET_HOME_MEAS_RANGE			12
 
+// --------------------------------------------------------------------------------------------------------------------
 
 static const http_cmd_t http_home[] = {
 		{.cmd="GET /info_instr", .value = HTTP_GET_HOME_INSTR},
@@ -45,6 +51,7 @@ static const http_cmd_t http_home[] = {
 };
 
 
+// --------------------------------------------------------------------------------------------------------------------
 
 bool http_home_page(struct netconn *conn, char* buf, u16_t buflen)
 {

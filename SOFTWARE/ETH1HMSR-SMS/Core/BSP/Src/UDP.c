@@ -5,6 +5,8 @@
  *      Author: grzegorz
  */
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #include <stdbool.h>
 
 #include "stddef.h"
@@ -21,17 +23,17 @@
 #include "LED.h"
 #include "ADC.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 extern bsp_t bsp;
 extern float measurements[];
 extern SemaphoreHandle_t MeasMutex;
 
-/*
-osThreadId UDPTaskHandle;
-uint32_t UDPTaskBuffer[1024];
-osStaticThreadDef_t UDPTaskControlBlock;
-*/
+// --------------------------------------------------------------------------------------------------------------------
 
 #define UDP_THREAD_STACKSIZE	1024
+
+// --------------------------------------------------------------------------------------------------------------------
 
 TaskHandle_t udp_handler;
 uint32_t udp_buffer[UDP_THREAD_STACKSIZE];
@@ -42,6 +44,8 @@ xQueueHandle QueueUDPHandle;
 static struct netconn *conn;
 
 volatile bool rcv_udp = false;
+
+// --------------------------------------------------------------------------------------------------------------------
 
 typedef enum {
 	UDP_STATE_OK = 0,
@@ -71,6 +75,8 @@ _scpi_udp_command_t udp_commands[] = {
 		{ .pattern = "UDP:R?", .state = UDP_STATE_MEASQ },
 		UDP_CMD_LIST_END };
 
+// --------------------------------------------------------------------------------------------------------------------
+
 static void StartUDPTask(void* argument);
 
 void UDP_CreateTask(void) {
@@ -85,6 +91,9 @@ void UDP_CreateTask(void) {
 	UDPTaskHandle = osThreadCreate(osThread(UDPTask), NULL);
 */
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 static udp_task_state_t UDP_Match(const char *data, uint16_t len) {
 	udp_task_state_t state = UDP_STATE_ERROR;
@@ -118,6 +127,9 @@ static udp_task_state_t UDP_Match(const char *data, uint16_t len) {
 	return state;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 void UDP_NetconnCallback(struct netconn *conn, enum netconn_evt even, u16_t len) {
 	struct netbuf *buf;
 	void *data;
@@ -149,6 +161,9 @@ void UDP_NetconnCallback(struct netconn *conn, enum netconn_evt even, u16_t len)
 
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 static err_t UDP_Create() {
 	err_t err;
 	conn = netconn_new_with_callback(NETCONN_UDP, UDP_NetconnCallback);
@@ -157,10 +172,16 @@ static err_t UDP_Create() {
 	return err;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 static err_t UDP_Connect() {
 	return netconn_connect(conn, bsp.udp_client.addr, bsp.udp_client.port);
 
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 static err_t UDP_Close() {
 
@@ -172,6 +193,9 @@ static err_t UDP_Close() {
 	return err;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 #define UDP_PACKAGE_SIZE 20000
 #define UDP_PACKAGE_MAX_SIZE (UDP_PACKAGE_SIZE + 10)
 
@@ -179,6 +203,9 @@ typedef enum {
 	ADD_NONE, ADD_HEAD, ADD_TAIL, ADD_HEAD_AND_TAIL
 
 } addon_t;
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 static err_t UDP_Send(char *data, uint32_t bytes_count, addon_t addon) {
 	struct netbuf *buf;
@@ -302,6 +329,9 @@ static err_t UDP_SendV2(char *data, uint32_t bytes_count, addon_t addon) {
 	return err;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 static err_t UDP_SendREAL() {
 	char *tx;
 	uint32_t sample_count = bsp.adc.sample_count;
@@ -382,6 +412,9 @@ static err_t UDP_SendASCII() {
 	return err;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 static void UDP_INITiate(void) {
 	if (!ADC_Measurement(bsp.adc.sample_count)) {
 		LED_osQueue(RED);
@@ -389,6 +422,9 @@ static void UDP_INITiate(void) {
 		(bsp.default_cfg) ? LED_osQueue(BLUE) : LED_osQueue(GREEN);
 	}
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 static bool UDP_Measure(udp_task_state_t state) {
 	LED_osQueue(BLUE);
@@ -431,6 +467,9 @@ static bool UDP_Measure(udp_task_state_t state) {
 
 	return true;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 static void StartUDPTask(void* argument) {
 

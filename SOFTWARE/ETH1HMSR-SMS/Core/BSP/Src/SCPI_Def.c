@@ -34,6 +34,8 @@
  *
  */
 
+// --------------------------------------------------------------------------------------------------------------------
+
 //#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -56,7 +58,11 @@
 #include "GPIO.h"
 #include "ADC.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 extern bsp_t bsp;
+
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_choice_def_t scpi_boolean_select[] =
 {
@@ -67,7 +73,7 @@ scpi_choice_def_t scpi_boolean_select[] =
     SCPI_CHOICE_LIST_END
 };
 
-
+// --------------------------------------------------------------------------------------------------------------------
 
 static scpi_result_t SCPI_Rst(scpi_t * context)
 {
@@ -79,6 +85,9 @@ static scpi_result_t SCPI_Rst(scpi_t * context)
 	GPIO_SelectGain(bsp.adc.gain.value);
 	return SCPI_RES_OK;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 static scpi_result_t SCPI_IdnQ(scpi_t * context)
 {
@@ -107,6 +116,8 @@ static scpi_result_t SCPI_IdnQ(scpi_t * context)
 }
 
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #define TEX_SIZE	256
 
 scpi_result_t SCPI_SystemErrorQ(scpi_t * context)
@@ -126,12 +137,15 @@ scpi_result_t SCPI_SystemErrorQ(scpi_t * context)
 }
 
 
-extern bsp_t bsp;
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_TS(scpi_t * context)
 {
     return SCPI_RES_OK;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 const scpi_command_t scpi_commands[] = {
     /* IEEE Mandated Commands (SCPI std V1999.0 4.1.1) */
@@ -231,6 +245,8 @@ const scpi_command_t scpi_commands[] = {
 	SCPI_CMD_LIST_END
 };
 
+// --------------------------------------------------------------------------------------------------------------------
+
 scpi_interface_t scpi_interface = {
     .error = SCPI_Error,
     .write = SCPI_Write,
@@ -238,6 +254,8 @@ scpi_interface_t scpi_interface = {
     .flush = SCPI_Flush,
     .reset = SCPI_Reset,
 };
+
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_interface_t scpi_hislip_interface = {
     .error = SCPI_Error,
@@ -247,6 +265,7 @@ scpi_interface_t scpi_hislip_interface = {
     .reset = SCPI_Reset,
 };
 
+// --------------------------------------------------------------------------------------------------------------------
 
 char scpi_input_buffer[SCPI_INPUT_BUFFER_LENGTH];
 scpi_error_t scpi_error_queue_data[SCPI_ERROR_QUEUE_SIZE];

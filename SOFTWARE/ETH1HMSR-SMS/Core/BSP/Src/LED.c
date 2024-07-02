@@ -5,16 +5,21 @@
  *      Author: grzegorz
  */
 
+// --------------------------------------------------------------------------------------------------------------------
 
+#include "types.h"
+#include "cmsis_os.h"
 
 #include "main.h"
 #include "LED.h"
-#include "types.h"
-#include "cmsis_os.h"
 #include "BSP.h"
+
+// --------------------------------------------------------------------------------------------------------------------
 
 xQueueHandle QueueLEDHandle;
 extern bsp_t bsp;
+
+// --------------------------------------------------------------------------------------------------------------------
 
 void LED_Control(led_select_t LEDs, bool enable)
 {
@@ -29,6 +34,9 @@ void LED_Control(led_select_t LEDs, bool enable)
 	}
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 void LED_Toggle(led_select_t LEDs, uint32_t time_on, uint32_t time_off)
 {
 	LED_Control(LEDs, true);
@@ -37,6 +45,8 @@ void LED_Toggle(led_select_t LEDs, uint32_t time_on, uint32_t time_off)
 	HAL_Delay(time_off);
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 void LED_osQueue(led_select_t LED_state)
 {

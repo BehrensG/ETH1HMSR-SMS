@@ -42,6 +42,8 @@
  *
  */
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -61,7 +63,11 @@
 #include "printf.h"
 #include "HiSLIP.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 extern bsp_t bsp;
+
+// --------------------------------------------------------------------------------------------------------------------
 
 #define DEVICE_PORT 5025
 #define CONTROL_PORT 5026
@@ -76,6 +82,8 @@ extern bsp_t bsp;
 #define SCPI_MSG_CONTROL_IO             5
 #define SCPI_MSG_SET_ESE_REQ            6
 #define SCPI_MSG_SET_ERROR              7
+
+// --------------------------------------------------------------------------------------------------------------------
 
 typedef struct {
     struct netconn *io_listen;
@@ -110,6 +118,7 @@ __attribute__ ((section(".SCPI_READOUT_BUF"), used)) static char scpi_out[SCPI_O
 
 static size_t scpi_out_sum = 0;
 
+// --------------------------------------------------------------------------------------------------------------------
 
 size_t SCPI_WriteHiSLIP(scpi_t * context, const char * data, size_t len) {
 
@@ -194,8 +203,8 @@ size_t SCPI_WriteHiSLIP(scpi_t * context, const char * data, size_t len) {
 	    return len;
 }
 
-// -----------------------------------------------------------------------------------------------------------
 
+// -----------------------------------------------------------------------------------------------------------
 
 size_t SCPI_Write(scpi_t * context, const char * data, size_t len) {
 
@@ -286,6 +295,8 @@ size_t SCPI_Write(scpi_t * context, const char * data, size_t len) {
 }
 
 
+// --------------------------------------------------------------------------------------------------------------------
+
 scpi_result_t SCPI_Flush(scpi_t * context) {
     if (context->user_context != NULL) {
         user_data_t * u = (user_data_t *) (context->user_context);
@@ -296,6 +307,7 @@ scpi_result_t SCPI_Flush(scpi_t * context) {
     }
     return SCPI_RES_OK;
 }
+
 
 // -----------------------------------------------------------------------------------------------------------
 
@@ -313,6 +325,7 @@ int SCPI_Error(scpi_t * context, int_fast16_t err) {
     }
     return 0;
 }
+
 
 // -----------------------------------------------------------------------------------------------------------
 
@@ -335,6 +348,7 @@ scpi_result_t SCPI_Control(scpi_t * context, scpi_ctrl_name_t ctrl, scpi_reg_val
     return SCPI_RES_OK;
 }
 
+
 // -----------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_Reset(scpi_t * context) {
@@ -344,10 +358,14 @@ scpi_result_t SCPI_Reset(scpi_t * context) {
     return SCPI_RES_OK;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 scpi_result_t SCPI_SystemCommTcpipControlQ(scpi_t * context) {
     SCPI_ResultInt(context, CONTROL_PORT);
     return SCPI_RES_OK;
 }
+
 
 // -----------------------------------------------------------------------------------------------------------
 
@@ -355,11 +373,13 @@ static void setEseReq(void) {
     SCPI_RegSetBits(&scpi_context, SCPI_REG_ESR, ESR_REQ);
 }
 
+
 // -----------------------------------------------------------------------------------------------------------
 
 static void setError(int16_t err) {
     SCPI_ErrorPush(&scpi_context, err);
 }
+
 
 // -----------------------------------------------------------------------------------------------------------
 
@@ -376,6 +396,7 @@ void SCPI_RequestControl(void) {
     xQueueSend(user_data.evtQueue, &msg, 1000);
 }
 
+
 // -----------------------------------------------------------------------------------------------------------
 
 void SCPI_AddError(int16_t err) {
@@ -385,6 +406,7 @@ void SCPI_AddError(int16_t err) {
 
     xQueueSend(user_data.evtQueue, &msg, 1000);
 }
+
 
 // -----------------------------------------------------------------------------------------------------------
 
@@ -409,6 +431,9 @@ void scpi_netconn_callback(struct netconn * conn, enum netconn_evt evt, u16_t le
     }
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 static struct netconn * createServer(int port) {
     struct netconn * conn;
     err_t err;
@@ -430,12 +455,18 @@ static struct netconn * createServer(int port) {
     return conn;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 static void waitServer(user_data_t * user_data, queue_event_t * evt) {
     /* 5s timeout */
     if (xQueueReceive(user_data->evtQueue, evt, 100000 * portTICK_RATE_MS) != pdPASS) {
         evt->cmd = SCPI_MSG_TIMEOUT;
     }
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 static int processIoListen(user_data_t * user_data) {
     struct netconn *newconn;
@@ -455,6 +486,9 @@ static int processIoListen(user_data_t * user_data) {
     return 0;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 static int processSrqIoListen(user_data_t * user_data) {
     struct netconn *newconn;
 
@@ -472,6 +506,9 @@ static int processSrqIoListen(user_data_t * user_data) {
     return 0;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 static void closeIo(user_data_t * user_data) {
     // connection closed
     netconn_close(user_data->io);
@@ -480,6 +517,9 @@ static void closeIo(user_data_t * user_data) {
     iprintf("***Connection closed\r\n");
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 static void closeSrqIo(user_data_t * user_data) {
     // control connection closed
     netconn_close(user_data->control_io);
@@ -487,6 +527,8 @@ static void closeSrqIo(user_data_t * user_data) {
     user_data->control_io = NULL;
     iprintf("***Control Connection closed\r\n");
 }
+
+// --------------------------------------------------------------------------------------------------------------------
 
 #define LED_START	0
 #define LED_STOP	1
@@ -517,6 +559,9 @@ static void scpi_LED(uint8_t status)
 	}
 
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 #define BUF_SIZE	2048
 
@@ -604,6 +649,9 @@ fail1:
     return 0;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 static int processSrqIo(user_data_t * user_data) {
     struct netbuf *inbuf;
     char* buf;
@@ -636,9 +684,9 @@ fail1:
     return 0;
 }
 
-/*
- *
- */
+
+// --------------------------------------------------------------------------------------------------------------------
+
 static void scpi_server_thread(void *arg) {
     queue_event_t evt;
 
@@ -696,6 +744,8 @@ static void scpi_server_thread(void *arg) {
     vTaskDelete(NULL);
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 TaskHandle_t scpi_handler;
 uint32_t scpi_buffer[DEFAULT_THREAD_STACKSIZE];

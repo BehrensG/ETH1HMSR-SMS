@@ -5,18 +5,23 @@
  *      Author: BehrensG
  */
 
-#include "SCPI_Calculate.h"
+// --------------------------------------------------------------------------------------------------------------------
+
 #include "cmsis_os.h"
 
 #include "BSP.h"
 #include "ADC.h"
 #include "GPIO.h"
+#include "SCPI_Calculate.h"
+
+// --------------------------------------------------------------------------------------------------------------------
 
 extern float measurements[];
 extern SemaphoreHandle_t MeasMutex;
 extern scpi_choice_def_t scpi_boolean_select[];
 extern bsp_t bsp;
 
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_CalculateOffsetEnable(scpi_t * context)
 {
@@ -31,6 +36,9 @@ scpi_result_t SCPI_CalculateOffsetEnable(scpi_t * context)
 	return SCPI_RES_OK;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 scpi_result_t SCPI_CalculateOffsetEnableQ(scpi_t * context)
 {
 
@@ -39,6 +47,8 @@ scpi_result_t SCPI_CalculateOffsetEnableQ(scpi_t * context)
 	return SCPI_RES_OK;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 static float CALC_Average(uint32_t sample_count)
 {
@@ -54,6 +64,9 @@ static float CALC_Average(uint32_t sample_count)
 
 	return average;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_CalculateOffset(scpi_t * context)
 {
@@ -94,6 +107,8 @@ scpi_result_t SCPI_CalculateOffset(scpi_t * context)
 }
 
 
+// --------------------------------------------------------------------------------------------------------------------
+
 scpi_result_t SCPI_CalculateOffsetQ(scpi_t * context)
 {
 	uint32_t gain;
@@ -112,6 +127,9 @@ scpi_result_t SCPI_CalculateOffsetQ(scpi_t * context)
 	SCPI_ResultFloat(context, offset);
 	return SCPI_RES_OK;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_CalculateAverageQ(scpi_t * context)
 {

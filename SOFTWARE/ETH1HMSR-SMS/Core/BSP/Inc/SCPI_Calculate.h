@@ -10,6 +10,8 @@
 
 #include "scpi/scpi.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 scpi_result_t SCPI_CalculateOffsetEnable(scpi_t * context);
 scpi_result_t SCPI_CalculateOffsetEnableQ(scpi_t * context);
 scpi_result_t SCPI_CalculateOffset(scpi_t * context);

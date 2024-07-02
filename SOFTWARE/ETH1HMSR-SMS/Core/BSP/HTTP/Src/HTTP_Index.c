@@ -8,6 +8,8 @@
 
 #include "HTTP_Task.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #define	HTTP_GET_SITE_INIT			0
 #define	HTTP_GET_SITE_TOP			1
 #define	HTTP_GET_SITE_HOME			2
@@ -18,6 +20,8 @@
 #define	HTTP_GET_IMG_INSTRUMENT		7
 #define	HTTP_GET_IMG_FAVICON		8
 #define	HTTP_GET_SITE_SERVICE		9
+
+// --------------------------------------------------------------------------------------------------------------------
 
 static const http_cmd_t http_index[] = {
 		{.cmd="GET / HTTP/1.1", .value = HTTP_GET_SITE_INIT},
@@ -33,6 +37,8 @@ static const http_cmd_t http_index[] = {
 
 };
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 bool http_load_page(struct netconn *conn, char* buf, u16_t buflen)
 {

@@ -10,6 +10,8 @@
 
 #include "scpi/scpi.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 scpi_result_t SCPI_AdcConfigurationResolution(scpi_t * context);
 scpi_result_t SCPI_AdcConfigurationResolutionQ(scpi_t * context);
 

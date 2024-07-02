@@ -5,10 +5,14 @@
  *      Author: BehrensG
  */
 
-#include "api.h"
-#include "SCPI_Def.h"
+// --------------------------------------------------------------------------------------------------------------------
 
+#include "api.h"
+
+#include "SCPI_Def.h"
 #include "HiSLIP.h"
+
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_AsyncMaximumMessageSizeResponse(hislip_instr_t* hislip_instr)
 {
@@ -45,6 +49,8 @@ int8_t hislip_AsyncMaximumMessageSizeResponse(hislip_instr_t* hislip_instr)
 }
 
 
+// --------------------------------------------------------------------------------------------------------------------
+
 int8_t hislip_AsyncInitializeResponse(hislip_instr_t* hislip_instr)
 {
 	int8_t err = ERR_OK;
@@ -69,6 +75,8 @@ int8_t hislip_AsyncInitializeResponse(hislip_instr_t* hislip_instr)
 	return err;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_AsyncStatusQuery(hislip_instr_t* hislip_instr)
 {
@@ -96,6 +104,8 @@ int8_t hislip_AsyncStatusQuery(hislip_instr_t* hislip_instr)
 }
 
 
+// --------------------------------------------------------------------------------------------------------------------
+
 int8_t hislip_AsyncDeviceClearAcknowledge(hislip_instr_t* hislip_instr)
 {
 	int8_t err = ERR_OK;
@@ -120,6 +130,9 @@ int8_t hislip_AsyncDeviceClearAcknowledge(hislip_instr_t* hislip_instr)
 
 	return err;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_AsyncLockResponse(hislip_instr_t* hislip_instr)
 {
@@ -146,6 +159,8 @@ int8_t hislip_AsyncLockResponse(hislip_instr_t* hislip_instr)
 }
 
 
+// --------------------------------------------------------------------------------------------------------------------
+
 int8_t hislip_AsyncLockInfoResponse(hislip_instr_t* hislip_instr)
 {
 	int8_t err = ERR_OK;
@@ -165,6 +180,9 @@ int8_t hislip_AsyncLockInfoResponse(hislip_instr_t* hislip_instr)
 
 	return err;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_AsyncRemoteLocalResponse(hislip_instr_t* hislip_instr)
 {
@@ -186,6 +204,9 @@ int8_t hislip_AsyncRemoteLocalResponse(hislip_instr_t* hislip_instr)
 	return err;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 int8_t hislip_AsyncInterrupted(hislip_instr_t* hislip_instr)
 {
 	int8_t err = ERR_OK;
@@ -193,12 +214,18 @@ int8_t hislip_AsyncInterrupted(hislip_instr_t* hislip_instr)
 	return err;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 int8_t hislip_AsyncServiceRequest(hislip_instr_t* hislip_instr)
 {
 	int8_t err = ERR_OK;
 	//TBD
 	return err;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_AsyncStatusResponse(hislip_instr_t* hislip_instr)
 {

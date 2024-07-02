@@ -5,14 +5,20 @@
  *      Author: grzegorz
  */
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "EEPROM.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 void EEPROM_WriteProtect(GPIO_PinState state);
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 bsp_result_t EEPROM_Erase()
 {
@@ -41,6 +47,9 @@ bsp_result_t EEPROM_Erase()
 
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 void EEPROM_WriteProtect(GPIO_PinState state)
 {
 	if(GPIO_PIN_SET == state)
@@ -52,6 +61,9 @@ void EEPROM_WriteProtect(GPIO_PinState state)
 	}
 
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 bsp_result_t EEPROM_Write(bsp_eeprom_t* union_data, size_t size)
 {
@@ -91,6 +103,9 @@ bsp_result_t EEPROM_Write(bsp_eeprom_t* union_data, size_t size)
 	}
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 bsp_result_t EEPROM_Read(bsp_eeprom_t* union_data, size_t size)
 {
 	EEPROM_WriteProtect(GPIO_PIN_RESET);
@@ -115,6 +130,9 @@ bsp_result_t EEPROM_Read(bsp_eeprom_t* union_data, size_t size)
 		return BSP_EEPROM_NO_CONNECTION;
 	}
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 bsp_result_t EEPROM_Status()
 {

@@ -5,10 +5,11 @@
  *      Author: grzegorz
  */
 
+// --------------------------------------------------------------------------------------------------------------------
 
 #include <string.h>
 #include <stdbool.h>
-// #include "stddef.h"
+
 #include "cmsis_os.h"
 #include "udp.h"
 #include "api.h"
@@ -18,7 +19,11 @@
 #include "SCPI_Def.h"
 #include "BSP.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 extern bsp_t bsp;
+
+// --------------------------------------------------------------------------------------------------------------------
 
 #define HISLIP_THREAD_STACKSIZE		1024
 #define HISLIP_PORT					4880
@@ -26,10 +31,9 @@ extern bsp_t bsp;
 #define	NETCONN_ACCEPT_ON			(u8_t)1
 #define	NETCONN_ACCEPT_OFF			(u8_t)0
 
+// --------------------------------------------------------------------------------------------------------------------
 
 static	u8_t task_count = 0;
-
-
 
 // ----------------------------------------------------------------------------
 
@@ -44,7 +48,6 @@ StaticTask_t hislip_sync_control_block;
 TaskHandle_t hislip_async_handler;
 uint32_t hislip_async_buffer[HISLIP_THREAD_STACKSIZE];
 StaticTask_t hislip_async_control_block;
-
 
 // ----------------------------------------------------------------------------
 
@@ -106,6 +109,9 @@ static hislip_msg_type_t hislip_Recv(hislip_instr_t* hislip_instr)
 
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 static struct netconn*  hislip_Bind(uint16_t port)
 {
 
@@ -121,6 +127,7 @@ static struct netconn*  hislip_Bind(uint16_t port)
 
 	return conn;
 }
+
 
 // ----------------------------------------------------------------------------
 
@@ -170,6 +177,9 @@ static void hislip_SyncTask(void  *arg)
 
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 static void hislip_aSyncTask(void  *arg)
 {
 	hislip_instr_t hislip_instr;
@@ -210,6 +220,9 @@ static void hislip_aSyncTask(void  *arg)
 
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 static void hislip_ServerTask(void* argument)
 {
 	int8_t err;
@@ -244,6 +257,9 @@ static void hislip_ServerTask(void* argument)
 
 	}
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 void HISLIP_CreateTask(void)
 {

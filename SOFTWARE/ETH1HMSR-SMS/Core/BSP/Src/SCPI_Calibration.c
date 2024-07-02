@@ -5,8 +5,9 @@
  *      Author: grzegorz
  */
 
-#include <math.h>
+// --------------------------------------------------------------------------------------------------------------------
 
+#include <math.h>
 #include "cmsis_os.h"
 
 #include "SCPI_Calibration.h"
@@ -14,16 +15,22 @@
 #include "BSP.h"
 #include "EEPROM.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 extern ADC_HandleTypeDef hadc3;
 extern bsp_t bsp;
 extern SemaphoreHandle_t MeasMutex;
 
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_CalibrationCountQ(scpi_t * context)
 {
 	SCPI_ResultUInt32(context, bsp.eeprom.structure.calibration.count);
 	return SCPI_RES_OK;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_CalibrationStore(scpi_t * context)
 {
@@ -47,6 +54,9 @@ scpi_result_t SCPI_CalibrationStore(scpi_t * context)
 	return SCPI_RES_OK;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 #define CAL_LIMIT_HIGH	1.1f
 #define CAL_LIMIT_LOW	0.9f
 #define CAL_SAMP_COUNT	1000
@@ -68,6 +78,8 @@ static float CALIB_Average(uint32_t sample_count)
 	return average;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_CalibrationValue(scpi_t * context)
 {
@@ -127,6 +139,8 @@ scpi_result_t SCPI_CalibrationValue(scpi_t * context)
 }
 
 
+// --------------------------------------------------------------------------------------------------------------------
+
 scpi_result_t SCPI_CalibrationValueQ(scpi_t * context)
 {
 	uint32_t gain;
@@ -146,6 +160,9 @@ scpi_result_t SCPI_CalibrationValueQ(scpi_t * context)
 	SCPI_ResultFloat(context, calib);
 	return SCPI_RES_OK;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_choice_def_t ADC_CALIB_Mode_state_select[] =
 {

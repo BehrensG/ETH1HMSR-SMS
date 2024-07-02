@@ -91,6 +91,8 @@
                  <div class="description">The protocol is available on UDP port 5025. This is a special implementation, allowing to get measurements over UDP. The set of SCPI commands are limited.</div>
                  <div class="description">&nbsp;</div>
                  <div class="description"><b>Command termination</b>: The input SCPI command don't need termination. For query commands the result data will always have a '\n' termination.</div>
+                 <p></p>
+                 <div class="description"><b style="color: red">WARNING</b> : UDP connection is less stabile then TCP connection (RAW or HiSLIP).</div>
             </li>
         </ul>
     </div>
@@ -250,7 +252,7 @@
             <li>
                 <div class="command">SYSTem:COMMunicate:LAN:IPADdress "&lt;address&gt;"</div>
                 <div class="command">SYSTem:COMMunicate:LAN:IPADdress? [&#123;CURRent|STATic&#125;]</div>
-                <div class="description">Assings a static Internet Protocol (IP) v4 address for the device.</div>
+                <div class="description">Assigns a static Internet Protocol (IP) v4 address for the device.</div>
                 <p></p>
                 <div class="description"><b>"&lt;address&gt;"</b> : "nnn.nnn.nnn.nnn" there nnn can be value from 000 to 255, for example "192.168.1.123".</div>
             </li>
@@ -349,7 +351,7 @@
                 <div class="description">Float value as 32 bit (4 bytes) hex value.</div>
                 <p></p>
                 <div class="description"><b>Termination characters</b></div>
-                <div class="description">"\n" for HiSLIP, "\r\n" for RAW TCP and UDP.</div>
+                <div class="description">"\n" for HiSLIP, RAW TCP and UDP.</div>
                 <p></p>
                 <div class="description"><b style="color: #00aeff">NOTE</b> : The format commands influence the query commands in
                      <b>Measurement Commands</b> and <b>UDP Commands</b> groups.</div> 

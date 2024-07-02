@@ -5,6 +5,8 @@
  *      Author: grzegorz
  */
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #include <string.h>
 #include <ctype.h>
 
@@ -14,9 +16,12 @@
 #include "HiSLIP.h"
 #include "BSP.h"
 
+// --------------------------------------------------------------------------------------------------------------------
 
 extern bsp_t bsp;
 extern float measurements[];
+
+// --------------------------------------------------------------------------------------------------------------------
 
 inline bool UTIL_Timeout(uint32_t start, uint32_t timeout)
 {
@@ -31,7 +36,7 @@ inline bool UTIL_Timeout(uint32_t start, uint32_t timeout)
 }
 
 
-
+// --------------------------------------------------------------------------------------------------------------------
 
 char buffer[sizeof(hislip_msg_t) + ADC_MEASUREMENT_BUFFER * UTIL_ASCII_SIZE +1];
 
@@ -81,6 +86,9 @@ char* UTIL_FloatArrayToASCII(scpi_t * context, enum netconn_type conn_type, floa
     return buffer;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 int32_t UTIL_WhiteSpace(const char* string, uint32_t size)
 {
 	for (int32_t i = 0; i < size; i++)
@@ -93,6 +101,9 @@ int32_t UTIL_WhiteSpace(const char* string, uint32_t size)
 
 	return -1;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 char* UTIL_FloatArrayToREAL(scpi_t * context, enum netconn_type conn_type, float* float_array, uint32_t num_floats, size_t* frame_size)
 {
@@ -144,8 +155,6 @@ char* UTIL_FloatArrayToREAL(scpi_t * context, enum netconn_type conn_type, float
 
     	buffer[size] = '\0';
     }
-
-
 
     return buffer;
 }

@@ -5,13 +5,20 @@
  *      Author: BehrensG
  */
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #include "api.h"
+
 #include "SCPI_Def.h"
 #include "HiSLIP.h"
 #include "BSP.h"
 #include "LED.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 extern bsp_t bsp;
+
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_Trigger(hislip_instr_t* hislip_instr)
 {
@@ -32,12 +39,16 @@ int8_t hislip_Trigger(hislip_instr_t* hislip_instr)
 }
 
 
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_Data(hislip_instr_t* hislip_instr)
 {
 	//TBD
 	return 0;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 #define LED_START	1
 #define LED_STOP	2
@@ -67,6 +78,9 @@ static void hislip_LED(u8_t status)
 	}
 
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_DataEnd(hislip_instr_t* hislip_instr)
 {
@@ -151,7 +165,7 @@ int8_t hislip_DataEnd(hislip_instr_t* hislip_instr)
 }
 
 
-
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_InitializeResponse(hislip_instr_t* hislip_instr)
 {
@@ -188,6 +202,9 @@ int8_t hislip_InitializeResponse(hislip_instr_t* hislip_instr)
 	return err;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 int8_t hislip_DeviceClearAcknowledge(hislip_instr_t* hislip_instr)
 {
 	int8_t err = ERR_OK;
@@ -213,6 +230,8 @@ int8_t hislip_DeviceClearAcknowledge(hislip_instr_t* hislip_instr)
 	return err;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_Interrupted(hislip_instr_t* hislip_instr)
 {

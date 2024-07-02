@@ -5,6 +5,8 @@
  *      Author: BehrensG
  */
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #include <string.h>
 #include <stdint.h>
 
@@ -18,6 +20,8 @@
 #include "GPIO.h"
 #include "FloatToString.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 extern bsp_t bsp;
 extern ADC_HandleTypeDef hadc3;
 extern char buffer[];
@@ -25,6 +29,7 @@ extern float measurements[];
 extern SemaphoreHandle_t MeasMutex;
 extern TIM_HandleTypeDef htim3;
 
+// --------------------------------------------------------------------------------------------------------------------
 
 #define HTTP_POST_CONTROL_BLINK_LED			0
 #define HTTP_GET_RESOLUTION					1
@@ -42,6 +47,10 @@ extern TIM_HandleTypeDef htim3;
 #define HTTP_GET_READ_AVERAGE				12
 #define HTTP_GET_LED_STATUS					13
 #define HTTP_POST_LED_STATUS				14
+
+#define DATA_SIZE	128
+
+// --------------------------------------------------------------------------------------------------------------------
 
 static const http_cmd_t http_control[] = {
 
@@ -64,9 +73,7 @@ static const http_cmd_t http_control[] = {
 };
 
 
-
-#define DATA_SIZE	128
-
+// --------------------------------------------------------------------------------------------------------------------
 
 static void http_LED(led_select_t LED)
 {
@@ -76,6 +83,8 @@ static void http_LED(led_select_t LED)
 	}
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 static u32_t float_to_sampling_time(float value)
 {
@@ -96,6 +105,8 @@ static u32_t float_to_sampling_time(float value)
 	return UINT32_MAX;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 static void http_measurements(struct netconn *conn)
 {
@@ -122,6 +133,9 @@ static void http_measurements(struct netconn *conn)
 		xSemaphoreGive(MeasMutex);
 	}
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 static void http_average(struct netconn *conn)
 {
@@ -153,6 +167,8 @@ static void http_average(struct netconn *conn)
 	}
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 bool http_control_page(struct netconn *conn, char* buf, u16_t buflen)
 {

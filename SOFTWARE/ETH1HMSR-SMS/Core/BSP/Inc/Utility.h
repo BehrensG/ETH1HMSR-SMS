@@ -15,7 +15,11 @@
 #include "scpi/scpi.h"
 #include "api.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #define UTIL_ASCII_SIZE	12
+
+// --------------------------------------------------------------------------------------------------------------------
 
 bool UTIL_Timeout(uint32_t start, uint32_t timeout);
 char* UTIL_FloatArrayToASCII(scpi_t * context, enum netconn_type conn_type, float* float_array, uint32_t num_floats2, size_t* frame_size);

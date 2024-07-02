@@ -13,35 +13,35 @@
 #include "BSP.h"
 #include "LED.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 extern ADC_HandleTypeDef hadc3;
 extern bsp_t bsp;
 
+// --------------------------------------------------------------------------------------------------------------------
+
 __attribute__ ((section(".MEAS_BUFF"), used)) float measurements[ADC_MEASUREMENT_BUFFER];
 
+// --------------------------------------------------------------------------------------------------------------------
 
 ALIGN_32BYTES (uint16_t adc_data[ADC_MEASUREMENT_BUFFER]);
+
+// --------------------------------------------------------------------------------------------------------------------
 
 volatile bool adc_convertion_done = false;
 
 
+// --------------------------------------------------------------------------------------------------------------------
 
-
-/**
-  * @brief  Conversion complete callback in non-blocking mode
-  * @param  hadc: ADC handle
-  * @retval None
-  */
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc)
 {
 	/* Invalidate Data Cache to get the updated content of the SRAM on the first half of the ADC converted data buffer: 32 bytes */
 	SCB_InvalidateDCache_by_Addr((uint32_t *) &adc_data[0], ADC_MEASUREMENT_BUFFER);
 }
 
-/**
-  * @brief  Conversion DMA half-transfer callback in non-blocking mode
-  * @param  hadc: ADC handle
-  * @retval None
-  */
+
+// --------------------------------------------------------------------------------------------------------------------
+
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
 
@@ -51,6 +51,8 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 	adc_convertion_done = true;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 void ADC_AutoCalibration(void)
 {
@@ -64,6 +66,9 @@ void ADC_AutoCalibration(void)
 		Error_Handler();
 	}
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 bool ADC_Sample(uint32_t sample_count)
 {
@@ -88,6 +93,8 @@ bool ADC_Sample(uint32_t sample_count)
 }
 
 
+// --------------------------------------------------------------------------------------------------------------------
+
 void ADC_SignalConditioning(uint8_t gain, uint32_t sample_count, float offset, float calib_gain, float math_offset)
 {
 	float adc = 0.0f;
@@ -102,6 +109,9 @@ void ADC_SignalConditioning(uint8_t gain, uint32_t sample_count, float offset, f
 
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 void ADC_SignalConditioningZeroOffset(uint8_t gain, uint32_t sample_count)
 {
 	float inv_gain = 1.0f/(float)gain;
@@ -112,6 +122,9 @@ void ADC_SignalConditioningZeroOffset(uint8_t gain, uint32_t sample_count)
 
 	}
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 uint32_t ADC_SelectResolution(uint8_t value)
 {
@@ -129,6 +142,8 @@ uint32_t ADC_SelectResolution(uint8_t value)
 }
 
 
+// --------------------------------------------------------------------------------------------------------------------
+
 bool ADC_CheckOverSamplingRation(uint32_t value)
 {
 	uint32_t valid[] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024};
@@ -144,6 +159,8 @@ bool ADC_CheckOverSamplingRation(uint32_t value)
 }
 
 
+// --------------------------------------------------------------------------------------------------------------------
+
 uint8_t ADC_GetRightShiftIndex(uint32_t value)
 {
 	uint32_t valid[] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024};
@@ -157,6 +174,9 @@ uint8_t ADC_GetRightShiftIndex(uint32_t value)
 
 	return 0;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 uint32_t ADC_RightBitShift(uint32_t value)
 {
@@ -178,6 +198,8 @@ uint32_t ADC_RightBitShift(uint32_t value)
 
 }
 
+// --------------------------------------------------------------------------------------------------------------------
+
 void ADC_ConfigureOverSampling( FunctionalState enable, uint32_t ratio)
 {
 	hadc3.Init.OversamplingMode = enable;
@@ -186,6 +208,9 @@ void ADC_ConfigureOverSampling( FunctionalState enable, uint32_t ratio)
 	hadc3.Init.Oversampling.TriggeredMode = ADC_TRIGGEREDMODE_SINGLE_TRIGGER;
 	hadc3.Init.Oversampling.OversamplingStopReset = ADC_REGOVERSAMPLING_CONTINUED_MODE;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 bool ADC_CheckResolution(uint32_t value)
 {
@@ -205,6 +230,9 @@ bool ADC_CheckResolution(uint32_t value)
 	return status;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 bool ADC_CheckGain(uint32_t value)
 {
 	uint8_t valid[3] = {1, 10, 100};
@@ -218,6 +246,9 @@ bool ADC_CheckGain(uint32_t value)
 	return false;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 uint8_t ADC_GainIndex(uint8_t gain)
 {
 	uint8_t valid[] = {1, 10, 100};
@@ -230,6 +261,9 @@ uint8_t ADC_GainIndex(uint8_t gain)
 
 	return 0;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 void ADC_Reset(uint32_t SamplingTime)
 {
@@ -258,6 +292,9 @@ void ADC_Reset(uint32_t SamplingTime)
 		Error_Handler();
 	}
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 void ADC_BspReset(void)
 {
@@ -309,6 +346,8 @@ void ADC_BspReset(void)
 }
 
 
+// --------------------------------------------------------------------------------------------------------------------
+
 bool ADC_Measurement(uint32_t sample_count)
 {
 	float zero_offset = 0.0f;
@@ -329,6 +368,9 @@ bool ADC_Measurement(uint32_t sample_count)
 	return false;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 bool ADC_CalibrationMeasurement(uint32_t sample_count)
 {
 
@@ -342,6 +384,9 @@ bool ADC_CalibrationMeasurement(uint32_t sample_count)
 
 	return false;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 void ADC_CalibrationSetup(void)
 {
@@ -380,6 +425,8 @@ void ADC_CalibrationSetup(void)
 	  }
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 void ADC_InitMemory()
 {

@@ -5,10 +5,14 @@
  *      Author: BehrensG
  */
 
-#include "api.h"
-#include "SCPI_Def.h"
+// --------------------------------------------------------------------------------------------------------------------
 
+#include "api.h"
+
+#include "SCPI_Def.h"
 #include "HiSLIP.h"
+
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_Error(hislip_instr_t* hislip_instr)
 {
@@ -16,6 +20,9 @@ int8_t hislip_Error(hislip_instr_t* hislip_instr)
 	// TBD
 	return err;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_FatalError(hislip_instr_t* hislip_instr)
 {
@@ -25,6 +32,7 @@ int8_t hislip_FatalError(hislip_instr_t* hislip_instr)
 }
 
 
+// --------------------------------------------------------------------------------------------------------------------
 
 int8_t hislip_GetDescriptorsResponse(hislip_instr_t* hislip_instr)
 {
@@ -32,5 +40,3 @@ int8_t hislip_GetDescriptorsResponse(hislip_instr_t* hislip_instr)
 	//TBD
 	return err;
 }
-
-

@@ -5,6 +5,8 @@
  *      Author: grzegorz
  */
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #include <string.h>
 
 #include "HTTP_Task.h"
@@ -13,7 +15,11 @@
 #include "EEPROM.h"
 #include "SCPI_System.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 extern bsp_t bsp;
+
+// --------------------------------------------------------------------------------------------------------------------
 
 #define	HTTP_POST_SERVICE_MAC		0
 #define	HTTP_POST_SERVICE_SN		1
@@ -24,6 +30,7 @@ extern bsp_t bsp;
 #define	HTTP_GET_IMG_FAVICON		6
 #define	HTTP_POST_SERVICE_RESET		7
 
+// --------------------------------------------------------------------------------------------------------------------
 
 static const http_cmd_t http_service[] = {
 		{.cmd="POST /macAddress", .value = HTTP_POST_SERVICE_MAC},
@@ -36,7 +43,12 @@ static const http_cmd_t http_service[] = {
 		{.cmd="POST /service_reset", .value = HTTP_POST_SERVICE_RESET}
 };
 
+// --------------------------------------------------------------------------------------------------------------------
+
 static bool valid_password = false;
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 bool http_service_page(struct netconn *conn, char* buf, u16_t buflen)
 {
@@ -201,5 +213,3 @@ bool http_service_page(struct netconn *conn, char* buf, u16_t buflen)
 
 	return status;
 }
-
-

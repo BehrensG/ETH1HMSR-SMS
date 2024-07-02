@@ -10,6 +10,8 @@
 
 #include <stdbool.h>
 
+// --------------------------------------------------------------------------------------------------------------------
+
 typedef enum led_select
 {
 	LED_NONE = 0x0,
@@ -18,7 +20,11 @@ typedef enum led_select
 	BLUE = 0x4
 }led_select_t;
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #define LED_ALL (RED | GREEN | BLUE)
+
+// --------------------------------------------------------------------------------------------------------------------
 
 void LED_Control(led_select_t LEDs, bool enable);
 void LED_Toggle(led_select_t LEDs, uint32_t time_on, uint32_t time_off);

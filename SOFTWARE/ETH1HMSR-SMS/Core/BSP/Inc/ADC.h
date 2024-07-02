@@ -10,12 +10,15 @@
 
 #include "main.h"
 
+// --------------------------------------------------------------------------------------------------------------------
 
 #define ADC_MEASUREMENT_BUFFER	32000
 #define ADC_DEF_SIZE			1000
 #define ADC_VREF				3.3f
 #define ADC_VCOM				3.3f/2.0f
 #define ADC_TIMEOUT_MAX			40000
+
+// --------------------------------------------------------------------------------------------------------------------
 
 bool ADC_CheckGain(uint32_t value);
 uint8_t ADC_GainIndex(uint8_t gain);

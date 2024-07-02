@@ -5,17 +5,21 @@
  *      Author: BehrensG
  */
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #include <string.h>
 
 #include "HiSLIP.h"
 
-
+// --------------------------------------------------------------------------------------------------------------------
 
 void hislip_Init(hislip_instr_t* hislip_instr)
 {
 	memset(hislip_instr->end, 0, sizeof(hislip_instr->end));
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 void hislip_htonl(hislip_msg_t* hislip_msg)
 {
@@ -25,6 +29,8 @@ void hislip_htonl(hislip_msg_t* hislip_msg)
 	hislip_msg->payload_len.lo = htonl(hislip_msg->payload_len.lo);
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 size_t hislip_SumSize(size_t* sizes, size_t len)
 {
@@ -38,6 +44,9 @@ size_t hislip_SumSize(size_t* sizes, size_t len)
 	return sum;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 void hislip_CopyMemory(char* destination, void** sources, size_t* sizes, uint32_t num_sources)
 {
     size_t offset = 0;
@@ -48,6 +57,8 @@ void hislip_CopyMemory(char* destination, void** sources, size_t* sizes, uint32_
     }
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 hislip_msg_t hislip_MsgParser(hislip_instr_t* hislip_instr)
 {
@@ -64,6 +75,8 @@ hislip_msg_t hislip_MsgParser(hislip_instr_t* hislip_instr)
 	return hislip_msg;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
 
 void hislip_DataHeader(hislip_instr_t* hislip_instr, hislip_msg_t* msg, uint8_t msg_type, uint32_t size)
 {

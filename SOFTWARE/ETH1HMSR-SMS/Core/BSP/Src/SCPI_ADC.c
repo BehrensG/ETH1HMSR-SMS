@@ -5,6 +5,8 @@
  *      Author: grzegorz
  */
 
+// --------------------------------------------------------------------------------------------------------------------
+
 #include <stdint.h>
 #include <math.h>
 
@@ -15,10 +17,13 @@
 #include "SCPI_ADC.h"
 #include "ADC.h"
 
+// --------------------------------------------------------------------------------------------------------------------
+
 extern bsp_t bsp;
 extern ADC_HandleTypeDef hadc3;
 extern scpi_choice_def_t scpi_boolean_select[];
 
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_AdcConfigurationResolution(scpi_t * context)
 {
@@ -45,12 +50,18 @@ scpi_result_t SCPI_AdcConfigurationResolution(scpi_t * context)
 	return SCPI_RES_OK;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 scpi_result_t SCPI_AdcConfigurationResolutionQ(scpi_t * context)
 {
 	SCPI_ResultUInt8(context, bsp.adc.bits);
 
 	return SCPI_RES_OK;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 static uint32_t SCPI_FloatToSamplingTime(float value)
 {
@@ -70,6 +81,9 @@ static uint32_t SCPI_FloatToSamplingTime(float value)
 
 	return UINT32_MAX;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_AdcConfigurationSamplingTimeCycle(scpi_t * context)
 {
@@ -97,11 +111,17 @@ scpi_result_t SCPI_AdcConfigurationSamplingTimeCycle(scpi_t * context)
 	return SCPI_RES_OK;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 scpi_result_t SCPI_AdcConfigurationSamplingTimeCycleQ(scpi_t * context)
 {
 	SCPI_ResultFloat(context, bsp.adc.cycles);
 	return SCPI_RES_OK;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_AdcConfigurationOverSamplingEnable(scpi_t * context)
 {
@@ -120,11 +140,17 @@ scpi_result_t SCPI_AdcConfigurationOverSamplingEnable(scpi_t * context)
 	return SCPI_RES_OK;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 scpi_result_t SCPI_AdcConfigurationOverSamplingEnableQ(scpi_t * context)
 {
 	SCPI_ResultBool(context, (scpi_bool_t)bsp.adc.oversampling.enable);
 	return SCPI_RES_OK;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_AdcConfigurationOverSamplingRatio(scpi_t * context)
 {
@@ -158,12 +184,18 @@ scpi_result_t SCPI_AdcConfigurationOverSamplingRatio(scpi_t * context)
 	return SCPI_RES_OK;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 scpi_result_t SCPI_AdcConfigurationOverSamplingRatioQ(scpi_t * context)
 {
 	SCPI_ResultUInt16(context, bsp.adc.oversampling.ratio);
 
 	return SCPI_RES_OK;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_AdcConfigurationGain(scpi_t * context)
 {
@@ -187,12 +219,18 @@ scpi_result_t SCPI_AdcConfigurationGain(scpi_t * context)
 	return SCPI_RES_OK;
 }
 
+
+// --------------------------------------------------------------------------------------------------------------------
+
 scpi_result_t SCPI_AdcConfigurationGainQ(scpi_t * context)
 {
 	SCPI_ResultUInt8(context, bsp.adc.gain.value);
 
 	return SCPI_RES_OK;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_AdcConfigurationSampleCount(scpi_t * context)
 {
@@ -225,6 +263,9 @@ scpi_result_t SCPI_AdcConfigurationSampleCount(scpi_t * context)
 		}
 	return SCPI_RES_OK;
 }
+
+
+// --------------------------------------------------------------------------------------------------------------------
 
 scpi_result_t SCPI_AdcConfigurationSampleCountQ(scpi_t * context)
 {
