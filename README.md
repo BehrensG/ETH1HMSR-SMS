@@ -88,7 +88,7 @@ The user can mount different HMSR-SMS models for different measurement ranges, t
 > The limitations is the input connector (Phoenix Contact 1710072), with nominal current of 32 A. For larger current models, the user need to redesign the PCB.
 
 > [!NOTE]
-> The prototype has a HMSR6-SMS. Other current models whre not tested.
+> The prototype has a HMSR6-SMS. Other current models where not tested.
 
 
 > [!TIP]
