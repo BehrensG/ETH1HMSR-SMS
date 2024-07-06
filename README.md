@@ -113,18 +113,25 @@ The PCB uses Ethernet to communicate with the PC. The features are :
 The device website provides the ability to obtain device information, make measurements, and configure the device. Additionally, it offers a manual with all SCPI commands.
 <p></p>
 
-<p align="center">Device Home Page</p>
+> [!WARNING]
+> The website was tested only with Google Chrome  Browser.
+
+<h5><p align="center">Device Home Page</p></h5>
 <hr>
 <p align="center"><img src="img/web_Home.png"></img></p>
 
-<p align="center">Device Network Setup</p>
+<h5><p align="center">Device Network Setup</p></h5>
 <hr>
 <p align="center"><img src="img/web_Network.png"></img></p>
 
-<p align="center">Device Control</p>
+<h5><p align="center">Device Control</p></h5>
 <hr>
 <p align="center"><img src="img/web_Control.png"></img></p>
 
-<p align="center">Device Help</p>
+<h5><p align="center">Device Help</p></h5>
 <hr>
 <p align="center"><img src="img/web_Help.png"></img></p>
+
+<h5><p align="center">Device Service</p></h5>
+<hr>
+<p align="center"><img src="img/web_Service.png"></img></p>
