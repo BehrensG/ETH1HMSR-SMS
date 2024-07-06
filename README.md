@@ -16,8 +16,8 @@ Key features of the design include:
     <li><b>Dimensions</b>: 100 x 45 mm</li>
     <li><b>Power Supply</b>: Operates on a voltage range from 6.5 to 36 VDC (recommended 24 VDC) and includes reverse voltage protection.</li>
     <li><b>Isolation</b>: The HMSR-SMS chip provides isolation protection for the rest of the circuit.</li>
-    <li><b>MCU</b>: STM32H743VITx was selected becaus it large internal FLASH and RAM memories, support for Ethernet and internal 16 bit ADC.</li>
-    <li><b>ADC</b>: Internal 16 bit ADC configured in differential mode.</li>
+    <li><b>MCU</b>: The STM32H743VITx was selected because of its large internal FLASH and RAM memory, support for Ethernet, and internal 16-bit ADC.</li>
+    <li><b>ADC</b>: Internal 16 bit ADC, configured in differential mode.</li>
     <li><b>Software</b>: FreeRTOS with lwip and SCPI parser library.</li>
 </ul>
 
@@ -85,14 +85,14 @@ The user can mount different HMSR-SMS models for different measurement ranges, t
 </table>
 
 > [!NOTE]
-> The limitations is the input connector (Phoenix Contact 1710072), with nominal current of 32 A. For larger current models the user need to redesign the PCB.
+> The limitations is the input connector (Phoenix Contact 1710072), with nominal current of 32 A. For larger current models, the user need to redesign the PCB.
 
 > [!NOTE]
-> The prototype has a HMSR6-SMS mounted. Other model was not tested.
+> The prototype has a HMSR6-SMS. Other current models whre not tested.
 
 
 > [!TIP]
-> The HMSR-SMS chip is very accurate without any additional calibration.
+> The HMSR-SMS chip is accurate without any additional calibration.
 
 <h2>Ethernet connection</h2>
 
@@ -100,11 +100,13 @@ The PCB uses Ethernet to communicate with the PC. The features are :
 
 <h3>LAN eXtensions for Instrumentation (LXI)</h3>
 
+LAN eXtensions for Instrumentation (LXI) is a standard for connecting and controlling test and measurement instruments via Ethernet. It allows for easy integration, remote access, and simplified configuration, enhancing the flexibility and scalability of automated test systems.
+
 > [!WARNING]  
 > This device does not guarantee full compliance with the LXI standard. The implementation was based on available documentation and observations of an LXI-compliant device.
 
 > [!TIP]
-> To use the LXI features the user needs to use a VISA API. In the examples below the R&S VISA Tools where uses. 
+> To use the LXI features the user needs to use a VISA API. In the examples below, the R&S VISA Tools where uses. 
 
 <h4><p align="center">Device autodetect with multicast DNS (mDNS).</p></h4>
 <hr>
@@ -173,4 +175,6 @@ The user can connect to the device directly via UDP port 5025. Over UDP, there i
     <li><a href="https://www.ivifoundation.org/specifications/default.html" target="_blank">High Speed LAN Instrument Protocol (HiSLIP)</a></li>
     <li><a href="https://en.wikipedia.org/wiki/Virtual_instrument_software_architecture" target="_blank">Virtual instrument software architecture (VISA)</a></li>
     <li><a href="https://www.rohde-schwarz.com/us/driver-pages/remote-control/3-visa-and-tools_231388.html" target="_blank">R&S VISA</a></li>
+    <li><a href="https://github.com/j123b567/scpi-parser" target="_blank">SCPI Parser</a></li>
+   <li><a href="https://github.com/mpaland/printf" target="_blank">A printf / sprintf Implementation for Embedded Systems</a></li>
 </ul>
