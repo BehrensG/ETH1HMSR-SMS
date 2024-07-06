@@ -1,20 +1,24 @@
 <h1>ETH1HMSR-SMS</h1>
 
-ETH1HMSR-SMS is a one-channel data acquisition card based on the HMSR-SMS chip. The communication with a PC is over Ethernet. The card supports LAN eXtensions for Instrumentation (LXI) and RAW TCP connections.
+ETH1HMSR-SMS is a one-channel data acquisition card based on the HMSR-SMS chip. The communication with a PC is over Ethernet. The card supports LAN eXtensions for Instrumentation (LXI) and RAW TCP and UDP connections.
 
-<h2>FEATURES</h2>
+<h2>DESCRIPTION</h2>
 
 <p></p>
 
-<h3>PCB design</h3>
-This repository contains the design files for a 4-layer PCB created using KiCAD. Key features of the design include:
+<h3>Device Design</h3>
+
+Key features of the design include:
 
 <p></p>
 
 <ul>
-<li><b>Dimensions</b>: 100 x 45 mm</li>
-<li><b>Power Supply</b>: Operates on a voltage range from 6.5 to 36 VDC (recommended 24 VDC) and includes reverse voltage protection.</li>
-<li><b>Isolation</b>: The HMSR-SMS chip provides isolation protection for the rest of the circuit.</li>
+    <li><b>Dimensions</b>: 100 x 45 mm</li>
+    <li><b>Power Supply</b>: Operates on a voltage range from 6.5 to 36 VDC (recommended 24 VDC) and includes reverse voltage protection.</li>
+    <li><b>Isolation</b>: The HMSR-SMS chip provides isolation protection for the rest of the circuit.</li>
+    <li><b>MCU</b>: STM32H743VITx was selected becaus it large internal FLASH and RAM memories, support for Ethernet and internal 16 bit ADC.</li>
+    <li><b>ADC</b>: Internal 16 bit ADC configured in differential mode.</li>
+    <li><b>Software</b>: FreeRTOS with lwip and SCPI parser library.</li>
 </ul>
 
 <p></p>
@@ -83,5 +87,21 @@ The user can mount different HMSR-SMS models for different measurement ranges, t
 > [!NOTE]
 > The limitations is the input connector (Phoenix Contact 1710072), with nominal current of 32 A. For larger current models the user need to redesign the PCB.
 
+> [!TIP]
+> The prototype has a HMSR6-SMS mounted. Other model was not tested.
+
+
 <h3>Ethernet connection</h3>
 
+The PCB uses Ethernet to communicate with the PC. The features are :
+
+<h4>LAN eXtensions for Instrumentation (LXI)</h4>
+
+<h5><p align="center">Device autodetect with multicast DNS (mDNS).</p></h5>
+<p align="center"><img src="img/mDNS.png" width="600"></img></p>
+
+<h5><p align="center">Support for High Speed LAN Instrument Protocol (HiSLIP).</p></h5>
+<p align="center"><img src="img/HiSLIP.png"></img></p>
+
+> [!WARNING]  
+> This device does not guarantee full compliance with the LXI standard. The implementation was based on available documentation and observations of an LXI-compliant device.
