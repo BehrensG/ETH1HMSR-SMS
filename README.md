@@ -1,6 +1,6 @@
 <h1>ETH1HMSR-SMS</h1>
 
-    ETH1HMSR-SMS is a one-channel data acquisition card based on the HMSR-SMS chip. The communication with a PC is over Ethernet. The card supports LAN eXtensions for Instrumentation (LXI) and RAW TCP connections.
+ETH1HMSR-SMS is a one-channel data acquisition card based on the HMSR-SMS chip. The communication with a PC is over Ethernet. The card supports LAN eXtensions for Instrumentation (LXI) and RAW TCP connections.
 
 <h2>FEATURES</h2>
 <p></p>
@@ -53,7 +53,7 @@ The user can mount different HMSR-SMS models for different measurement ranges, t
         <td>HMSR30-SMS</td>
         <td>30</td>
         <td>+/- 75</td>
-        <td><font color="red">NO</font></td>
+        <p style="color:red;">NO</p>
     </tr>
 </table>
 <p><font color="blue">NOTE</font>: The limitations is the input connector (Phoenix Contact 1710072) what nominal current is 32 A. For larger current models the user need to redesign the PCB.</p>
