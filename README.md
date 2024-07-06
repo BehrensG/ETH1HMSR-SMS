@@ -53,7 +53,7 @@ The user can mount different HMSR-SMS models for different measurement ranges, t
         <td>HMSR30-SMS</td>
         <td>30</td>
         <td>+/- 75</td>
-        <td><p style="color:red;">NO</p></td>
+        <td><p style='color:red'>This is some red text.</p></td>
     </tr>
 </table>
 
