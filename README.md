@@ -91,17 +91,40 @@ The user can mount different HMSR-SMS models for different measurement ranges, t
 > The prototype has a HMSR6-SMS mounted. Other model was not tested.
 
 
-<h3>Ethernet connection</h3>
+<h2>Ethernet connection</h2>
 
 The PCB uses Ethernet to communicate with the PC. The features are :
 
-<h4>LAN eXtensions for Instrumentation (LXI)</h4>
-
-<h5><p align="center">Device autodetect with multicast DNS (mDNS).</p></h5>
-<p align="center"><img src="img/mDNS.png" width="600"></img></p>
-
-<h5><p align="center">Support for High Speed LAN Instrument Protocol (HiSLIP).</p></h5>
-<p align="center"><img src="img/HiSLIP.png"></img></p>
+<h3>LAN eXtensions for Instrumentation (LXI)</h3>
 
 > [!WARNING]  
 > This device does not guarantee full compliance with the LXI standard. The implementation was based on available documentation and observations of an LXI-compliant device.
+
+<h4><p align="center">Device autodetect with multicast DNS (mDNS).</p></h4>
+<hr>
+<p align="center"><img src="img/mDNS.png" width="800"></img></p>
+
+<h4><p align="center">Support for High Speed LAN Instrument Protocol (HiSLIP).</p></h4>
+<hr>
+<p align="center"><img src="img/HiSLIP.png"></img></p>
+
+<h4><p align="center">Web interface</p></h4>
+<hr>
+The device website provides the ability to obtain device information, make measurements, and configure the device. Additionally, it offers a manual with all SCPI commands.
+<p></p>
+
+<p align="center">Device Home Page</p>
+<hr>
+<p align="center"><img src="img/web_Home.png"></img></p>
+
+<p align="center">Device Network Setup</p>
+<hr>
+<p align="center"><img src="img/web_Network.png"></img></p>
+
+<p align="center">Device Control</p>
+<hr>
+<p align="center"><img src="img/web_Control.png"></img></p>
+
+<p align="center">Device Help</p>
+<hr>
+<p align="center"><img src="img/web_Help.png"></img></p>
