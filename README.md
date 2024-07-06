@@ -53,7 +53,7 @@ The user can mount different HMSR-SMS models for different measurement ranges, t
         <td>HMSR30-SMS</td>
         <td>30</td>
         <td>+/- 75</td>
-        <p style="color:red;">NO</p>
+        <td><p style="color:red;">NO</p></td>
     </tr>
 </table>
 <p><font color="blue">NOTE</font>: The limitations is the input connector (Phoenix Contact 1710072) what nominal current is 32 A. For larger current models the user need to redesign the PCB.</p>
