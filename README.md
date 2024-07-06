@@ -87,9 +87,12 @@ The user can mount different HMSR-SMS models for different measurement ranges, t
 > [!NOTE]
 > The limitations is the input connector (Phoenix Contact 1710072), with nominal current of 32 A. For larger current models the user need to redesign the PCB.
 
-> [!TIP]
+> [!NOTE]
 > The prototype has a HMSR6-SMS mounted. Other model was not tested.
 
+
+> [!TIP]
+> The HMSR-SMS chip is very accurate without any additional calibration.
 
 <h2>Ethernet connection</h2>
 
@@ -99,6 +102,9 @@ The PCB uses Ethernet to communicate with the PC. The features are :
 
 > [!WARNING]  
 > This device does not guarantee full compliance with the LXI standard. The implementation was based on available documentation and observations of an LXI-compliant device.
+
+> [!TIP]
+> To use the LXI features the user needs to use a VISA API. In the examples below the R&S VISA Tools where uses. 
 
 <h4><p align="center">Device autodetect with multicast DNS (mDNS).</p></h4>
 <hr>
@@ -118,20 +124,41 @@ The device website provides the ability to obtain device information, make measu
 
 <h5><p align="center">Device Home Page</p></h5>
 <hr>
-<p align="center"><img src="img/web_Home.png"></img></p>
+<p align="center"><img src="img/web_Home.png" width="800"></img></p>
 
 <h5><p align="center">Device Network Setup</p></h5>
 <hr>
-<p align="center"><img src="img/web_Network.png"></img></p>
+<p align="center"><img src="img/web_Network.png" width="800"></img></p>
 
 <h5><p align="center">Device Control</p></h5>
 <hr>
-<p align="center"><img src="img/web_Control.png"></img></p>
+<p align="center"><img src="img/web_Control.png" width="800"></img></p>
 
 <h5><p align="center">Device Help</p></h5>
 <hr>
-<p align="center"><img src="img/web_Help.png"></img></p>
+<p align="center"><img src="img/web_Help.png" width="800"></img></p>
 
 <h5><p align="center">Device Service</p></h5>
 <hr>
-<p align="center"><img src="img/web_Service.png"></img></p>
+<p align="center"><img src="img/web_Service.png" width="800"></img></p>
+
+<h3>RAW TCP</h3>
+The user can connect to the device directly over the TCP 5025 port.
+
+<h5><p align="center">Using netcat</p></h5>
+<hr>
+<p align="center"><img src="img/netcat.png" width="900"></img></p>
+
+<h5><p align="center">Using putty</p></h5>
+<hr>
+<p align="center"><img src="img/putty.png" width="900"></img></p>
+
+<h2>Links</h2>
+
+<ul>
+    <li><a href="https://www.lem.com/en/hmsr-series" target="_blank">HMSR-SMS</a></li>
+    <li><a href="https://www.lxistandard.org/" target="_blank">LAN eXtensions for Instrumentation</a></li>
+    <li><a href="https://www.ivifoundation.org/specifications/default.html" target="_blank">High Speed LAN Instrument Protocol (HiSLIP)</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Virtual_instrument_software_architecture" target="_blank">Virtual instrument software architecture (VISA)</a></li>
+    <li><a href="https://www.rohde-schwarz.com/us/driver-pages/remote-control/3-visa-and-tools_231388.html" target="_blank">R&S VISA</a></li>
+</ul>
