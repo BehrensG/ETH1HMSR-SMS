@@ -147,11 +147,23 @@ The user can connect to the device directly over the TCP 5025 port.
 
 <h5><p align="center">Using netcat</p></h5>
 <hr>
-<p align="center"><img src="img/netcat.png" width="900"></img></p>
+<p align="center"><img src="img/netcat.png"></img></p>
 
 <h5><p align="center">Using putty</p></h5>
 <hr>
 <p align="center"><img src="img/putty.png" width="900"></img></p>
+
+
+<h3>RAW UDP</h3>
+The user can connect to the device directly via UDP port 5025. Over UDP, there is a very limited set of SCPI commands available for measurement readout.
+<p></p>
+
+> [!WARNING]
+> The RAW UDP connection is not part of the LXI standard, it is device specific.
+
+<h5><p align="center">Using netcat</p></h5>
+<hr>
+<p align="center"><img src="img/udp.png"></img></p>
 
 <h2>Links</h2>
 
