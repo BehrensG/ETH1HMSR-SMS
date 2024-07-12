@@ -11501,9 +11501,9 @@
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "e10ac937-0d91-404a-86df-50f952207369")
 		(property "Reference" "D501"
 			(at 245.11 64.77 90)
