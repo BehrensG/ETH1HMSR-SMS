@@ -416,6 +416,9 @@ static err_t UDP_SendASCII() {
 // --------------------------------------------------------------------------------------------------------------------
 
 static void UDP_INITiate(void) {
+
+	LED_osQueue(BLUE);
+
 	if (!ADC_Measurement(bsp.adc.sample_count)) {
 		LED_osQueue(RED);
 	} else {
