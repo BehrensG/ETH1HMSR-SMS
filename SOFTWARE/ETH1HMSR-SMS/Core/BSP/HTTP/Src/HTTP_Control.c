@@ -243,16 +243,18 @@ bool http_control_page(struct netconn *conn, char* buf, u16_t buflen)
 		case HTTP_POST_SAMPLING_TIME : {
 
 			u32_t sampling_time = 0;
+			float cycles = 0.0f;
 
 			char* post = http_post_data(buf, buflen, &post_len);
 			memcpy(control, post, post_len);
 
-
-			sampling_time = float_to_sampling_time((float)atof(control));
+			cycles = (float)atof(control);
+			sampling_time = float_to_sampling_time(cycles);
 
 			if (UINT32_MAX != sampling_time)
 			{
 				bsp.adc.sampling_time = sampling_time;
+				bsp.adc.cycles = cycles;
 				ADC_Reset(sampling_time);
 				ADC_AutoCalibration();
 			}

@@ -98,11 +98,13 @@ bool http_setup_page(struct netconn *conn, char* buf, u16_t buflen)
 			if(!strncmp(data, PASSWORD, strlen(PASSWORD)) && (post_data_len == strlen(PASSWORD)))
 			{
 				valid_password = true;
+				bsp.security.status = false;
 
 			}
 			else
 			{
 				valid_password = false;
+				bsp.security.status = true;
 			}
 
 			memcpy(pagedata, http_valid_response, strlen(http_valid_response));
