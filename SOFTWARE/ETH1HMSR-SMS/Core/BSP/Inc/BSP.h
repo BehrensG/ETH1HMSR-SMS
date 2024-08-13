@@ -186,6 +186,7 @@ typedef struct
 	uint8_t bits;
 	uint32_t sampling_time;
 	float cycles;
+	float period;
 	bsp_gain_t gain;
 	uint32_t sample_count;
 	float vcom;

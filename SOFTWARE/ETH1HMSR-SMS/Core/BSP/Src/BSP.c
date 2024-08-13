@@ -47,6 +47,7 @@ static void BSP_Init_Common()
 
 	bsp.adc.sampling_time = ADC_SAMPLETIME_1CYCLE_5;
 	bsp.adc.cycles = 1.5;
+	bsp.adc.period = 0.2;
 	bsp.led = true;
 
 	bsp.format.data = FORMAT_DATA_ASCII;

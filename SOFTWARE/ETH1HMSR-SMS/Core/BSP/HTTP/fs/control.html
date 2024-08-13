@@ -104,7 +104,7 @@
 <script>
     
     function onLoad(){
-        const ids = ["ctr_resolution", "ctr_sampling_time", "ctr_oversampling_ratio", "ctr_gain", "ctr_sample_count", "ctr_led_status"];
+        const ids = ["ctr_resolution", "ctr_sampling_time", "ctr_oversampling_ratio", "ctr_gain", "ctr_sample_count", "ctr_led_status", "ctr_offset_enable"];
         ids.forEach(id => {
             const xhr = new XMLHttpRequest();
             xhr.open("GET", id, true);  // Modify the URL according to your needs
@@ -112,20 +112,27 @@
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
-                        if("ctr_led_status" != id)
-                        {
-                            document.getElementById(id).value = xhr.responseText;
+
+                        if("ctr_led_status" == id) {
+
+                            if("ON" == xhr.responseText) {
+                                setLEDButtonOn();
+                            }
+                            else {
+                                setLEDButtonOff();
+                            }
                         }
-                        else
-                        {
-                            if("ON" == xhr.responseText)
-                            {
-                                setButtonOn();
+                        else if("ctr_offset_enable" == id) {
+
+                            if("ON" == xhr.responseText) {
+                                setOFFSETButtonOn();
                             }
-                            else
-                            {
-                                setButtonOff();
-                            }
+                            else {
+                                setOFFSETButtonOff();
+                            }    
+                        }
+                        else {
+                            document.getElementById(id).value = xhr.responseText;
                         }
                         
                     }
@@ -213,6 +220,25 @@
             });
         }
 
+        
+        function getOffset()
+        {
+            const ids = ["ctr_offset_calculate"];
+            ids.forEach(id => {
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", id, true);  // Modify the URL according to your needs
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            document.getElementById(id).value = xhr.responseText;
+                        }
+                    }
+                };
+
+                xhr.send();
+            });
+        }
 
         function fetchAndDraw() {
             var xhr = new XMLHttpRequest();
@@ -325,8 +351,8 @@
         svg.appendChild(polyline);
     }
 
-    function toggleFunction() {
-        var button = document.getElementById("toggleBtn");
+    function toggleLEDFunction() {
+        var button = document.getElementById("toggleLED");
         button.classList.toggle("toggled");
         if (button.classList.contains("toggled")) {
             button.innerText = "STATUS LED ON";
@@ -337,16 +363,40 @@
         }
     }
 
-    function setButtonOn() {
-        var button = document.getElementById("toggleBtn");
+    function toggleOFFSETFunction() {
+        var button = document.getElementById("toggleOFFSET");
+        button.classList.toggle("toggled");
+        if (button.classList.contains("toggled")) {
+            button.innerText = "CALCULATE OFFSET ON";
+            postLEDValue("ON");
+        } else {
+            button.innerText = "CALCULATE OFFSET OFF";
+            postLEDValue("OFF");
+        }
+    }
+
+    function setLEDButtonOn() {
+        var button = document.getElementById("toggleLED");
         button.classList.add("toggled");
         button.innerText = "STATUS LED ON";
     }
 
-    function setButtonOff() {
-        var button = document.getElementById("toggleBtn");
+    function setLEDButtonOff() {
+        var button = document.getElementById("toggleLED");
         button.classList.remove("toggled");
         button.innerText = "STATUS LED OFF";
+    }
+
+    function setOFFSETButtonOn() {
+        var button = document.getElementById("toggleOFFSET");
+        button.classList.add("toggled");
+        button.innerText = "CALCULATE OFFSET ON";
+    }
+
+    function setOFFSETButtonOff() {
+        var button = document.getElementById("toggleOFFSET");
+        button.classList.remove("toggled");
+        button.innerText = "CALCULATE OFFSET OFF";
     }
 
     function postLEDValue(value)
@@ -366,7 +416,7 @@
 
                 <tr>
                     <td class="first-column">Status LED Control: </td>
-                    <td class="second-column"><button class="toggle-button" id="toggleBtn" onclick="toggleFunction()">LED STATUS</button>
+                    <td class="second-column"><button class="toggle-button" id="toggleLED" onclick="toggleLEDFunction()">LED STATUS</button>
                         <p style="font-size: small;">Enable/disable the status LED. NOTE: The "Blink Status LED" function will still work.</p></td>
                 </tr>
                 <tr>
@@ -418,7 +468,22 @@
         <table>
             <tbody>
                 <tr>
-                    <td class="first-column">Average: </td>
+                    <td class="first-column">Calculate Offset Control: </td>
+                    <td class="second-column"><button class="toggle-button" id="toggleOFFSET" onclick="toggleOFFSETFunction()">CALCULATE OFFSET OFF</button>
+                        <p style="font-size: small;">Enable/disable the offset calculation function.</p></td>
+                </tr>
+                <tr>
+                    <td class="first-column">Calculate Offset: </td>
+                    <td class="second-column"><textarea readonly id="ctr_offset_calculate" cols="20" rows="1"></textarea>
+                        <button style="margin-left: 20px;" id="button_offset" onclick="getOffset()">Get Value</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="margin-bottom: 25px;"></p>
+        <table>
+            <tbody>
+                <tr>
+                    <td class="first-column">Calculate Measurement Average: </td>
                     <td class="second-column"><textarea readonly id="ctr_read_average" cols="20" rows="1"></textarea>
                         <button style="margin-left: 20px;" id="button_average" onclick="getAverage()">Get Value</button></td>
              

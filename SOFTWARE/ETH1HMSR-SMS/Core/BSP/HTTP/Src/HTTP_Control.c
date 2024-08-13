@@ -47,6 +47,9 @@ extern TIM_HandleTypeDef htim3;
 #define HTTP_GET_READ_AVERAGE				12
 #define HTTP_GET_LED_STATUS					13
 #define HTTP_POST_LED_STATUS				14
+#define HTTP_GET_OFFSET_ENABLE				15
+#define HTTP_GET_OFFSET_CALCULATE			16
+#define HTTP_POST_OFFSET_ENABLE				17
 
 #define DATA_SIZE	128
 
@@ -62,6 +65,7 @@ static const http_cmd_t http_control[] = {
 		{.cmd="GET /ctr_sample_count", .value = HTTP_GET_SAMPLE_COUNT},
 		{.cmd="GET /ctr_read_average", .value = HTTP_GET_READ_AVERAGE},
 		{.cmd="GET /ctr_led_status", .value = HTTP_GET_LED_STATUS},
+		{.cmd="GET /ctr_offset_enable", .value = HTTP_GET_OFFSET_ENABLE},
 
 		{.cmd="POST /ctr_blink_led", .value = HTTP_POST_CONTROL_BLINK_LED},
 		{.cmd="POST /ctr_resolution", .value = HTTP_POST_RESOLUTION},
@@ -69,9 +73,10 @@ static const http_cmd_t http_control[] = {
 		{.cmd="POST /ctr_oversampling_ratio", .value = HTTP_POST_OVERSAMPLING_RATIO},
 		{.cmd="POST /ctr_gain", .value = HTTP_POST_GAIN},
 		{.cmd="POST /ctr_sample_count", .value = HTTP_POST_SAMPLE_COUNT},
-		{.cmd="POST /ctr_led_status", .value = HTTP_POST_LED_STATUS}
+		{.cmd="POST /ctr_led_status", .value = HTTP_POST_LED_STATUS},
+		{.cmd="POST /ctr_offset_enable", .value = HTTP_POST_OFFSET_ENABLE},
+		{.cmd="GET /ctr_offset_calculate", .value = HTTP_GET_OFFSET_CALCULATE},
 };
-
 
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -82,7 +87,6 @@ static void http_LED(led_select_t LED)
 		LED_osQueue(LED);
 	}
 }
-
 
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -104,7 +108,6 @@ static u32_t float_to_sampling_time(float value)
 
 	return UINT32_MAX;
 }
-
 
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -167,6 +170,59 @@ static void http_average(struct netconn *conn)
 	}
 }
 
+// --------------------------------------------------------------------------------------------------------------------
+
+static float http_calc_offset_average(uint32_t sample_count)
+{
+	float average = 0.0f;
+	float tmp = 0.0f;
+
+
+
+	for (uint32_t i = 0; i < sample_count ; i++)
+	{
+		tmp += measurements[i];
+	}
+
+	average = (float)(tmp/sample_count);
+
+	return average;
+}
+
+static void http_offset(struct netconn *conn)
+{
+	float average = 0.0f;
+	float tmp = 0.0f;
+
+	char txt[12];
+	memset(txt, 0, 12);
+
+	uint32_t sample_size = ADC_DEF_SIZE;
+	bool null_offset_state = bsp.adc.math_offset.enable;
+
+	if(pdTRUE == xSemaphoreTake(MeasMutex, pdMS_TO_TICKS(20000)))
+	{
+
+	 bsp.adc.math_offset.enable = false;
+
+		if(ADC_Measurement(sample_size))
+		{
+
+			bsp.adc.math_offset.zero[bsp.adc.gain.index] = -1.0f * http_calc_offset_average(sample_size);
+			bsp.adc.math_offset.enable = null_offset_state;
+
+			average = (float)(tmp/bsp.adc.sample_count);
+
+			sprintf(txt, "%.6f", average);
+
+			netconn_write(conn, txt,strlen(txt), NETCONN_NOCOPY);
+		}
+
+		bsp.adc.math_offset.enable = null_offset_state;
+		xSemaphoreGive(MeasMutex);
+
+	}
+}
 
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -326,11 +382,9 @@ bool http_control_page(struct netconn *conn, char* buf, u16_t buflen)
 
 		case HTTP_GET_MEASUREMENTS : {
 
-
-
 		    http_measurements(conn);
 
-		    response = false; // Disable automatic response
+		    response = false;
 
 		}; break;
 
@@ -339,11 +393,43 @@ bool http_control_page(struct netconn *conn, char* buf, u16_t buflen)
 
 			http_average(conn);
 
-			response = false; // Disable automatic response
+			response = false;
 
 		}; break;
 
+
+		case HTTP_GET_OFFSET_CALCULATE : {
+
+
+			http_offset(conn);
+
+			response = false;
+
+		}; break;
+
+
 		case HTTP_GET_LED_STATUS : (bsp.led) ? sprintf(pagedata, "ON") : sprintf(pagedata, "OFF") ; break;
+
+		case HTTP_GET_OFFSET_ENABLE : (bsp.adc.math_offset.enable) ? sprintf(pagedata, "ON") : sprintf(pagedata, "OFF") ; break;
+
+		case HTTP_POST_OFFSET_ENABLE : {
+
+			char* post = http_post_data(buf, buflen, &post_len);
+			memcpy(control, post, post_len);
+
+			if(!strncmp(control, "ON", 2))
+			{
+				bsp.adc.math_offset.enable = true;
+			}
+			else if(!strncmp(control, "OFF", 3))
+			{
+				bsp.adc.math_offset.enable = false;
+			}
+
+			memcpy(pagedata, http_valid_response, strlen(http_valid_response));
+
+		}; break;
+
 
 		case HTTP_POST_LED_STATUS : {
 

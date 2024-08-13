@@ -25,6 +25,9 @@ extern scpi_choice_def_t scpi_boolean_select[];
 
 // --------------------------------------------------------------------------------------------------------------------
 
+static float SCPI_CycleToPeriod(float cycle, uint8_t bits);
+
+
 scpi_result_t SCPI_AdcConfigurationResolution(scpi_t * context)
 {
 	uint32_t value;
@@ -46,6 +49,8 @@ scpi_result_t SCPI_AdcConfigurationResolution(scpi_t * context)
 
 	ADC_Reset(bsp.adc.sampling_time);
 	ADC_AutoCalibration();
+
+	bsp.adc.period = SCPI_CycleToPeriod(bsp.adc.cycles, bsp.adc.bits);
 
 	return SCPI_RES_OK;
 }
@@ -82,6 +87,101 @@ static uint32_t SCPI_FloatToSamplingTime(float value)
 	return UINT32_MAX;
 }
 
+// --------------------------------------------------------------------------------------------------------------------
+
+static float periods[][8] = {{0.20, 0.22, 0.34, 0.50, 0.82, 1.46, 7.92, 16.38},
+							{0.18, 0.20, 0.32, 0.48, 0.80, 1.44, 7.90, 16.36},
+							{0.16, 0.18, 0.30, 0.46, 0.78, 1.42, 7.88, 16.34},
+							{0.14, 0.16, 0.28, 0.44, 0.76, 1.40, 7.86, 16.32},
+							{0.12, 0.14, 0.26, 0.42, 0.74, 1.38, 7.84, 16.30}};
+
+static uint8_t resoluton_bits[] = {16, 14, 12, 10, 8};
+
+static float SCPI_CycleToPeriod(float cycle, uint8_t bits)
+{
+
+	uint16_t cycle_u16 = (uint16_t)(cycle * 10);
+
+	uint16_t cycles[] = {15, 25, 85, 165, 325, 645, 3875, 8105};
+
+	uint8_t index_bits = 0, index_period = 0;
+
+
+	for(uint8_t x = 0; x < 5; x++)
+	{
+		if(bits == resoluton_bits[x])
+		{
+			index_bits = x;
+			break;
+		}
+
+	}
+
+	for(uint8_t x = 0; x < 8; x++)
+	{
+		if(cycle_u16 == cycles[x])
+		{
+			index_period = x;
+			break;
+		}
+
+	}
+
+	return periods[index_bits][index_period];
+}
+
+static bool SCPI_CheckPeriodValue(float value, uint8_t bits)
+{
+	uint8_t index_bits = 0;
+
+	for(uint8_t x = 0; x < 4; x++)
+	{
+		if(bits == resoluton_bits[x])
+		{
+			index_bits = x;
+			break;
+		}
+
+	}
+
+	for(uint8_t x = 0; x < 8; x++)
+	{
+		if(value == periods[index_bits][x])
+		{
+			return 1;
+		}
+	}
+
+	return 0;
+}
+
+static float SCPI_PeriodToCycle(float period, uint8_t bits)
+{
+	uint8_t index_bits = 0, index_cycles = 0;
+
+	float cycles[] = {1.5, 2.5, 8.5, 16.5, 32.5, 64.5, 387.5, 810.5};
+
+	for(uint8_t x = 0; x < 4; x++)
+	{
+		if(bits == resoluton_bits[x])
+		{
+			index_bits = x;
+			break;
+		}
+
+	}
+
+	for(uint8_t x = 0; x < 8; x++)
+	{
+		if(period == periods[index_bits][x])
+		{
+			index_cycles = x;
+			break;
+		}
+	}
+
+	return cycles[index_cycles];
+}
 
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -105,6 +205,7 @@ scpi_result_t SCPI_AdcConfigurationSamplingTimeCycle(scpi_t * context)
 
 	bsp.adc.sampling_time = sampling_time;
 	bsp.adc.cycles = value;
+	bsp.adc.period = SCPI_CycleToPeriod(bsp.adc.cycles, bsp.adc.bits);
 	ADC_Reset(sampling_time);
 	ADC_AutoCalibration();
 
@@ -120,6 +221,49 @@ scpi_result_t SCPI_AdcConfigurationSamplingTimeCycleQ(scpi_t * context)
 	return SCPI_RES_OK;
 }
 
+// --------------------------------------------------------------------------------------------------------------------
+
+scpi_result_t SCPI_AdcConfigurationSamplingTimePeriod(scpi_t * context)
+{
+	float value;
+	uint32_t sampling_time;
+
+	if (!SCPI_ParamFloat(context, &value, TRUE))
+	{
+		return SCPI_RES_ERR;
+	}
+
+	if(!SCPI_CheckPeriodValue(value, bsp.adc.bits))
+	{
+		SCPI_ErrorPush(context, SCPI_ERROR_NUMERIC_DATA_NOT_ALLOWED);
+		return SCPI_RES_ERR;
+	}
+
+	sampling_time = SCPI_FloatToSamplingTime(SCPI_PeriodToCycle(value, bsp.adc.bits));
+
+	if (UINT32_MAX == sampling_time)
+	{
+		SCPI_ErrorPush(context, SCPI_ERROR_NUMERIC_DATA_NOT_ALLOWED);
+		return SCPI_RES_ERR;
+	}
+
+	bsp.adc.sampling_time = sampling_time;
+	bsp.adc.cycles = SCPI_PeriodToCycle(value, bsp.adc.bits);
+	bsp.adc.period = value;
+
+	ADC_Reset(sampling_time);
+	ADC_AutoCalibration();
+
+	return SCPI_RES_OK;
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+
+scpi_result_t SCPI_AdcConfigurationSamplingTimePeriodQ(scpi_t * context)
+{
+	SCPI_ResultFloat(context, bsp.adc.period);
+	return SCPI_RES_OK;
+}
 
 // --------------------------------------------------------------------------------------------------------------------
 

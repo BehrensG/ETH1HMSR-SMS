@@ -18,6 +18,9 @@ scpi_result_t SCPI_AdcConfigurationResolutionQ(scpi_t * context);
 scpi_result_t SCPI_AdcConfigurationSamplingTimeCycle(scpi_t * context);
 scpi_result_t SCPI_AdcConfigurationSamplingTimeCycleQ(scpi_t * context);
 
+scpi_result_t SCPI_AdcConfigurationSamplingTimePeriod(scpi_t * context);
+scpi_result_t SCPI_AdcConfigurationSamplingTimePeriodQ(scpi_t * context);
+
 scpi_result_t SCPI_AdcConfigurationOverSamplingEnable(scpi_t * context);
 scpi_result_t SCPI_AdcConfigurationOverSamplingEnableQ(scpi_t * context);
 

@@ -201,8 +201,10 @@ const scpi_command_t scpi_commands[] = {
 
 	{.pattern = "CONFiguration:RESOLution", .callback = SCPI_AdcConfigurationResolution,},
 	{.pattern = "CONFiguration:RESOLution?", .callback = SCPI_AdcConfigurationResolutionQ,},
-	{.pattern = "CONFiguration:SAMPling:TIME[:CYCLe]", .callback = SCPI_AdcConfigurationSamplingTimeCycle,},
-	{.pattern = "CONFiguration:SAMPling:TIME[:CYCLe]?", .callback = SCPI_AdcConfigurationSamplingTimeCycleQ,},
+	{.pattern = "CONFiguration:SAMPling:TIME:PERIod", .callback = SCPI_AdcConfigurationSamplingTimePeriod,},
+	{.pattern = "CONFiguration:SAMPling:TIME:PERIod?", .callback = SCPI_AdcConfigurationSamplingTimePeriodQ,},
+	{.pattern = "CONFiguration:SAMPling:TIME:CYCLe", .callback = SCPI_AdcConfigurationSamplingTimeCycle,},
+	{.pattern = "CONFiguration:SAMPling:TIME:CYCLe?", .callback = SCPI_AdcConfigurationSamplingTimeCycleQ,},
 	{.pattern = "CONFiguration:OVERSAMPling[:ENAble]", .callback = SCPI_AdcConfigurationOverSamplingEnable,},
 	{.pattern = "CONFiguration:OVERSAMPling[:ENAble]?", .callback = SCPI_AdcConfigurationOverSamplingEnableQ,},
 	{.pattern = "CONFiguration:OVERSAMPling:RATIO", .callback = SCPI_AdcConfigurationOverSamplingRatio,},

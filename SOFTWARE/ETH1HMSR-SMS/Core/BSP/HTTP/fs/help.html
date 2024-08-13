@@ -171,11 +171,26 @@
                 <div class="description"><b>&lt;resolution_value&gt;</b> : &#123; 8 | 10 | 12 | 14 | 16 &#125; Default : 16</div>
             </li>
             <li>
-                <div span class="command">CONFiguration:SAMPling:TIME[:CYCLe] &lt;sampling_cycle&gt;</div>
-                <div span class="command">CONFiguration:SAMPling:TIME[:CYCLe]?</div>
+                <div span class="command">CONFiguration:SAMPling:TIME:CYCLe &lt;sampling_cycle&gt;</div>
+                <div span class="command">CONFiguration:SAMPling:TIME:CYCLe?</div>
                 <div class="description">Configure the ADC sampling time using ADC cycles.</div>
                 <p></p>
                 <div class="description"><b>&lt;sampling_cycle&gt;</b> : &#123; 1.5 | 2.5 | 8.5 | 16.5 | 32.5 | 64.5 | 387.5 | 810.5 &#125; Default : 1.5</div>
+            </li>
+            <li>
+                <div span class="command">CONFiguration:SAMPling:TIME:PERIod &lt;sampling_period&gt;</div>
+                <div span class="command">CONFiguration:SAMPling:TIME:PERIod?</div>
+                <div class="description">Configure the ADC sampling time using period values in us (micro seconds).</div>
+                <p></p>
+                <div class="description"><b>&lt;sampling_period&gt;</b> :</div>
+                <div class="description" style="margin-left: 100px;"> For 16 bits : &#123; 0.20 | 0.22 | 0.34 | 0.50 | 0.82 | 1.46 | 7.92 | 16.38 &#125;</div>
+                <div class="description" style="margin-left: 100px;"> For 14 bits : &#123; 0.18 | 0.20 | 0.32 | 0.48 | 0.80 | 1.44 | 7.90 | 16.36 &#125;</div>
+                <div class="description" style="margin-left: 100px;"> For 12 bits : &#123; 0.16 | 0.18 | 0.30 | 0.46 | 0.78 | 1.42 | 7.88 | 16.34 &#125;</div>
+                <div class="description" style="margin-left: 100px;"> For 10 bits : &#123; 0.14 | 0.16 | 0.28 | 0.44 | 0.76 | 1.40 | 7.86 | 16.32 &#125;</div>
+                <div class="description" style="margin-left: 100px;"> For 8 bits : &#123; 0.12 | 0.14 | 0.26 | 0.42 | 0.74 | 1.38 | 7.84 | 16.30 &#125;</div>
+                <p></p>
+                <div class="description"><b style="color: #00aeff">NOTE</b> : The period value depends on the ADC bit resolution (<b>CONFiguration:RESOLution</b>).</div>
+
             </li>
             <li>
                 <div span class="command">CONFiguration:OVERSAMPling[:ENAble] &#123;OFF|ON&#125;</div>
@@ -187,7 +202,7 @@
                 <div span class="command">CONFiguration:GAIN?</div>
                 <div class="description">Select the analog frontend gain value.</div>
                 <p></p>
-                <div class="description"><b>&lt;gain&gt;</b> : &#123; 1 | 10 | 100 |  &#125; Default : 1</div>
+                <div class="description"><b>&lt;gain&gt;</b> : &#123; 1 | 10 | 100  &#125; Default : 1</div>
             </li>
             <li>
                 <div span class="command">SAMPle:COUNt &#123;&lt;count&gt;|MIN|MAX|DEF&#125;</div>
