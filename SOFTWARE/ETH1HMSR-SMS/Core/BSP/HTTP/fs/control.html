@@ -368,10 +368,10 @@
         button.classList.toggle("toggled");
         if (button.classList.contains("toggled")) {
             button.innerText = "CALCULATE OFFSET ON";
-            postLEDValue("ON");
+            postOFFSETValue("ON");
         } else {
             button.innerText = "CALCULATE OFFSET OFF";
-            postLEDValue("OFF");
+            postOFFSETValue("OFF");
         }
     }
 
@@ -403,6 +403,14 @@
         {
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '/ctr_led_status', true);
+
+            xhr.send(value);
+        }
+
+        function postOFFSETValue(value)
+        {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/ctr_offset_enable', true);
 
             xhr.send(value);
         }
@@ -475,7 +483,8 @@
                 <tr>
                     <td class="first-column">Calculate Offset: </td>
                     <td class="second-column"><textarea readonly id="ctr_offset_calculate" cols="20" rows="1"></textarea>
-                        <button style="margin-left: 20px;" id="button_offset" onclick="getOffset()">Get Value</button></td>
+                        <button style="margin-left: 20px;" id="button_offset" onclick="getOffset()">Get Value</button>
+                        <p style="font-size: small;"><b>NOTE</b>: The null offset needs to be calculated for each selected Gain.</p></td>
                 </tr>
             </tbody>
         </table>

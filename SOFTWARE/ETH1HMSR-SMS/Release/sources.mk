@@ -22,8 +22,11 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Core/BSP/HTTP/Src \
+Core/BSP/HiSLIP/Src \
 Core/BSP/SCPI/libscpi/src \
 Core/BSP/Src \
+Core/BSP/multicastDNS/Src \
 Core/Src \
 Core/Startup \
 Drivers/BSP/Components/lan8742 \
@@ -35,6 +38,8 @@ Middlewares/Third_Party/FreeRTOS/Source \
 Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F \
 Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang \
 Middlewares/Third_Party/LwIP/src/api \
+Middlewares/Third_Party/LwIP/src/apps/http \
+Middlewares/Third_Party/LwIP/src/apps/mdns \
 Middlewares/Third_Party/LwIP/src/apps/mqtt \
 Middlewares/Third_Party/LwIP/src/core \
 Middlewares/Third_Party/LwIP/src/core/ipv4 \

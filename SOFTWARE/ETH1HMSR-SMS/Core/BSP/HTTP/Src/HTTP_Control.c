@@ -211,7 +211,7 @@ static void http_offset(struct netconn *conn)
 			bsp.adc.math_offset.zero[bsp.adc.gain.index] = -1.0f * http_calc_offset_average(sample_size);
 			bsp.adc.math_offset.enable = null_offset_state;
 
-			average = (float)(tmp/bsp.adc.sample_count);
+			average = bsp.adc.math_offset.zero[bsp.adc.gain.index];
 
 			sprintf(txt, "%.6f", average);
 
