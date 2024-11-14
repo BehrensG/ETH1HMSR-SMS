@@ -192,7 +192,6 @@ static float http_calc_offset_average(uint32_t sample_count)
 static void http_offset(struct netconn *conn)
 {
 	float average = 0.0f;
-	float tmp = 0.0f;
 
 	char txt[12];
 	memset(txt, 0, 12);

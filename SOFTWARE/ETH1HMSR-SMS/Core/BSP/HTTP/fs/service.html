@@ -259,7 +259,7 @@
         function onNumberSelect() {
             var selectedValue = document.getElementById("nominalCurrent").value;
 
-            if(secure == 'false')
+            if(secure === false)
             {
                 const xhr = new XMLHttpRequest();
                 xhr.open("POST", '/nominal_current', true);
